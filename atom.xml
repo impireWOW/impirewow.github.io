@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://impirewow.github.io</id>
     <title>Gridea</title>
-    <updated>2022-02-12T13:31:14.861Z</updated>
+    <updated>2022-02-12T14:06:13.225Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://impirewow.github.io"/>
     <link rel="self" href="https://impirewow.github.io/atom.xml"/>
@@ -11,35 +11,50 @@
     <icon>https://impirewow.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, Gridea</rights>
     <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://impirewow.github.io/post/hello-gridea/</id>
-        <link href="https://impirewow.github.io/post/hello-gridea/">
+        <title type="html"><![CDATA[Gridea使用笔记]]></title>
+        <id>https://impirewow.github.io/post/gridea-shi-yong-bi-ji/</id>
+        <link href="https://impirewow.github.io/post/gridea-shi-yong-bi-ji/">
         </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+        <updated>2022-02-12T13:57:02.000Z</updated>
+        <content type="html"><![CDATA[<p>Gridea工作目录默认位置是在Documents/Gridea下<br>
+想自定义也是可以的,它会在选定目录下初始化一组网站文件配置<br>
+如果遇到要更换工作平台的情况,将Gridea工作目录下的/config文件夹和/posts文件夹备份即可 ,<br>
+自己想git push 就直接把Gridea工作目录下<br>
+如果要导入之前写好的外部.md文件到./posts,不可以直接复制 ,可以按照Gridea的md文件格式在文件开头加入所需参数 ,或者在软件里直接新建一个同名的md文件,然后去编辑器里直接复制过来就可以了</p>
+<p>git的配置都在/config下,没有加密,是好还是坏呢(</p>
+<p>theme的选择不如hugo hexo那么多 但是也够用,选择的时候记得测试一下本地的访问速度<br>
+本地速度不行的话就干脆换掉得了,像github这种国内访问比较差的平台本来就卡,要加载的资源多了更会GG</p>
+<p>git push之后如果页面没变不要着急,给它一点时间反应,这个和平台关系不大,就是正常的延迟</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[BitNami]]></title>
+        <id>https://impirewow.github.io/post/bitnami/</id>
+        <link href="https://impirewow.github.io/post/bitnami/">
+        </link>
+        <updated>2022-02-12T06:14:43.000Z</updated>
+        <content type="html"><![CDATA[<p>BitNami是</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[建站工具选择]]></title>
+        <id>https://impirewow.github.io/post/jian-zhan-gong-ju-xuan-ze/</id>
+        <link href="https://impirewow.github.io/post/jian-zhan-gong-ju-xuan-ze/">
+        </link>
+        <updated>2022-02-12T01:23:15.000Z</updated>
+        <content type="html"><![CDATA[<p>很多新手会推荐使用宝塔面板 https://www.bt.cn/ 来进行网页服务器环境的初始化<br>
+宝塔自身的一键部署和图形化界面一开始看来确实是蛮好用的,但是也会额外的耗费一部分性能<br>
+而且一键化部署也对于源文件目录的操作不是很好 如果出了问题还是得去shell里修改配置</p>
+<p>所以不如自己去使用LNMP https://lnmp.org/ 或者LAMP https://www.lamp.sh/ 来进行环境的部署<br>
+LNMP一键安装包是一个用Linux Shell编写的可以为CentOS/RHEL/Fedora/Aliyun/Amazon、Debian/Ubuntu/Raspbian/Deepin/Mint Linux VPS或独立主机安装LNMP(Nginx/MySQL/PHP)、LNMPA(Nginx/MySQL/PHP/Apache)、LAMP(Apache/MySQL/PHP)生产环境的Shell程序。</p>
+<p>LAMP 一键安装包是一个用 Linux Shell 编写的可以为 Amazon Linux/CentOS/Debian/Ubuntu 系统的 VPS 或服务器安装 LAMP(Linux + Apache + MySQL/MariaDB + PHP) 生产环境的 Shell 脚本。包含一些可选安装组件如：<br>
+Zend OPcache, ionCube Loader, PDFlib, XCache, APCu, imagick, gmagick, libsodium, memcached, redis, mongodb, swoole, yaf, yar, msgpack, psr, phalcon, grpc, xdebug</p>
+<p>其他诸如：OpenSSL, ImageMagick, GraphicsMagick, Memcached, phpMyAdmin, Adminer, Redis, re2c, KodExplorer</p>
+<p>同时还有一些辅助脚本如：虚拟主机管理、Apache、MySQL/MariaDB、PHP 及 PhpMyAdmin、Adminer 的升级等。</p>
+<p>通过SSH和一键安装命令即可按照个人选择来进行环境配置<br>
+wget http://soft.vpser.net/lnmp/lnmp1.8.tar.gz -cO lnmp1.8.tar.gz &amp;&amp; tar zxf lnmp1.8.tar.gz &amp;&amp; cd lnmp1.8 &amp;&amp; ./install.sh lnmp<br>
+如果想要安装LAMP 或者 LNPMA 把命令最后的 lnmp改成自己想要的就可以了</p>
+<p>如果想要卸载就在下载的目录里运行uninstall.sh</p>
 ]]></content>
     </entry>
 </feed>
