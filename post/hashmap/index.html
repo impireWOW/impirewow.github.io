@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Gridea | impirewow个人博客</title>
+<title>HashMap | impirewow个人博客</title>
 
 <link rel="shortcut icon" href="https://impirewow.github.io/favicon.ico?v=1644766837395">
 
@@ -25,11 +25,11 @@
 
 
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
-    <div class="main-content">
-        <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="/">
         <img class="user-avatar" src="/images/avatar.png" alt="头像">
         <div class="site-name gt-c-content-color-first">
@@ -97,53 +97,75 @@
     }
 </script>
 
-        <div class="current-tag-container">
-            <h2 class="title gt-c-content-color-first">
-                #Gridea
-            </h2>
-        </div>
-        <div class="post-list-container">
-    <div class="post-inner">
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://impirewow.github.io/post/gridea-shi-yong-bi-ji/">
-                            <span class="post-title gt-c-content-color-first">Gridea使用笔记</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2022-02-12 ·
-                        </time>
-                        
-                            <a href="https://impirewow.github.io/tag/3KuGqYlNc/" class="post-tag">
-                                # Gridea
-                            </a>
-                        
-                            <a href="https://impirewow.github.io/tag/SMUodBJ9w/" class="post-tag">
-                                # 环境配置
-                            </a>
-                        
-                            <a href="https://impirewow.github.io/tag/iytOeKlQB/" class="post-tag">
-                                # 工具
-                            </a>
-                        
-                    </div>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    HashMap
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2022-02-13 ·
+                    </time>
+                    
                 </div>
-                
+                <div class="post-content">
+                    <p>哈希表,也叫散列表,是集合结构之一</p>
+<p>我们都知道有这些常用的数据结构:数组 链表 二叉树 哈希表<br>
+大致列出一下这些数据结构的插入,查找 ,删除等操作的性能对比</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">数组</th>
+<th style="text-align:center">线性链表</th>
+<th style="text-align:center">二叉树</th>
+<th style="text-align:center">哈希表</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">查找</td>
+<td style="text-align:center">O(1)/O(n)/O(logn)</td>
+<td style="text-align:center">O(1)</td>
+<td style="text-align:center">O(logn)</td>
+<td style="text-align:center">O(1)</td>
+</tr>
+<tr>
+<td style="text-align:center">插入/删除</td>
+<td style="text-align:center">O(n)</td>
+<td style="text-align:center">O(n)</td>
+<td style="text-align:center">O(logn)</td>
+<td style="text-align:center">O(1)</td>
+</tr>
+</tbody>
+</table>
+<pre><code>注:
+对于指定下标的查找，时间复杂度为O(1)；通过给定值进行查找，需要遍历数组，
+逐一比对给定关键字和数组元素，时间复杂度为O(n)，
+对于有序数组，则可采用二分查找，插值查找，斐波那契查找等方式，可将查找复杂度提高为O(logn)
+</code></pre>
+<p>可见,相较于其他数据结构,哈希表在增删改查操作的时候速度最快,因此许多缓存技术的核心也是在内存中维护一张大的哈希表</p>
+<p>哈希表的主干是数组,用当前元素的关键字借助哈希函数映射到数组的某个位置,通过数组下标一次性定位即可完成操作,采用链地址法,即数组+链表的方式进行存储</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://impirewow.github.io/post/spring-ioc-yuan-li/" class="post-title gt-a-link">
+                    Spring IOC 原理
+                </a>
             </div>
         
-    </div>
-</div>
-        <div class="pagination-container">
-    
-    
-</div>
+
+        
+
+        
+
+        
 
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">能做的事不去试试,就真的做不到了</div>

@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Gridea | impirewow个人博客</title>
+<title>HTTP状态码 | impirewow个人博客</title>
 
 <link rel="shortcut icon" href="https://impirewow.github.io/favicon.ico?v=1644766837395">
 
@@ -25,11 +25,11 @@
 
 
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
-    <div class="main-content">
-        <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="/">
         <img class="user-avatar" src="/images/avatar.png" alt="头像">
         <div class="site-name gt-c-content-color-first">
@@ -97,53 +97,79 @@
     }
 </script>
 
-        <div class="current-tag-container">
-            <h2 class="title gt-c-content-color-first">
-                #Gridea
-            </h2>
-        </div>
-        <div class="post-list-container">
-    <div class="post-inner">
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://impirewow.github.io/post/gridea-shi-yong-bi-ji/">
-                            <span class="post-title gt-c-content-color-first">Gridea使用笔记</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2022-02-12 ·
-                        </time>
-                        
-                            <a href="https://impirewow.github.io/tag/3KuGqYlNc/" class="post-tag">
-                                # Gridea
-                            </a>
-                        
-                            <a href="https://impirewow.github.io/tag/SMUodBJ9w/" class="post-tag">
-                                # 环境配置
-                            </a>
-                        
-                            <a href="https://impirewow.github.io/tag/iytOeKlQB/" class="post-tag">
-                                # 工具
-                            </a>
-                        
-                    </div>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    HTTP状态码
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2022-02-13 ·
+                    </time>
+                    
                 </div>
-                
+                <div class="post-content">
+                    <p>浏览器接收并显示网页前,此网页托管的服务器会返回一个包含HTTP状态码的信息头以响应浏览器的请求</p>
+<pre><code>常见的HTTP状态码:
+200---请求成功
+301---资源被永久转移到其他URL
+404---请求的资源等不存在
+500---内部服务器错误
+503---服务不可用,服务器因维护或者超载无法处理客户端请求
+504---网关或者代理服务器获取远程服务器请求超时
+505---服务器不支持的HTTP协议的版本,无法完成处理
+</code></pre>
+<p>响应分为五类:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">分类</th>
+<th style="text-align:center">分类描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1**</td>
+<td style="text-align:center">信息响应,服务器收到请求,需要请求方继续执行操作</td>
+</tr>
+<tr>
+<td style="text-align:center">2**</td>
+<td style="text-align:center">成功,操作被成功接收并处理</td>
+</tr>
+<tr>
+<td style="text-align:center">3**</td>
+<td style="text-align:center">重定向,需要进行进一步的操作以完成请求</td>
+</tr>
+<tr>
+<td style="text-align:center">4**</td>
+<td style="text-align:center">客户端错误,请求包含语法错误或者无法完成请求</td>
+</tr>
+<tr>
+<td style="text-align:center">5**</td>
+<td style="text-align:center">服务器错误,服务器在处理请求的过程中发生错误</td>
+</tr>
+</tbody>
+</table>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://impirewow.github.io/post/hashmap/" class="post-title gt-a-link">
+                    HashMap
+                </a>
             </div>
         
-    </div>
-</div>
-        <div class="pagination-container">
-    
-    
-</div>
+
+        
+
+        
+
+        
 
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">能做的事不去试试,就真的做不到了</div>

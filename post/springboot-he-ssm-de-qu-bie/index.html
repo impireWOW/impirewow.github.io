@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Gridea | impirewow个人博客</title>
+<title>SpringBoot和SSM的区别 | impirewow个人博客</title>
 
 <link rel="shortcut icon" href="https://impirewow.github.io/favicon.ico?v=1644766837395">
 
@@ -25,11 +25,11 @@
 
 
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
-    <div class="main-content">
-        <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="/">
         <img class="user-avatar" src="/images/avatar.png" alt="头像">
         <div class="site-name gt-c-content-color-first">
@@ -97,53 +97,54 @@
     }
 </script>
 
-        <div class="current-tag-container">
-            <h2 class="title gt-c-content-color-first">
-                #Gridea
-            </h2>
-        </div>
-        <div class="post-list-container">
-    <div class="post-inner">
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://impirewow.github.io/post/gridea-shi-yong-bi-ji/">
-                            <span class="post-title gt-c-content-color-first">Gridea使用笔记</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2022-02-12 ·
-                        </time>
-                        
-                            <a href="https://impirewow.github.io/tag/3KuGqYlNc/" class="post-tag">
-                                # Gridea
-                            </a>
-                        
-                            <a href="https://impirewow.github.io/tag/SMUodBJ9w/" class="post-tag">
-                                # 环境配置
-                            </a>
-                        
-                            <a href="https://impirewow.github.io/tag/iytOeKlQB/" class="post-tag">
-                                # 工具
-                            </a>
-                        
-                    </div>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    SpringBoot和SSM的区别
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2022-02-13 ·
+                    </time>
+                    
                 </div>
-                
+                <div class="post-content">
+                    <p>以intellij IDEA 为例<br>
+创建项目时</p>
+<p>SpringBoot项目创建的时候选择Spring Intializr创建,<br>
+SSM项目使用Maven创建<br>
+其实SpringBoot项目还是使用maven来完成导入相关jar,配置java版本这些功能</p>
+<p>配置文件上</p>
+<p>SSM项目的配置文件有 spring-mvc.xml , application-context.xml,database.properties<br>
+Springboot中,SSM项目的这些配置文件被application.yml来替代用来管理项目配置,<br>
+相比之下Springboot对于项目的配置就简单了很多</p>
+<p>总结一下Springboot的特点:<br>
+1.创建独立的Spring应用程序<br>
+2.嵌入的Tomcat,无需部署WAR文件,导出项目为jar即可在java环境下运行,肥肠的方便<br>
+3.简化Maven配置<br>
+4.自动配置Spring<br>
+5.提供生产就绪型功能,如指标,健康检查和外部配置<br>
+6.没有代码生成,对XML没有要求配置</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://impirewow.github.io/post/gridea-shi-yong-bi-ji/" class="post-title gt-a-link">
+                    Gridea使用笔记
+                </a>
             </div>
         
-    </div>
-</div>
-        <div class="pagination-container">
-    
-    
-</div>
+
+        
+
+        
+
+        
 
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">能做的事不去试试,就真的做不到了</div>

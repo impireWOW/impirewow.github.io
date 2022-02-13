@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Gridea | impirewow个人博客</title>
+<title>Spring IOC 原理 | impirewow个人博客</title>
 
 <link rel="shortcut icon" href="https://impirewow.github.io/favicon.ico?v=1644766837395">
 
@@ -25,11 +25,11 @@
 
 
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
-    <div class="main-content">
-        <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="/">
         <img class="user-avatar" src="/images/avatar.png" alt="头像">
         <div class="site-name gt-c-content-color-first">
@@ -97,53 +97,49 @@
     }
 </script>
 
-        <div class="current-tag-container">
-            <h2 class="title gt-c-content-color-first">
-                #Gridea
-            </h2>
-        </div>
-        <div class="post-list-container">
-    <div class="post-inner">
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://impirewow.github.io/post/gridea-shi-yong-bi-ji/">
-                            <span class="post-title gt-c-content-color-first">Gridea使用笔记</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2022-02-12 ·
-                        </time>
-                        
-                            <a href="https://impirewow.github.io/tag/3KuGqYlNc/" class="post-tag">
-                                # Gridea
-                            </a>
-                        
-                            <a href="https://impirewow.github.io/tag/SMUodBJ9w/" class="post-tag">
-                                # 环境配置
-                            </a>
-                        
-                            <a href="https://impirewow.github.io/tag/iytOeKlQB/" class="post-tag">
-                                # 工具
-                            </a>
-                        
-                    </div>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    Spring IOC 原理
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2022-02-13 ·
+                    </time>
+                    
                 </div>
-                
+                <div class="post-content">
+                    <p>Spring的核心是什么?<br>
+1.IoC(控制反转)<br>
+包括依赖查找(DL)和依赖注入(DI)<br>
+但是依赖查找给用户权限使用api来进行资源查找和组装对象,已经被启用<br>
+2.依赖注入(DI)<br>
+包括Set注入和构造器注入,也可以通过实现接口的方式注入</p>
+<p>Ioc:<br>
+Spring反向控制应用程序所需要的资源<br>
+DI:<br>
+应用程序依赖Spring为其提供资源</p>
+<p>前者站在Spring的角度,后者站在应用程序的角度</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://impirewow.github.io/post/xu-lie-hua-he-fan-xu-lie-hua/" class="post-title gt-a-link">
+                    序列化和反序列化
+                </a>
             </div>
         
-    </div>
-</div>
-        <div class="pagination-container">
-    
-    
-</div>
+
+        
+
+        
+
+        
 
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">能做的事不去试试,就真的做不到了</div>

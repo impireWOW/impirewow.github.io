@@ -4,7 +4,7 @@
 <meta name="description" content="" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>Gridea | impirewow个人博客</title>
+<title>HTTP和HTTPS的区别 | impirewow个人博客</title>
 
 <link rel="shortcut icon" href="https://impirewow.github.io/favicon.ico?v=1644766837395">
 
@@ -25,11 +25,11 @@
 
 
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.css">
 </head>
 <body>
 <div class="main gt-bg-theme-color-first">
-    <div class="main-content">
-        <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-lg">
     <a class="navbar-brand" href="/">
         <img class="user-avatar" src="/images/avatar.png" alt="头像">
         <div class="site-name gt-c-content-color-first">
@@ -97,53 +97,44 @@
     }
 </script>
 
-        <div class="current-tag-container">
-            <h2 class="title gt-c-content-color-first">
-                #Gridea
-            </h2>
-        </div>
-        <div class="post-list-container">
-    <div class="post-inner">
-        
-            <div class="post gt-bg-theme-color-second">
-                <div class="post-left">
-                    <div>
-                        
-                        <a href="https://impirewow.github.io/post/gridea-shi-yong-bi-ji/">
-                            <span class="post-title gt-c-content-color-first">Gridea使用笔记</span>
-                        </a>
-                    </div>
-                    <div class="gt-post-content post-abstract gt-c-content-color-second">
-                        
-                    </div>
-                    <div class="post-info">
-                        <time class="post-time gt-c-content-color-first">
-                            发布于 · 2022-02-12 ·
-                        </time>
-                        
-                            <a href="https://impirewow.github.io/tag/3KuGqYlNc/" class="post-tag">
-                                # Gridea
-                            </a>
-                        
-                            <a href="https://impirewow.github.io/tag/SMUodBJ9w/" class="post-tag">
-                                # 环境配置
-                            </a>
-                        
-                            <a href="https://impirewow.github.io/tag/iytOeKlQB/" class="post-tag">
-                                # 工具
-                            </a>
-                        
-                    </div>
+    <div class="post-container">
+        <div class="post-detail gt-bg-theme-color-second">
+            <article class="gt-post-content">
+                <h2 class="post-title">
+                    HTTP和HTTPS的区别
+                </h2>
+                <div class="post-info">
+                    <time class="post-time gt-c-content-color-first">
+                        · 2022-02-13 ·
+                    </time>
+                    
                 </div>
-                
+                <div class="post-content">
+                    <p>1.端口不同 HTTP走80,HTTPS 走443<br>
+2.HTTP使用明文传输,数据未加密,安全性较差,HTTPS(SSL+HTTP)数据传输过程加密,安全性较好<br>
+3.HTTP页面响应速度比HTTPS快,HTTP使用TCP三次握手建立连接,客户端和服务器需要交换三个包<br>
+HTTPS除了TCP的三个包,还要进行SSL握手需要的9个包,一共是12个包<br>
+4.HTTPS需要 CA申请证书, 需要付费申请,<br>
+5.HTTPS建立在SSL/TLS上,比HTTP更为耗费服务器资源</p>
+
+                </div>
+            </article>
+        </div>
+
+        
+            <div class="next-post">
+                <div class="next gt-c-content-color-first">下一篇</div>
+                <a href="https://impirewow.github.io/post/http-zhuang-tai-ma/" class="post-title gt-a-link">
+                    HTTP状态码
+                </a>
             </div>
         
-    </div>
-</div>
-        <div class="pagination-container">
-    
-    
-</div>
+
+        
+
+        
+
+        
 
         <div class="site-footer gt-c-content-color-first">
     <div class="slogan gt-c-content-color-first">能做的事不去试试,就真的做不到了</div>
