@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://impirewow.github.io</id>
     <title>impirewow个人博客</title>
-    <updated>2022-02-13T15:41:25.266Z</updated>
+    <updated>2022-02-14T17:30:19.114Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://impirewow.github.io"/>
     <link rel="self" href="https://impirewow.github.io/atom.xml"/>
@@ -11,282 +11,125 @@
     <icon>https://impirewow.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, impirewow个人博客</rights>
     <entry>
-        <title type="html"><![CDATA[HTTP和HTTPS的区别]]></title>
-        <id>https://impirewow.github.io/post/http-he-https-de-qu-bie/</id>
-        <link href="https://impirewow.github.io/post/http-he-https-de-qu-bie/">
+        <title type="html"><![CDATA[Spring的AOP]]></title>
+        <id>https://impirewow.github.io/post/spring-de-aop/</id>
+        <link href="https://impirewow.github.io/post/spring-de-aop/">
         </link>
-        <updated>2022-02-13T15:02:56.000Z</updated>
-        <content type="html"><![CDATA[<p>1.端口不同 HTTP走80,HTTPS 走443<br>
-2.HTTP使用明文传输,数据未加密,安全性较差,HTTPS(SSL+HTTP)数据传输过程加密,安全性较好<br>
-3.HTTP页面响应速度比HTTPS快,HTTP使用TCP三次握手建立连接,客户端和服务器需要交换三个包<br>
-HTTPS除了TCP的三个包,还要进行SSL握手需要的9个包,一共是12个包<br>
-4.HTTPS需要 CA申请证书, 需要付费申请,<br>
-5.HTTPS建立在SSL/TLS上,比HTTP更为耗费服务器资源</p>
+        <updated>2022-02-14T17:23:33.000Z</updated>
+        <content type="html"><![CDATA[<p>来自OOP(面向对象编程) AOP(面向切面编程)是通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术,可以对业务逻辑的各个部分进行隔离</p>
+<p>#什么是切面?<br>
+web层级设计中,web层-&gt;网关层-&gt;服务层-&gt;数据层,每一层就是一个切面<br>
+编程中,对象与对象之间,方法与方法之间,模块与模块之间都是一个个切面</p>
+<p>#AOP中的相关概念</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[HTTP状态码]]></title>
-        <id>https://impirewow.github.io/post/http-zhuang-tai-ma/</id>
-        <link href="https://impirewow.github.io/post/http-zhuang-tai-ma/">
+        <title type="html"><![CDATA[基本RPC框架的组件]]></title>
+        <id>https://impirewow.github.io/post/ji-ben-rpc-kuang-jia-de-zu-jian/</id>
+        <link href="https://impirewow.github.io/post/ji-ben-rpc-kuang-jia-de-zu-jian/">
         </link>
-        <updated>2022-02-13T14:47:47.000Z</updated>
-        <content type="html"><![CDATA[<p>浏览器接收并显示网页前,此网页托管的服务器会返回一个包含HTTP状态码的信息头以响应浏览器的请求</p>
-<pre><code>常见的HTTP状态码:
-200---请求成功
-301---资源被永久转移到其他URL
-404---请求的资源等不存在
-500---内部服务器错误
-503---服务不可用,服务器因维护或者超载无法处理客户端请求
-504---网关或者代理服务器获取远程服务器请求超时
-505---服务器不支持的HTTP协议的版本,无法完成处理
-</code></pre>
-<p>响应分为五类:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">分类</th>
-<th style="text-align:center">分类描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">1**</td>
-<td style="text-align:center">信息响应,服务器收到请求,需要请求方继续执行操作</td>
-</tr>
-<tr>
-<td style="text-align:center">2**</td>
-<td style="text-align:center">成功,操作被成功接收并处理</td>
-</tr>
-<tr>
-<td style="text-align:center">3**</td>
-<td style="text-align:center">重定向,需要进行进一步的操作以完成请求</td>
-</tr>
-<tr>
-<td style="text-align:center">4**</td>
-<td style="text-align:center">客户端错误,请求包含语法错误或者无法完成请求</td>
-</tr>
-<tr>
-<td style="text-align:center">5**</td>
-<td style="text-align:center">服务器错误,服务器在处理请求的过程中发生错误</td>
-</tr>
-</tbody>
-</table>
+        <updated>2022-02-14T17:18:20.000Z</updated>
+        <content type="html"><![CDATA[<p>1.注册中心-Zookeeper</p>
+<p>2.网络传输:基于NIO的Netty框架</p>
+<p>3.序列化:JDK自带的效率低且有安全漏洞,推荐使用hession2,kryo,protostuff,看情况选择</p>
+<p>4.动态代理:屏蔽远程接口调用的细节,例如网络传输</p>
+<p>5.负载均衡:多台服务器的情况下,如何正确选择该请求的服务器,防止部分负载过高或者过低</p>
+<p>优化点</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[HashMap]]></title>
-        <id>https://impirewow.github.io/post/hashmap/</id>
-        <link href="https://impirewow.github.io/post/hashmap/">
+        <title type="html"><![CDATA[Zookeeper的使用]]></title>
+        <id>https://impirewow.github.io/post/zookeeper-de-shi-yong/</id>
+        <link href="https://impirewow.github.io/post/zookeeper-de-shi-yong/">
         </link>
-        <updated>2022-02-13T09:40:13.000Z</updated>
-        <content type="html"><![CDATA[<p>哈希表,也叫散列表,是集合结构之一</p>
-<p>我们都知道有这些常用的数据结构:数组 链表 二叉树 哈希表<br>
-大致列出一下这些数据结构的插入,查找 ,删除等操作的性能对比</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center"></th>
-<th style="text-align:center">数组</th>
-<th style="text-align:center">线性链表</th>
-<th style="text-align:center">二叉树</th>
-<th style="text-align:center">哈希表</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">查找</td>
-<td style="text-align:center">O(1)/O(n)/O(logn)</td>
-<td style="text-align:center">O(1)</td>
-<td style="text-align:center">O(logn)</td>
-<td style="text-align:center">O(1)</td>
-</tr>
-<tr>
-<td style="text-align:center">插入/删除</td>
-<td style="text-align:center">O(n)</td>
-<td style="text-align:center">O(n)</td>
-<td style="text-align:center">O(logn)</td>
-<td style="text-align:center">O(1)</td>
-</tr>
-</tbody>
-</table>
-<pre><code>注:
-对于指定下标的查找，时间复杂度为O(1)；通过给定值进行查找，需要遍历数组，
-逐一比对给定关键字和数组元素，时间复杂度为O(n)，
-对于有序数组，则可采用二分查找，插值查找，斐波那契查找等方式，可将查找复杂度提高为O(logn)
-</code></pre>
-<p>可见,相较于其他数据结构,哈希表在增删改查操作的时候速度最快,因此许多缓存技术的核心也是在内存中维护一张大的哈希表</p>
-<p>哈希表的主干是数组,用当前元素的关键字借助哈希函数映射到数组的某个位置,通过数组下标一次性定位即可完成操作,采用链地址法,即数组+链表的方式进行存储</p>
+        <updated>2022-02-14T17:16:18.000Z</updated>
+        <content type="html"><![CDATA[<p>要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Spring IOC 原理]]></title>
-        <id>https://impirewow.github.io/post/spring-ioc-yuan-li/</id>
-        <link href="https://impirewow.github.io/post/spring-ioc-yuan-li/">
+        <title type="html"><![CDATA[Java序列化方式]]></title>
+        <id>https://impirewow.github.io/post/java-xu-lie-hua-fang-shi/</id>
+        <link href="https://impirewow.github.io/post/java-xu-lie-hua-fang-shi/">
         </link>
-        <updated>2022-02-13T08:45:02.000Z</updated>
-        <content type="html"><![CDATA[<p>Spring的核心是什么?<br>
-1.IoC(控制反转)<br>
-包括依赖查找(DL)和依赖注入(DI)<br>
-但是依赖查找给用户权限使用api来进行资源查找和组装对象,已经被启用<br>
-2.依赖注入(DI)<br>
-包括Set注入和构造器注入,也可以通过实现接口的方式注入</p>
-<p>Ioc:<br>
-Spring反向控制应用程序所需要的资源<br>
-DI:<br>
-应用程序依赖Spring为其提供资源</p>
-<p>前者站在Spring的角度,后者站在应用程序的角度</p>
+        <updated>2022-02-14T17:04:58.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="json">JSON</h1>
+<p>JSON 是一种轻量级的数据交换语言，该语言以易于让人阅读的文字为基础，用来传输由属性值或者序列性的值组成的数据对象，类似 xml，Json 比 xml更小、更快更容易解析。JSON 由于采用字符方式存储，占用相对于字节方式较大，并且序列化后类的信息会丢失，可能导致反序列化失败。<br>
+//以前解包unity游戏的时候部分游戏的资源文件就是序列化为JSON的</p>
+<p>##基于字节的序列化<br>
+#KYRO</p>
+<p>Kryo 是一个快速高效的 Java 序列化框架，旨在提供快速、高效和易用的 API。无论文件、数据库或网络数据 Kryo 都可以随时完成序列化。 Kryo 还可以执行自动深拷贝、浅拷贝。这是对象到对象的直接拷贝，而不是对象-&gt;字节-&gt;对象的拷贝。kryo 速度较快，序列化后体积较小，但是跨语言支持较复杂。</p>
+<p>#Hessian<br>
+基于二进制,支持很多种语言,主流的基本都支持,序列化后的体积较大</p>
+<p>#protobuf<br>
+由 Google 发布的数据交换格式，提供跨语言、跨平台的序列化和反序列化实现，底层由 C++ 实现，其他平台使用时必须使用 protocol compiler 进行预编译生成 protoc 二进制文件。性能主要消耗在文件的预编译上。序列化反序列化性能较高，平台无关。</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[序列化和反序列化]]></title>
-        <id>https://impirewow.github.io/post/xu-lie-hua-he-fan-xu-lie-hua/</id>
-        <link href="https://impirewow.github.io/post/xu-lie-hua-he-fan-xu-lie-hua/">
+        <title type="html"><![CDATA[Netty框架]]></title>
+        <id>https://impirewow.github.io/post/netty-kuang-jia/</id>
+        <link href="https://impirewow.github.io/post/netty-kuang-jia/">
         </link>
-        <updated>2022-02-13T07:04:38.000Z</updated>
-        <content type="html"><![CDATA[<p>java编程里的序列化<br>
-在使用tomcat开发JavaEE相关项目的时候，我们关闭tomcat后，相应的session中的对象就存储在了硬盘上，如果我们想要在tomcat重启的时能够从tomcat上面读取对应session中的内容，那么保存在session中的内容就必须实现相关的序列化操作，还有jdbc加载驱动用的就是反序列化，将字符串变为对象。</p>
-<p>java 序列化就是把java对象转换为字节序列的过程<br>
-反序列化就是根据字节流中保存的对象状态以及描述信息,重建对象的过程</p>
-<p>为什么要进行序列化?<br>
-在传递和保存对象时,保证对象的完整性和可传递性,对象转化为有序字节流(JSON/XML),以便在网络上传输或者本地保存</p>
-<p>核心在于字节流中所保存的对象状态和描述信息</p>
-<p>序列化优点:<br>
-1.将对象转为字节流存储到硬盘上</p>
-<p>序列化操作:</p>
-<pre><code>public class Book implements Serializable{
-//序列化类：java.ioObjectOutputStream讲对象变为指定的二进制数据
-private static final long serialVersionUID = 1L;
-private String title;
-private double price;
-public Book(String tit,double pri){
-    this.title=tit;
-    this.price=pri;
-}
-public String toString() {
-    Map&lt;String, String&gt; hashMap = new HashMap&lt;String, String&gt;();
-    hashMap.put(&quot;Computer base&quot;, &quot;6.2&quot;);
-    hashMap.put(&quot;Computer webpage&quot;,  &quot;45.2&quot;);
-    hashMap.put(&quot;Java&quot;, &quot;105.2&quot;);
-    hashMap.put(&quot;Andriod&quot;, &quot;89.2&quot;);
-     
-    //第一种：使用keySet()方法遍历哈希表hashMap中的一些元素
-      System.out.println(&quot;通过keySet()方法遍历key和value：&quot;);
-      Set&lt;String&gt; keys = hashMap.keySet();
-      for (String key : keys) {
-          String value= hashMap.get(key);
-          System.out.println(&quot;BookName：&quot;+ key + &quot; ,BookPrice：&quot; + value);
-      }
-    return &quot;BookName：&quot;+this.title+&quot; ,BookPrice：&quot;+this.price;
-}
-}
-</code></pre>
-<p>反序列化操作<br>
-将二进制数据换回原对象，构造方法：ObjectInputStream（InputStream in），方法: Object readObject() 从 ObjectInputStream 读取对象</p>
-<pre><code>public class Serialization {
-public static File file = null;
-public static void main(String[] args) throws Exception, IOException {
-    file = new File(&quot;serialize.doc&quot;);
-    //序列化到指定的文本
-    ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream(file));
-    oos.writeObject(new Book(&quot;Java Development&quot;,45.3));     
- 
-         oos.flush();
-         oos.close();
-          
-     file = new File(&quot;serialize.doc&quot;);
-    //反序列化到指定的文本
-    ObjectInputStream ois=new ObjectInputStream(new FileInputStream(file));
-    Object obj=ois.readObject();
-    Book book=(Book) obj;
-    System.out.println(&quot;\n By using the byte stream serialization operation, &quot;
-            + &quot;we can see the following information:\n&quot;+book);
-    ois.close();
-    }
-}
-</code></pre>
+        <updated>2022-02-14T16:52:58.000Z</updated>
+        <content type="html"><![CDATA[<p>Netty 是一个异步事件驱动的网络应用程序框架，用于快速开发可维护的高性能协议服务器和客户端。Netty 基于 NIO 的，封装了 JDK 的 NIO，让我们使用起来更加方法灵活。</p>
+<p>特点和优势：<br>
+使用简单：封装了 NIO 的很多细节，使用更简单。<br>
+功能强大：预置了多种编解码功能，支持多种主流协议。<br>
+定制能力强：可以通过 ChannelHandler 对通信框架进行灵活地扩展。<br>
+性能高：通过与其他业界主流的 NIO 框架对比，Netty 的综合性能最优。</p>
+<p>提供事件驱动的,责任链式的网络协议实现方式</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[log4j2 的使用]]></title>
-        <id>https://impirewow.github.io/post/log4j2-de-shi-yong/</id>
-        <link href="https://impirewow.github.io/post/log4j2-de-shi-yong/">
+        <title type="html"><![CDATA[RPC框架概述]]></title>
+        <id>https://impirewow.github.io/post/rpc-kuang-jia-gai-shu/</id>
+        <link href="https://impirewow.github.io/post/rpc-kuang-jia-gai-shu/">
         </link>
-        <updated>2022-02-13T06:08:11.000Z</updated>
-        <content type="html"><![CDATA[<p>先贴个官方文档:<br>
-https://logging.apache.org/log4j/2.x/<br>
-用途:<br>
-异常处理</p>
+        <updated>2022-02-14T16:50:25.000Z</updated>
+        <content type="html"><![CDATA[<p>RPC 即远程过程调用,为了解决不同服务之间的调用问题,<br>
+完整的RPC实现一般包含有传输协议和序列化协议</p>
+<p>用途:<br>
+两台服务器A,B ,一个应用部署在A服务器上,需要调用B服务器上应用提供的函数/方法,这时候就需要通过网络来表达调用的语义和传达调用的数据,RPC就是为了解决这种情况下的问题出现的<br>
+RPC除了网络通讯,还需要比较高效的序列化框架<br>
+为什么需要分布式框架?<br>
+访问量大的时候单台服务器负载过高,不能支持高效的服务,这时候就需要另外的服务器来辅助服务,</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[SpringBoot和SSM的区别]]></title>
-        <id>https://impirewow.github.io/post/springboot-he-ssm-de-qu-bie/</id>
-        <link href="https://impirewow.github.io/post/springboot-he-ssm-de-qu-bie/">
+        <title type="html"><![CDATA[Dubbo初步使用]]></title>
+        <id>https://impirewow.github.io/post/dubbo-chu-bu-shi-yong/</id>
+        <link href="https://impirewow.github.io/post/dubbo-chu-bu-shi-yong/">
         </link>
-        <updated>2022-02-13T05:20:20.000Z</updated>
-        <content type="html"><![CDATA[<p>以intellij IDEA 为例<br>
-创建项目时</p>
-<p>SpringBoot项目创建的时候选择Spring Intializr创建,<br>
-SSM项目使用Maven创建<br>
-其实SpringBoot项目还是使用maven来完成导入相关jar,配置java版本这些功能</p>
-<p>配置文件上</p>
-<p>SSM项目的配置文件有 spring-mvc.xml , application-context.xml,database.properties<br>
-Springboot中,SSM项目的这些配置文件被application.yml来替代用来管理项目配置,<br>
-相比之下Springboot对于项目的配置就简单了很多</p>
-<p>总结一下Springboot的特点:<br>
-1.创建独立的Spring应用程序<br>
-2.嵌入的Tomcat,无需部署WAR文件,导出项目为jar即可在java环境下运行,肥肠的方便<br>
-3.简化Maven配置<br>
-4.自动配置Spring<br>
-5.提供生产就绪型功能,如指标,健康检查和外部配置<br>
-6.没有代码生成,对XML没有要求配置</p>
+        <updated>2022-02-14T16:48:35.000Z</updated>
+        <content type="html"><![CDATA[<p>Dubbo是一个分布式服务框架,致力于提供高性能和透明化的RPC远程服务调用方案以及SOA服务治理方案</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Gridea使用笔记]]></title>
-        <id>https://impirewow.github.io/post/gridea-shi-yong-bi-ji/</id>
-        <link href="https://impirewow.github.io/post/gridea-shi-yong-bi-ji/">
+        <title type="html"><![CDATA[Mybatis的使用]]></title>
+        <id>https://impirewow.github.io/post/mybatis-de-shi-yong/</id>
+        <link href="https://impirewow.github.io/post/mybatis-de-shi-yong/">
         </link>
-        <updated>2022-02-12T13:57:02.000Z</updated>
-        <content type="html"><![CDATA[<p>Gridea工作目录默认位置是在Documents/Gridea下<br>
-想自定义也是可以的,它会在选定目录下初始化一组网站文件配置<br>
-如果遇到要更换工作平台的情况,将Gridea工作目录下的/config文件夹和/posts文件夹备份即可 ,<br>
-自己想git push 就直接把Gridea工作目录下<br>
-如果要导入之前写好的外部.md文件到./posts,不可以直接复制 ,可以按照Gridea的md文件格式在文件开头加入所需参数 ,或者在软件里直接新建一个同名的md文件,然后去编辑器里直接复制过来就可以了</p>
-<p>git的配置都在/config下,没有加密,是好还是坏呢(</p>
-<p>theme的选择不如hugo hexo那么多 但是也够用,选择的时候记得测试一下本地的访问速度<br>
-本地速度不行的话就干脆换掉得了,像github这种国内访问比较差的平台本来就卡,要加载的资源多了更会GG</p>
-<p>git push之后如果页面没变不要着急,给它一点时间反应,这个和平台关系不大,就是正常的延迟</p>
+        <updated>2022-02-14T16:45:25.000Z</updated>
+        <content type="html"><![CDATA[<p>SSM三大件之一的Mybatis是支持普通SQL查询,存储过程和高级映射的优秀持久层框架,<br>
+支持定制化SQL,存储过程以及高级映射,避免了几乎所有的JDBC代码和手动设置参数以及获取结果集</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[BitNami]]></title>
-        <id>https://impirewow.github.io/post/bitnami/</id>
-        <link href="https://impirewow.github.io/post/bitnami/">
+        <title type="html"><![CDATA[Shiro初步]]></title>
+        <id>https://impirewow.github.io/post/shiro-chu-bu/</id>
+        <link href="https://impirewow.github.io/post/shiro-chu-bu/">
         </link>
-        <updated>2022-02-12T06:14:43.000Z</updated>
-        <content type="html"><![CDATA[<p>BitNami是</p>
+        <updated>2022-02-14T16:44:48.000Z</updated>
+        <content type="html"><![CDATA[<p>Shiro是一个JAVA的安全框架</p>
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[建站工具选择]]></title>
-        <id>https://impirewow.github.io/post/jian-zhan-gong-ju-xuan-ze/</id>
-        <link href="https://impirewow.github.io/post/jian-zhan-gong-ju-xuan-ze/">
+        <title type="html"><![CDATA[Java--保留字]]></title>
+        <id>https://impirewow.github.io/post/java-bao-liu-zi/</id>
+        <link href="https://impirewow.github.io/post/java-bao-liu-zi/">
         </link>
-        <updated>2022-02-12T01:23:15.000Z</updated>
-        <content type="html"><![CDATA[<p>很多新手会推荐使用宝塔面板 https://www.bt.cn/ 来进行网页服务器环境的初始化<br>
-宝塔自身的一键部署和图形化界面一开始看来确实是蛮好用的,但是也会额外的耗费一部分性能<br>
-而且一键化部署也对于源文件目录的操作不是很好 如果出了问题还是得去shell里修改配置</p>
-<p>所以不如自己去使用LNMP https://lnmp.org/ 或者LAMP https://www.lamp.sh/ 来进行环境的部署<br>
-LNMP一键安装包是一个用Linux Shell编写的可以为CentOS/RHEL/Fedora/Aliyun/Amazon、Debian/Ubuntu/Raspbian/Deepin/Mint Linux VPS或独立主机安装LNMP(Nginx/MySQL/PHP)、LNMPA(Nginx/MySQL/PHP/Apache)、LAMP(Apache/MySQL/PHP)生产环境的Shell程序。</p>
-<p>LAMP 一键安装包是一个用 Linux Shell 编写的可以为 Amazon Linux/CentOS/Debian/Ubuntu 系统的 VPS 或服务器安装 LAMP(Linux + Apache + MySQL/MariaDB + PHP) 生产环境的 Shell 脚本。包含一些可选安装组件如：<br>
-Zend OPcache, ionCube Loader, PDFlib, XCache, APCu, imagick, gmagick, libsodium, memcached, redis, mongodb, swoole, yaf, yar, msgpack, psr, phalcon, grpc, xdebug</p>
-<p>其他诸如：OpenSSL, ImageMagick, GraphicsMagick, Memcached, phpMyAdmin, Adminer, Redis, re2c, KodExplorer</p>
-<p>同时还有一些辅助脚本如：虚拟主机管理、Apache、MySQL/MariaDB、PHP 及 PhpMyAdmin、Adminer 的升级等。</p>
-<p>通过SSH和一键安装命令即可按照个人选择来进行环境配置<br>
-wget http://soft.vpser.net/lnmp/lnmp1.8.tar.gz -cO lnmp1.8.tar.gz &amp;&amp; tar zxf lnmp1.8.tar.gz &amp;&amp; cd lnmp1.8 &amp;&amp; ./install.sh lnmp<br>
-如果想要安装LAMP 或者 LNPMA 把命令最后的 lnmp改成自己想要的就可以了</p>
-<p>如果想要卸载就在下载的目录里运行uninstall.sh</p>
+        <updated>2022-02-14T16:44:07.000Z</updated>
+        <content type="html"><![CDATA[<p>goto<br>
+const</p>
 ]]></content>
     </entry>
 </feed>
