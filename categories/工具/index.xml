@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工具 on impirewow的个人博客</title>
+    <link>http://localhost:1313/categories/%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 工具 on impirewow的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>impirewow</copyright>
+    <lastBuildDate>Sat, 26 Feb 2022 13:11:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BitNami</title>
+      <link>http://localhost:1313/post/bitnami/</link>
+      <pubDate>Sat, 26 Feb 2022 13:11:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/bitnami/</guid>
+      <description>BitNami是</description>
+    </item>
+    
+    <item>
+      <title>markdown用法和快捷键</title>
+      <link>http://localhost:1313/post/markdown%E7%94%A8%E6%B3%95%E5%92%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Sun, 13 Feb 2022 23:02:56 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/markdown%E7%94%A8%E6%B3%95%E5%92%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>Markdown 的目标是实现「易读易写」 下边简单列举一些markdown的使用方法 一,无序列表 使用方法 1 2 3 4 * 无序列表1 * 无序列表2 * 无序列表2.1 * 无</description>
+    </item>
+    
+    <item>
+      <title>建站工具选择</title>
+      <link>http://localhost:1313/post/jian-zhan-gong-ju-xuan-ze/</link>
+      <pubDate>Sat, 12 Feb 2022 09:23:15 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/jian-zhan-gong-ju-xuan-ze/</guid>
+      <description>很多新手会推荐使用宝塔面板 https://www.bt.cn/ 来进行网页服务器环境的初始化 宝塔自身的一键部署和图形化界面一开始看来确实是蛮好用的,但是也会额外的耗费一部分性能</description>
+    </item>
+    
+  </channel>
+</rss>

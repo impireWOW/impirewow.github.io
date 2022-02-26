@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JVM on impirewow的个人博客</title>
+    <link>http://localhost:1313/categories/jvm/</link>
+    <description>Recent content in JVM on impirewow的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>impirewow</copyright>
+    <lastBuildDate>Sat, 26 Feb 2022 13:11:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/jvm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CAS的缺点</title>
+      <link>http://localhost:1313/post/cas%E7%9A%84%E7%BC%BA%E7%82%B9/</link>
+      <pubDate>Sat, 26 Feb 2022 13:11:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/cas%E7%9A%84%E7%BC%BA%E7%82%B9/</guid>
+      <description>ABA问题 比如说一个线程one从内存位置V中取出A，这时候另一个线程two也从内存中取出A，并且two进行了一些操作变成了B，然后two又将</description>
+    </item>
+    
+    <item>
+      <title>Java关键字--错误处理</title>
+      <link>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
+      <description>有try , catch , throw , throws ,finally</description>
+    </item>
+    
+    <item>
+      <title>乐观锁与悲观锁</title>
+      <link>http://localhost:1313/post/%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81/</guid>
+      <description>悲观锁是什么 总是假设最坏的情况,每次去拿数据的时候都认为别人会修改,所以每次在拿数据的时候都会上锁,传统的关系型数据库里边就用到了很多这种锁</description>
+    </item>
+    
+    <item>
+      <title>序列化和反序列化</title>
+      <link>http://localhost:1313/post/xu-lie-hua-he-fan-xu-lie-hua/</link>
+      <pubDate>Sun, 13 Feb 2022 15:04:38 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/xu-lie-hua-he-fan-xu-lie-hua/</guid>
+      <description>java编程里的序列化 在使用tomcat开发JavaEE相关项目的时候，我们关闭tomcat后，相应的session中的对象就存储在了硬盘上</description>
+    </item>
+    
+  </channel>
+</rss>

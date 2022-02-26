@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>nginx和apache的对比 - impirewow的个人博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="impirewow" /><meta name="description" content="· 2022-02-17 · # Nginx # 网络 Nginx 轻量级，采用 C 进行编写，同样的 web 服务，会占用更少的内存及资源 抗并发，nginx 以 epoll and kqueue 作为开发模型，处理请求是异步非阻塞的" /><meta name="keywords" content="impireWOW, tech, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/nginx%E5%92%8Capache%E7%9A%84%E5%AF%B9%E6%AF%94/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="nginx和apache的对比" />
+<meta property="og:description" content="· 2022-02-17 · # Nginx # 网络 Nginx 轻量级，采用 C 进行编写，同样的 web 服务，会占用更少的内存及资源 抗并发，nginx 以 epoll and kqueue 作为开发模型，处理请求是异步非阻塞的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/nginx%E5%92%8Capache%E7%9A%84%E5%AF%B9%E6%AF%94/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-14T10:22:39+00:00" />
+<meta property="article:modified_time" content="2022-02-14T10:22:39+00:00" />
+
+<meta itemprop="name" content="nginx和apache的对比">
+<meta itemprop="description" content="· 2022-02-17 · # Nginx # 网络 Nginx 轻量级，采用 C 进行编写，同样的 web 服务，会占用更少的内存及资源 抗并发，nginx 以 epoll and kqueue 作为开发模型，处理请求是异步非阻塞的"><meta itemprop="datePublished" content="2022-02-14T10:22:39+00:00" />
+<meta itemprop="dateModified" content="2022-02-14T10:22:39+00:00" />
+<meta itemprop="wordCount" content="753">
+<meta itemprop="keywords" content="网络,nginx," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="nginx和apache的对比"/>
+<meta name="twitter:description" content="· 2022-02-17 · # Nginx # 网络 Nginx 轻量级，采用 C 进行编写，同样的 web 服务，会占用更少的内存及资源 抗并发，nginx 以 epoll and kqueue 作为开发模型，处理请求是异步非阻塞的"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">impireWOW</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">档案</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">impireWOW</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">档案</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">nginx和apache的对比</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-02-14 </span>
+        <div class="post-category">
+            <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
+            <a href="/categories/%E7%BD%91%E7%BB%9C/"> 网络 </a>
+            <a href="/categories/nginx/"> nginx </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#nginx">Nginx</a></li>
+    <li><a href="#apache">Apache</a></li>
+    <li><a href="#总结">总结：</a></li>
+    <li><a href="#在使用方面上的选择">在使用方面上的选择：</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>· 2022-02-17 · # Nginx # 网络</p>
+<h1 id="nginx">Nginx</h1>
+<p>轻量级，采用 C 进行编写，同样的 web 服务，会占用更少的内存及资源</p>
+<p>抗并发，nginx 以 epoll and kqueue 作为开发模型，处理请求是异步非阻塞的，负载能力比apache 高很多，而 apache 则是阻塞型的。在高并发下 nginx 能保持低资源低消耗高性能 ，而 apache 在 PHP 处理慢或者前端压力很大的情况下，很容易出现进程数飙升，从而拒绝服务的现象。</p>
+<p>nginx 处理<strong>静态文件</strong>好，静态处理性能比 apache 高三倍以上</p>
+<p>nginx 的设计高度模块化，编写模块相对简单</p>
+<p>nginx 配置简洁，正则配置让很多事情变得简单，而且改完配置能使用 -t 测试配置有没有问题，apache 配置复杂 ，重启的时候发现配置出错了，会很崩溃</p>
+<p>nginx 作为<strong>负载均衡</strong>服务器，支持 7 层负载均衡</p>
+<p>nginx 本身就是一个反向代理服务器，而且可以作为非常优秀的邮件代理服务器</p>
+<p>启动特别容易, 并且几乎可以做到 7*24 不间断运行，即使运行数个月也不需要重新启动，还能够不间断服务的情况下进行软件版本的升级</p>
+<p>社区活跃，各种高性能模块出品迅速</p>
+<h1 id="apache">Apache</h1>
+<p>apache 的 rewrite 比 nginx 强大，在 rewrite 频繁的情况下，用 apache</p>
+<p>apache 发展到现在，模块超多，基本想到的都可以找到</p>
+<p>apache 更为成熟，少 bug ，nginx 的 bug 相对较多</p>
+<p>apache 超稳定</p>
+<p>apache 对 PHP 支持比较简单，nginx 需要配合其他后端用</p>
+<p>apache 在处理动态请求有优势，nginx 在这方面是鸡肋，一般动态请求要 apache 去做，nginx 适合静态和反向代理。</p>
+<p>apache 仍然是目前的主流，拥有丰富的特性，成熟的技术和开发社区</p>
+<h1 id="总结">总结：</h1>
+<p>apache<strong>同步多进程模型</strong>，一个连接对应一个进程
+nginx是<strong>异步</strong>的，多个连接可以对应一个进程</p>
+<p>一般需要性能的web服务用nginx，不求性能求稳定，就用apache，</p>
+<h1 id="在使用方面上的选择">在使用方面上的选择：</h1>
+<p>apache跑动态，php
+nginx跑静态
+lanmp架构，同时使用apache和nginx，nginx处理静态网页，apache处理动态网页
+前端nginx抗并发，后端apache集群，配合起来会更好</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">impirewow</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-02-14
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%BD%91%E7%BB%9C/">网络</a>
+          <a href="/tags/nginx/">nginx</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/nginx%E5%88%86%E5%B8%83%E5%BC%8F%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">nginx分布式负载均衡</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/nginx%E7%9A%84%E4%BD%9C%E7%94%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
+            <span class="next-text nav-default">Nginx的作用---反向代理</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="impirewow@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>impirewow</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

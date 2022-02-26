@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dubbo on impirewow的个人博客</title>
+    <link>http://localhost:1313/tags/dubbo/</link>
+    <description>Recent content in Dubbo on impirewow的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>impirewow</copyright>
+    <lastBuildDate>Mon, 14 Feb 2022 10:22:39 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/dubbo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dubbo初步使用</title>
+      <link>http://localhost:1313/post/dubbo%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/dubbo%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/</guid>
+      <description>Dubbo是一个分布式服务框架,致力于提供高性能和透明化的RPC远程服务调用方案以及SOA服务治理方案</description>
+    </item>
+    
+  </channel>
+</rss>

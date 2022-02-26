@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on impirewow的个人博客</title>
+    <link>http://localhost:1313/tags/%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 算法 on impirewow的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>impirewow</copyright>
+    <lastBuildDate>Sat, 26 Feb 2022 13:11:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JZ25 合并两个排序的链表</title>
+      <link>http://localhost:1313/post/jz25-/</link>
+      <pubDate>Sat, 26 Feb 2022 13:11:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/jz25-/</guid>
+      <description>链接: https://www.nowcoder.com/practice/d8b6b4358f774294a89de2a6ac4d9337 描述 输入两个递增的链表，单个链表的长度为n，合并这两个链表并使新链表中的节点仍然是递增排序的。 数据范围： 0≤n≤1000，−1000</description>
+    </item>
+    
+  </channel>
+</rss>

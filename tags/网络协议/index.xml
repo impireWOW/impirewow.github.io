@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>网络协议 on impirewow的个人博客</title>
+    <link>http://localhost:1313/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/</link>
+    <description>Recent content in 网络协议 on impirewow的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>impirewow</copyright>
+    <lastBuildDate>Sun, 13 Feb 2022 23:02:56 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTTP和HTTPS的区别</title>
+      <link>http://localhost:1313/post/http-he-https-de-qu-bie/</link>
+      <pubDate>Sun, 13 Feb 2022 23:02:56 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/http-he-https-de-qu-bie/</guid>
+      <description>端口不同 HTTP走80,HTTPS 走443 HTTP使用明文传输,数据未加密,安全性较差,HTTPS(SSL+HTTP)数据传输过程加密,安全</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring on impirewow的个人博客</title>
+    <link>http://localhost:1313/tags/spring/</link>
+    <description>Recent content in Spring on impirewow的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>impirewow</copyright>
+    <lastBuildDate>Mon, 14 Feb 2022 10:22:39 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/spring%E6%B3%A8%E8%A7%A3/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring%E6%B3%A8%E8%A7%A3/</guid>
+      <description>request post</description>
+    </item>
+    
+    <item>
+      <title>@Autowired和@Resource的区别?</title>
+      <link>http://localhost:1313/post/autowiredresource/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/autowiredresource/</guid>
+      <description>Spring中,他们两个都是在bean的注入时使用,使用时可以替代使用,也有的情况不可以</description>
+    </item>
+    
+    <item>
+      <title>Mybatis的使用</title>
+      <link>http://localhost:1313/post/mybatis%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/mybatis%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>SSM三大件之一的Mybatis是支持普通SQL查询,存储过程和高级映射的优秀持久层框架, 支持定制化SQL,存储过程以及高级映射,避免了几乎</description>
+    </item>
+    
+    <item>
+      <title>Spring中IOC的应用</title>
+      <link>http://localhost:1313/post/spring%E4%B8%ADioc%E7%9A%84%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring%E4%B8%ADioc%E7%9A%84%E5%BA%94%E7%94%A8/</guid>
+      <description>Spring中,Spring IOC 提供了一个基本的JavaBean容器,通过IOC模式管理依赖关系,并通过依赖注入和AOP切面增强了为JavaB</description>
+    </item>
+    
+    <item>
+      <title>Spring的AOP</title>
+      <link>http://localhost:1313/post/spring%E7%9A%84aop/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring%E7%9A%84aop/</guid>
+      <description>来自OOP(面向对象编程) AOP(面向切面编程)是通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术,可以对业务逻辑的各个部分进</description>
+    </item>
+    
+    <item>
+      <title>Spring IOC 原理</title>
+      <link>http://localhost:1313/post/spring-ioc-yuan-li/</link>
+      <pubDate>Sun, 13 Feb 2022 16:45:02 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring-ioc-yuan-li/</guid>
+      <description>Spring的核心是什么? 1.IoC(控制反转) 包括依赖查找(DL)和依赖注入(DI) 但是依赖查找给用户权限使用api来进行资源查找和组装对</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot和SSM的区别</title>
+      <link>http://localhost:1313/post/springboot-he-ssm-de-qu-bie/</link>
+      <pubDate>Sun, 13 Feb 2022 13:20:20 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/springboot-he-ssm-de-qu-bie/</guid>
+      <description>以intellij IDEA 为例 创建项目时 SpringBoot项目创建的时候选择Spring Intializr创建, SSM项目使用Maven创建 其实</description>
+    </item>
+    
+  </channel>
+</rss>

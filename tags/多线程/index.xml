@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>多线程 on impirewow的个人博客</title>
+    <link>http://localhost:1313/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+    <description>Recent content in 多线程 on impirewow的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>impirewow</copyright>
+    <lastBuildDate>Mon, 14 Feb 2022 10:22:39 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/volatile%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/volatile%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>作用</description>
+    </item>
+    
+    <item>
+      <title>CAS与Synchronized的使用情景：</title>
+      <link>http://localhost:1313/post/cas%E4%B8%8Esynchronized%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E6%99%AF/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/cas%E4%B8%8Esynchronized%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E6%99%AF/</guid>
+      <description>对于资源竞争较少（线程冲突较轻）的情况，使用synchronized同步锁进行线程阻塞和唤醒切换以及用户态内核态间的切换操作额外浪费消耗cp</description>
+    </item>
+    
+    <item>
+      <title>CAS底层原理</title>
+      <link>http://localhost:1313/post/cas%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/cas%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</guid>
+      <description>概念 CAS的全称是Compare-And-Swap，它是CPU并发原语 它的功能是判断内存某个位置的值是否为预期值，如果是则更改为新的值，这个</description>
+    </item>
+    
+    <item>
+      <title>concurrent包的实现：</title>
+      <link>http://localhost:1313/post/concurrent%E5%8C%85%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/concurrent%E5%8C%85%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
+      <description>由于java的CAS同时具有 volatile 读和volatile写的内存语义，因此Java线程之间的通信现在有了下面四种方式： A线程写volatile变量</description>
+    </item>
+    
+    <item>
+      <title>Dubbo初步使用</title>
+      <link>http://localhost:1313/post/dubbo%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/dubbo%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/</guid>
+      <description>Dubbo是一个分布式服务框架,致力于提供高性能和透明化的RPC远程服务调用方案以及SOA服务治理方案</description>
+    </item>
+    
+    <item>
+      <title>Java内存模型---并发操作基础</title>
+      <link>http://localhost:1313/post/java-nei-cun-mo-xing-bing-fa-cao-zuo-ji-chu/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java-nei-cun-mo-xing-bing-fa-cao-zuo-ji-chu/</guid>
+      <description>JVM规范中,规定所有的变量都是存在主存当中,每个线程都有自己的工作内存,线程对变量的所有操作都必须在工作内存中进行而不能直接对主存进行操作</description>
+    </item>
+    
+    <item>
+      <title>Java接口总结</title>
+      <link>http://localhost:1313/post/java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/</guid>
+      <description>1.Comparable</description>
+    </item>
+    
+    <item>
+      <title>Java程序控制--instanceof</title>
+      <link>http://localhost:1313/post/java%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6-instanceof/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6-instanceof/</guid>
+      <description>instanceof</description>
+    </item>
+    
+    <item>
+      <title>Java线程池的三大方法</title>
+      <link>http://localhost:1313/post/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%B8%89%E5%A4%A7%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%B8%89%E5%A4%A7%E6%96%B9%E6%B3%95/</guid>
+      <description>线程池是什么 一种线程使用模式。线程过多会带来调度开销，进而影响缓存局部性和整体性能。而线程池维护着多个线程，等待着监督管理者分配可并发执行的</description>
+    </item>
+    
+    <item>
+      <title>VM中的CAS（堆中对象的分配）</title>
+      <link>http://localhost:1313/post/vm%E4%B8%AD%E7%9A%84cas%E5%A0%86%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%86%E9%85%8D/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/vm%E4%B8%AD%E7%9A%84cas%E5%A0%86%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%86%E9%85%8D/</guid>
+      <description>Java调用new object()会创建一个对象，这个对象会被分配到JVM的堆中。那么这个对象到底是怎么在堆中保存的呢？ 首先，new obje</description>
+    </item>
+    
+    <item>
+      <title>乐观锁与悲观锁</title>
+      <link>http://localhost:1313/post/%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81/</guid>
+      <description>悲观锁是什么 总是假设最坏的情况,每次去拿数据的时候都认为别人会修改,所以每次在拿数据的时候都会上锁,传统的关系型数据库里边就用到了很多这种锁</description>
+    </item>
+    
+    <item>
+      <title>线程安全</title>
+      <link>http://localhost:1313/post/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/</guid>
+      <description>分两个方面 执行控制和内存可见 执行控制的目的是控制代码运行顺序以及是否可以并发执行 内存可见控制的是线程执行结果在内存中对其他线程的可见性 线程在</description>
+    </item>
+    
+    <item>
+      <title>Synchronized和Volatile的区别</title>
+      <link>http://localhost:1313/post/synchronized-he-volatile-de-qu-bie/</link>
+      <pubDate>Mon, 14 Feb 2022 09:49:56 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/synchronized-he-volatile-de-qu-bie/</guid>
+      <description>volatile关键字的语义: 保证了不同线程对这个变量进行操作时的可见性,即一个线程修改了某个变量的值,新值对于其他线程来说是立即可见的 禁止</description>
+    </item>
+    
+  </channel>
+</rss>

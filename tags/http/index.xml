@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTTP on impirewow的个人博客</title>
+    <link>http://localhost:1313/tags/http/</link>
+    <description>Recent content in HTTP on impirewow的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>impirewow</copyright>
+    <lastBuildDate>Sun, 13 Feb 2022 22:47:47 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/http/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTTP状态码</title>
+      <link>http://localhost:1313/post/http-zhuang-tai-ma/</link>
+      <pubDate>Sun, 13 Feb 2022 22:47:47 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/http-zhuang-tai-ma/</guid>
+      <description>浏览器接收并显示网页前,此网页托管的服务器会返回一个包含HTTP状态码的信息头以响应浏览器的请求 常见的HTTP状态码: 1 2 3 4 5 6 7 200-</description>
+    </item>
+    
+  </channel>
+</rss>

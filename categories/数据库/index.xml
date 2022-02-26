@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据库 on impirewow的个人博客</title>
+    <link>http://localhost:1313/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <description>Recent content in 数据库 on impirewow的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>impirewow</copyright>
+    <lastBuildDate>Mon, 14 Feb 2022 10:22:39 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何优化SQL</title>
+      <link>http://localhost:1313/post/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96sql/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96sql/</guid>
+      <description>对于SQL语句的优化 常见优化规则 数据类型 避免空值 text类型优化 表连接数优化 SQL语句优化 NULL列 concat或者|| like order by Not运算</description>
+    </item>
+    
+  </channel>
+</rss>

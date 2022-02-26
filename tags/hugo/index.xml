@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on impirewow的个人博客</title>
+    <link>http://localhost:1313/tags/hugo/</link>
+    <description>Recent content in hugo on impirewow的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>impirewow</copyright>
+    <lastBuildDate>Sat, 26 Feb 2022 13:11:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何在hugo下书写文档</title>
+      <link>http://localhost:1313/post/how-to-write/</link>
+      <pubDate>Sat, 26 Feb 2022 13:11:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/how-to-write/</guid>
+      <description>如何书写适用于hugo的md文档 关键字后边记得加空格否则编译失败! 在hugo cmd中新建md文件后,会生成一个带有title date draft 的md文件 在</description>
+    </item>
+    
+  </channel>
+</rss>

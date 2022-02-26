@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Nginx的作用---反向代理 - impirewow的个人博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="impirewow" /><meta name="description" content="Nginx 是一个高性能的 Web 和反向代理服务器, 它具有有很多非常优越的特性: 作为 Web 服务器： 相比 Apache，Nginx 使用更少的资源，支持更多的并发连接" /><meta name="keywords" content="impireWOW, tech, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/nginx%E7%9A%84%E4%BD%9C%E7%94%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Nginx的作用---反向代理" />
+<meta property="og:description" content="Nginx 是一个高性能的 Web 和反向代理服务器, 它具有有很多非常优越的特性: 作为 Web 服务器： 相比 Apache，Nginx 使用更少的资源，支持更多的并发连接" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/nginx%E7%9A%84%E4%BD%9C%E7%94%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-14T10:22:39+00:00" />
+<meta property="article:modified_time" content="2022-02-14T10:22:39+00:00" />
+
+<meta itemprop="name" content="Nginx的作用---反向代理">
+<meta itemprop="description" content="Nginx 是一个高性能的 Web 和反向代理服务器, 它具有有很多非常优越的特性: 作为 Web 服务器： 相比 Apache，Nginx 使用更少的资源，支持更多的并发连接"><meta itemprop="datePublished" content="2022-02-14T10:22:39+00:00" />
+<meta itemprop="dateModified" content="2022-02-14T10:22:39+00:00" />
+<meta itemprop="wordCount" content="520">
+<meta itemprop="keywords" content="网络,nginx," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Nginx的作用---反向代理"/>
+<meta name="twitter:description" content="Nginx 是一个高性能的 Web 和反向代理服务器, 它具有有很多非常优越的特性: 作为 Web 服务器： 相比 Apache，Nginx 使用更少的资源，支持更多的并发连接"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">impireWOW</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">档案</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">impireWOW</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">档案</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Nginx的作用---反向代理</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-02-14 </span>
+        <div class="post-category">
+            <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
+            <a href="/categories/%E7%BD%91%E7%BB%9C/"> 网络 </a>
+            <a href="/categories/nginx/"> nginx </a>
+            <a href="/categories/%E5%A1%AB%E5%9D%91/"> 填坑 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#反向代理">反向代理</a>
+      <ul>
+        <li><a href="#正向代理和反向代理的区别">正向代理和反向代理的区别</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>Nginx 是一个高性能的 Web 和反向代理服务器, 它具有有很多非常优越的特性:</p>
+<ul>
+<li>
+<p>作为 Web 服务器：
+相比 Apache，Nginx 使用更少的资源，支持更多的并发连接，体现更高的效率，这点使 Nginx 尤其受到虚拟主机提供商的欢迎。能够支持高达 50,000 个并发连接数的响应，感谢 Nginx 为我们选择了 epoll and kqueue 作为开发模型</p>
+</li>
+<li>
+<p>作为负载均衡服务器：
+Nginx 既可以在内部直接支持 Rails 和 PHP，
+也可以支持作为 HTTP代理服务器 对外进行服务。
+Nginx 用 C 编写, 不论是系统资源开销还是 CPU 使用效率都比 Perlbal 要好的多。</p>
+</li>
+<li>
+<p>作为邮件代理服务器: Nginx 同时也是一个非常优秀的邮件代理服务器（最早开发这个产品的目的之一也是作为邮件代理服务器）</p>
+</li>
+</ul>
+<h1 id="反向代理">反向代理</h1>
+<h2 id="正向代理和反向代理的区别">正向代理和反向代理的区别</h2>
+<p>正向代理代理客户端(Client),反向代理代理服务器(Server)</p>
+<p>举个例子,我们使用的vpn基本上是正向代理,使我们的主机获得代理的ip地址再访问
+这个过程中,正向代理的设置是在客户端上完成的
+反向代理则是代理目标服务器端口，用反向代理服务器选择目标服务器获取数据后再返回给客户端，此时反向代理服务器和目标服务器对外就是一个整体服务器，暴露的是代理服务器地址，保护了目标服务器的真实IP地址</p>
+<p>nginx反向代理支持的协议：</p>
+<ul>
+<li>HTTP/HTTPS 代理HTTP服务器</li>
+<li>ICMP/POP/IMAP 代理邮箱服务器</li>
+<li>RTMP 代理媒体服务器</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">impirewow</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-02-14
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%BD%91%E7%BB%9C/">网络</a>
+          <a href="/tags/nginx/">nginx</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/nginx%E5%92%8Capache%E7%9A%84%E5%AF%B9%E6%AF%94/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">nginx和apache的对比</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/redis%E6%95%B0%E6%8D%AE%E8%BF%87%E6%9C%9F%E7%AD%96%E7%95%A5/">
+            <span class="next-text nav-default">Redis数据过期策略</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="impirewow@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>impirewow</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
