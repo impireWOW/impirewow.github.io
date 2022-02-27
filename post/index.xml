@@ -1,20 +1,506 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Even - A super concise theme for Hugo</title>
+    <title>Posts on impirewow的个人博客</title>
     <link>http://localhost:1313/post/</link>
-    <description>Recent content in Posts on Even - A super concise theme for Hugo</description>
+    <description>Recent content in Posts on impirewow的个人博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>impirewow</copyright>
-    <lastBuildDate>Tue, 10 Jul 2018 00:00:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Feb 2022 13:11:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Theme preview</title>
-      <link>http://localhost:1313/post/even-preview/</link>
-      <pubDate>Tue, 10 Jul 2018 00:00:00 +0800</pubDate>
+      <title>BitNami</title>
+      <link>http://localhost:1313/post/bitnami/</link>
+      <pubDate>Sat, 26 Feb 2022 13:11:00 +0800</pubDate>
       
-      <guid>http://localhost:1313/post/even-preview/</guid>
-      <description>Based on MarkdownPreview test.md. Markdown 1 2 3 4 5 6 7 8 # H1 ## H2 ### H3 #### H4 ##### H5 ###### H6 ### Duplicate Header ### Duplicate Header H1 H2 H3 H4 H5 H6 Duplicate Header Duplicate Header Paragraphs 1 2 3 4 This is a paragraph. I am still part of the paragraph. New paragraph. This is a paragraph. I am still part of the paragraph.</description>
+      <guid>http://localhost:1313/post/bitnami/</guid>
+      <description>BitNami是</description>
+    </item>
+    
+    <item>
+      <title>CAS的缺点</title>
+      <link>http://localhost:1313/post/cas%E7%9A%84%E7%BC%BA%E7%82%B9/</link>
+      <pubDate>Sat, 26 Feb 2022 13:11:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/cas%E7%9A%84%E7%BC%BA%E7%82%B9/</guid>
+      <description>ABA问题 比如说一个线程one从内存位置V中取出A，这时候另一个线程two也从内存中取出A，并且two进行了一些操作变成了B，然后two又将</description>
+    </item>
+    
+    <item>
+      <title>JZ24 反转链表</title>
+      <link>http://localhost:1313/post/jz24-/</link>
+      <pubDate>Sat, 26 Feb 2022 13:11:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/jz24-/</guid>
+      <description>链接:https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca 描</description>
+    </item>
+    
+    <item>
+      <title>JZ25 合并两个排序的链表</title>
+      <link>http://localhost:1313/post/jz25-/</link>
+      <pubDate>Sat, 26 Feb 2022 13:11:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/jz25-/</guid>
+      <description>链接: https://www.nowcoder.com/practice/d8b6b4358f774294a89de2a6ac4d9337 描述 输入两个递增的链表，单个链表的长度为n，合并这两个链表并使新链表中的节点仍然是递增排序的。 数据范围： 0≤n≤1000，−1000</description>
+    </item>
+    
+    <item>
+      <title>JZ6 从尾到头打印链表 </title>
+      <link>http://localhost:1313/post/jz6-/</link>
+      <pubDate>Sat, 26 Feb 2022 13:11:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/jz6-/</guid>
+      <description>🔗:https://www.nowcoder.com/practice/d0267f7f55b3412ba93bd35cfa8e8035 描述</description>
+    </item>
+    
+    <item>
+      <title>如何在hugo下书写文档</title>
+      <link>http://localhost:1313/post/how-to-write/</link>
+      <pubDate>Sat, 26 Feb 2022 13:11:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/how-to-write/</guid>
+      <description>如何书写适用于hugo的md文档 关键字后边记得加空格否则编译失败! 在hugo cmd中新建md文件后,会生成一个带有title date draft 的md文件 在</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/spring%E6%B3%A8%E8%A7%A3/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring%E6%B3%A8%E8%A7%A3/</guid>
+      <description>request post</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://localhost:1313/post/volatile%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/volatile%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>作用</description>
+    </item>
+    
+    <item>
+      <title>@Autowired和@Resource的区别?</title>
+      <link>http://localhost:1313/post/autowiredresource/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/autowiredresource/</guid>
+      <description>Spring中,他们两个都是在bean的注入时使用,使用时可以替代使用,也有的情况不可以</description>
+    </item>
+    
+    <item>
+      <title>CAS与Synchronized的使用情景：</title>
+      <link>http://localhost:1313/post/cas%E4%B8%8Esynchronized%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E6%99%AF/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/cas%E4%B8%8Esynchronized%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E6%99%AF/</guid>
+      <description>对于资源竞争较少（线程冲突较轻）的情况，使用synchronized同步锁进行线程阻塞和唤醒切换以及用户态内核态间的切换操作额外浪费消耗cp</description>
+    </item>
+    
+    <item>
+      <title>CAS底层原理</title>
+      <link>http://localhost:1313/post/cas%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/cas%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/</guid>
+      <description>概念 CAS的全称是Compare-And-Swap，它是CPU并发原语 它的功能是判断内存某个位置的值是否为预期值，如果是则更改为新的值，这个</description>
+    </item>
+    
+    <item>
+      <title>concurrent包的实现：</title>
+      <link>http://localhost:1313/post/concurrent%E5%8C%85%E7%9A%84%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/concurrent%E5%8C%85%E7%9A%84%E5%AE%9E%E7%8E%B0/</guid>
+      <description>由于java的CAS同时具有 volatile 读和volatile写的内存语义，因此Java线程之间的通信现在有了下面四种方式： A线程写volatile变量</description>
+    </item>
+    
+    <item>
+      <title>Dubbo初步使用</title>
+      <link>http://localhost:1313/post/dubbo%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/dubbo%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/</guid>
+      <description>Dubbo是一个分布式服务框架,致力于提供高性能和透明化的RPC远程服务调用方案以及SOA服务治理方案</description>
+    </item>
+    
+    <item>
+      <title>equals和==的区别</title>
+      <link>http://localhost:1313/post/equals%E5%92%8C%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/equals%E5%92%8C%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>==的含义: 基本数据类型:byte,short,char,int,long,float,double,boolean 如果使用双等号==来对比</description>
+    </item>
+    
+    <item>
+      <title>Java--保留字</title>
+      <link>http://localhost:1313/post/java-%E4%BF%9D%E7%95%99%E5%AD%97/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java-%E4%BF%9D%E7%95%99%E5%AD%97/</guid>
+      <description>goto const</description>
+    </item>
+    
+    <item>
+      <title>Java关键字--变量引用</title>
+      <link>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E5%8F%98%E9%87%8F%E5%BC%95%E7%94%A8/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E5%8F%98%E9%87%8F%E5%BC%95%E7%94%A8/</guid>
+      <description>super this void</description>
+    </item>
+    
+    <item>
+      <title>Java关键字--类别</title>
+      <link>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E7%B1%BB%E5%88%AB/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E7%B1%BB%E5%88%AB/</guid>
+      <description>一般用于类和类的方法,变量的声明 abstract final static strictfp synchronized</description>
+    </item>
+    
+    <item>
+      <title>Java关键字--访问控制</title>
+      <link>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</guid>
+      <description>御三家: private / public / protected</description>
+    </item>
+    
+    <item>
+      <title>Java关键字--错误处理</title>
+      <link>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
+      <description>有try , catch , throw , throws ,finally</description>
+    </item>
+    
+    <item>
+      <title>Java内存模型---并发操作基础</title>
+      <link>http://localhost:1313/post/java-nei-cun-mo-xing-bing-fa-cao-zuo-ji-chu/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java-nei-cun-mo-xing-bing-fa-cao-zuo-ji-chu/</guid>
+      <description>JVM规范中,规定所有的变量都是存在主存当中,每个线程都有自己的工作内存,线程对变量的所有操作都必须在工作内存中进行而不能直接对主存进行操作</description>
+    </item>
+    
+    <item>
+      <title>Java序列化方式</title>
+      <link>http://localhost:1313/post/java%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F/</guid>
+      <description>JSON JSON 是一种轻量级的数据交换语言，该语言以易于让人阅读的文字为基础，用来传输由属性值或者序列性的值组成的数据对象，类似 xml，Json 比 xml</description>
+    </item>
+    
+    <item>
+      <title>Java接口总结</title>
+      <link>http://localhost:1313/post/java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/</guid>
+      <description>1.Comparable</description>
+    </item>
+    
+    <item>
+      <title>Java程序控制--instanceof</title>
+      <link>http://localhost:1313/post/java%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6-instanceof/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6-instanceof/</guid>
+      <description>instanceof</description>
+    </item>
+    
+    <item>
+      <title>Java线程池的三大方法</title>
+      <link>http://localhost:1313/post/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%B8%89%E5%A4%A7%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%B8%89%E5%A4%A7%E6%96%B9%E6%B3%95/</guid>
+      <description>线程池是什么 一种线程使用模式。线程过多会带来调度开销，进而影响缓存局部性和整体性能。而线程池维护着多个线程，等待着监督管理者分配可并发执行的</description>
+    </item>
+    
+    <item>
+      <title>JUC快速入门</title>
+      <link>http://localhost:1313/post/juc%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/juc%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/</guid>
+      <description>基础概念 JUC是什么? JUC是java.util.concurrent包的简称，在Java5.0添加，目的就是为了更好的支持高并发任务。让开</description>
+    </item>
+    
+    <item>
+      <title>JVM垃圾回收机制</title>
+      <link>http://localhost:1313/post/jvm%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/jvm%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6%E6%9C%BA%E5%88%B6/</guid>
+      <description>垃圾回收(Garbage Clean)GC 如何判断对象为垃圾对象?</description>
+    </item>
+    
+    <item>
+      <title>Mybatis的使用</title>
+      <link>http://localhost:1313/post/mybatis%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/mybatis%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>SSM三大件之一的Mybatis是支持普通SQL查询,存储过程和高级映射的优秀持久层框架, 支持定制化SQL,存储过程以及高级映射,避免了几乎</description>
+    </item>
+    
+    <item>
+      <title>MySQL数据引擎的类别</title>
+      <link>http://localhost:1313/post/mysql%E6%95%B0%E6%8D%AE%E5%BC%95%E6%93%8E%E7%9A%84%E7%B1%BB%E5%88%AB/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/mysql%E6%95%B0%E6%8D%AE%E5%BC%95%E6%93%8E%E7%9A%84%E7%B1%BB%E5%88%AB/</guid>
+      <description>innoDB 5.5版本之后的默认数据引擎,支持事务和行级锁定,比MYISAM处理速度稍慢 用于事务型数据库,支持事务安全表,支持行锁定和外键 主要特性: MYISAM</description>
+    </item>
+    
+    <item>
+      <title>Netty框架</title>
+      <link>http://localhost:1313/post/netty%E6%A1%86%E6%9E%B6/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/netty%E6%A1%86%E6%9E%B6/</guid>
+      <description>Netty 是一个异步事件驱动的网络应用程序框架，用于快速开发可维护的高性能协议服务器和客户端。Netty 基于 NIO 的，封装了 JDK 的 NIO，让我们使用起来更</description>
+    </item>
+    
+    <item>
+      <title>nginx分布式负载均衡</title>
+      <link>http://localhost:1313/post/nginx%E5%88%86%E5%B8%83%E5%BC%8F%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/nginx%E5%88%86%E5%B8%83%E5%BC%8F%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/</guid>
+      <description>官方测试nginx能够支撑5万并发链接，并且CPU、内存等资源消耗却非常低，运行非常稳定。 当收到大量请求的时候nginx会协调服务器处理请求</description>
+    </item>
+    
+    <item>
+      <title>nginx和apache的对比</title>
+      <link>http://localhost:1313/post/nginx%E5%92%8Capache%E7%9A%84%E5%AF%B9%E6%AF%94/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/nginx%E5%92%8Capache%E7%9A%84%E5%AF%B9%E6%AF%94/</guid>
+      <description>· 2022-02-17 · # Nginx # 网络 Nginx 轻量级，采用 C 进行编写，同样的 web 服务，会占用更少的内存及资源 抗并发，nginx 以 epoll and kqueue 作为开发模型，处理请求是异步非阻塞的</description>
+    </item>
+    
+    <item>
+      <title>Nginx的作用---反向代理</title>
+      <link>http://localhost:1313/post/nginx%E7%9A%84%E4%BD%9C%E7%94%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/nginx%E7%9A%84%E4%BD%9C%E7%94%A8-%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</guid>
+      <description>Nginx 是一个高性能的 Web 和反向代理服务器, 它具有有很多非常优越的特性: 作为 Web 服务器： 相比 Apache，Nginx 使用更少的资源，支持更多的并发连接</description>
+    </item>
+    
+    <item>
+      <title>Redis数据过期策略</title>
+      <link>http://localhost:1313/post/redis%E6%95%B0%E6%8D%AE%E8%BF%87%E6%9C%9F%E7%AD%96%E7%95%A5/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/redis%E6%95%B0%E6%8D%AE%E8%BF%87%E6%9C%9F%E7%AD%96%E7%95%A5/</guid>
+      <description>很多时候服务器经常会用到redis作为缓存，有很多数据都是临时缓存一下，可能用过之后很久都不会再用到了（比如暂存session，又或者只存放</description>
+    </item>
+    
+    <item>
+      <title>RPC框架概述</title>
+      <link>http://localhost:1313/post/rpc%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/rpc%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0/</guid>
+      <description>RPC 即远程过程调用,为了解决不同服务之间的调用问题, 完整的RPC实现一般包含有传输协议和序列化协议 用途: 两台服务器A,B ,一个应用部署在A服务</description>
+    </item>
+    
+    <item>
+      <title>Shiro初步</title>
+      <link>http://localhost:1313/post/shiro%E5%88%9D%E6%AD%A5/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/shiro%E5%88%9D%E6%AD%A5/</guid>
+      <description>Shiro是一个JAVA的安全框架</description>
+    </item>
+    
+    <item>
+      <title>Spring中IOC的应用</title>
+      <link>http://localhost:1313/post/spring%E4%B8%ADioc%E7%9A%84%E5%BA%94%E7%94%A8/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring%E4%B8%ADioc%E7%9A%84%E5%BA%94%E7%94%A8/</guid>
+      <description>Spring中,Spring IOC 提供了一个基本的JavaBean容器,通过IOC模式管理依赖关系,并通过依赖注入和AOP切面增强了为JavaB</description>
+    </item>
+    
+    <item>
+      <title>Spring的AOP</title>
+      <link>http://localhost:1313/post/spring%E7%9A%84aop/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring%E7%9A%84aop/</guid>
+      <description>来自OOP(面向对象编程) AOP(面向切面编程)是通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术,可以对业务逻辑的各个部分进</description>
+    </item>
+    
+    <item>
+      <title>VM中的CAS（堆中对象的分配）</title>
+      <link>http://localhost:1313/post/vm%E4%B8%AD%E7%9A%84cas%E5%A0%86%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%86%E9%85%8D/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/vm%E4%B8%AD%E7%9A%84cas%E5%A0%86%E4%B8%AD%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%86%E9%85%8D/</guid>
+      <description>Java调用new object()会创建一个对象，这个对象会被分配到JVM的堆中。那么这个对象到底是怎么在堆中保存的呢？ 首先，new obje</description>
+    </item>
+    
+    <item>
+      <title>Zookeeper的使用</title>
+      <link>http://localhost:1313/post/zookeeper%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/zookeeper%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper</description>
+    </item>
+    
+    <item>
+      <title>乐观锁与悲观锁</title>
+      <link>http://localhost:1313/post/%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E4%B9%90%E8%A7%82%E9%94%81%E4%B8%8E%E6%82%B2%E8%A7%82%E9%94%81/</guid>
+      <description>悲观锁是什么 总是假设最坏的情况,每次去拿数据的时候都认为别人会修改,所以每次在拿数据的时候都会上锁,传统的关系型数据库里边就用到了很多这种锁</description>
+    </item>
+    
+    <item>
+      <title>分布式锁</title>
+      <link>http://localhost:1313/post/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%88%86%E5%B8%83%E5%BC%8F%E9%94%81/</guid>
+      <description>应用场景: 为了保证数据的最终一致性,随着业务发展的需要，原单体单机部署的系统被演化成分布式集群系统后，由于分布式系统多线程、多进程并且分布在</description>
+    </item>
+    
+    <item>
+      <title>基本RPC框架的组件</title>
+      <link>http://localhost:1313/post/%E5%9F%BA%E6%9C%ACrpc%E6%A1%86%E6%9E%B6%E7%9A%84%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%9F%BA%E6%9C%ACrpc%E6%A1%86%E6%9E%B6%E7%9A%84%E7%BB%84%E4%BB%B6/</guid>
+      <description>注册中心-Zookeeper 网络传输:基于NIO的Netty框架 序列化:JDK自带的效率低且有安全漏洞,推荐使用hession2,kryo,</description>
+    </item>
+    
+    <item>
+      <title>如何优化SQL</title>
+      <link>http://localhost:1313/post/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96sql/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96sql/</guid>
+      <description>对于SQL语句的优化 常见优化规则 数据类型 避免空值 text类型优化 表连接数优化 SQL语句优化 NULL列 concat或者|| like order by Not运算</description>
+    </item>
+    
+    <item>
+      <title>线程安全</title>
+      <link>http://localhost:1313/post/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/</guid>
+      <description>分两个方面 执行控制和内存可见 执行控制的目的是控制代码运行顺序以及是否可以并发执行 内存可见控制的是线程执行结果在内存中对其他线程的可见性 线程在</description>
+    </item>
+    
+    <item>
+      <title>重载和重写</title>
+      <link>http://localhost:1313/post/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99/</guid>
+      <description>重载是在一个类内对于相同方法名的方法,面向不同数据类型处理时的写法 重写是父类的方法被子类继承后重写, 一般考察继承子类继承之后的父类对象以子类</description>
+    </item>
+    
+    <item>
+      <title>Synchronized和Volatile的区别</title>
+      <link>http://localhost:1313/post/synchronized-he-volatile-de-qu-bie/</link>
+      <pubDate>Mon, 14 Feb 2022 09:49:56 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/synchronized-he-volatile-de-qu-bie/</guid>
+      <description>volatile关键字的语义: 保证了不同线程对这个变量进行操作时的可见性,即一个线程修改了某个变量的值,新值对于其他线程来说是立即可见的 禁止</description>
+    </item>
+    
+    <item>
+      <title>HTTP和HTTPS的区别</title>
+      <link>http://localhost:1313/post/http-he-https-de-qu-bie/</link>
+      <pubDate>Sun, 13 Feb 2022 23:02:56 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/http-he-https-de-qu-bie/</guid>
+      <description>端口不同 HTTP走80,HTTPS 走443 HTTP使用明文传输,数据未加密,安全性较差,HTTPS(SSL+HTTP)数据传输过程加密,安全</description>
+    </item>
+    
+    <item>
+      <title>markdown用法和快捷键</title>
+      <link>http://localhost:1313/post/markdown%E7%94%A8%E6%B3%95%E5%92%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Sun, 13 Feb 2022 23:02:56 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/markdown%E7%94%A8%E6%B3%95%E5%92%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>Markdown 的目标是实现「易读易写」 下边简单列举一些markdown的使用方法 一,无序列表 使用方法 1 2 3 4 * 无序列表1 * 无序列表2 * 无序列表2.1 * 无</description>
+    </item>
+    
+    <item>
+      <title>HTTP状态码</title>
+      <link>http://localhost:1313/post/http-zhuang-tai-ma/</link>
+      <pubDate>Sun, 13 Feb 2022 22:47:47 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/http-zhuang-tai-ma/</guid>
+      <description>浏览器接收并显示网页前,此网页托管的服务器会返回一个包含HTTP状态码的信息头以响应浏览器的请求 常见的HTTP状态码: 1 2 3 4 5 6 7 200-</description>
+    </item>
+    
+    <item>
+      <title>HashMap</title>
+      <link>http://localhost:1313/post/hashmap/</link>
+      <pubDate>Sun, 13 Feb 2022 17:40:13 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/hashmap/</guid>
+      <description>哈希表,也叫散列表,是集合结构之一 我们都知道有这些常用的数据结构:数组 链表 二叉树 哈希表 大致列出一下这些数据结构的插入,查找 ,删除等操作的性能</description>
+    </item>
+    
+    <item>
+      <title>Spring IOC 原理</title>
+      <link>http://localhost:1313/post/spring-ioc-yuan-li/</link>
+      <pubDate>Sun, 13 Feb 2022 16:45:02 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring-ioc-yuan-li/</guid>
+      <description>Spring的核心是什么? 1.IoC(控制反转) 包括依赖查找(DL)和依赖注入(DI) 但是依赖查找给用户权限使用api来进行资源查找和组装对</description>
+    </item>
+    
+    <item>
+      <title>序列化和反序列化</title>
+      <link>http://localhost:1313/post/xu-lie-hua-he-fan-xu-lie-hua/</link>
+      <pubDate>Sun, 13 Feb 2022 15:04:38 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/xu-lie-hua-he-fan-xu-lie-hua/</guid>
+      <description>java编程里的序列化 在使用tomcat开发JavaEE相关项目的时候，我们关闭tomcat后，相应的session中的对象就存储在了硬盘上</description>
+    </item>
+    
+    <item>
+      <title>log4j2 的使用</title>
+      <link>http://localhost:1313/post/log4j2-de-shi-yong/</link>
+      <pubDate>Sun, 13 Feb 2022 14:08:11 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/log4j2-de-shi-yong/</guid>
+      <description>先贴个官方文档: https://logging.apache.org/log4j/2.x/ 用途: 异常处理</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot和SSM的区别</title>
+      <link>http://localhost:1313/post/springboot-he-ssm-de-qu-bie/</link>
+      <pubDate>Sun, 13 Feb 2022 13:20:20 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/springboot-he-ssm-de-qu-bie/</guid>
+      <description>以intellij IDEA 为例 创建项目时 SpringBoot项目创建的时候选择Spring Intializr创建, SSM项目使用Maven创建 其实</description>
+    </item>
+    
+    <item>
+      <title>建站工具选择</title>
+      <link>http://localhost:1313/post/jian-zhan-gong-ju-xuan-ze/</link>
+      <pubDate>Sat, 12 Feb 2022 09:23:15 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/jian-zhan-gong-ju-xuan-ze/</guid>
+      <description>很多新手会推荐使用宝塔面板 https://www.bt.cn/ 来进行网页服务器环境的初始化 宝塔自身的一键部署和图形化界面一开始看来确实是蛮好用的,但是也会额外的耗费一部分性能</description>
     </item>
     
     <item>
@@ -43,146 +529,6 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
       
       <guid>http://localhost:1313/post/chinese-preview/</guid>
       <description>《长恨歌》是中国唐朝诗人白居易的一首长篇叙事诗。 第一段：贵妃受宠爱 汉皇重色思倾国，御宇多年求不得。杨家有女初长成，养在深闺人未识。 天生丽质难</description>
-    </item>
-    
-    <item>
-      <title>Shortcodes</title>
-      <link>http://localhost:1313/post/shortcodes/</link>
-      <pubDate>Tue, 30 Aug 2016 16:01:23 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/shortcodes/</guid>
-      <description>&lt;h1 id=&#34;admonition&#34;&gt;Admonition&lt;/h1&gt;
-&lt;div class=&#34;admonition note&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;I&amp;#39;m title!&lt;/p&gt;
-&lt;p&gt;biu biu biu.&lt;/p&gt;
-&lt;details class=&#34;admonition note&#34;&gt;&lt;summary class=&#34;admonition-title&#34;&gt;note&lt;/summary&gt;
-  &lt;p&gt;biu biu biu.&lt;/p&gt;
-&lt;/details&gt;
-&lt;div class=&#34;admonition example&#34;&gt;
-  &lt;p&gt;Without title.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-markdown&#34; data-lang=&#34;markdown&#34;&gt;{{% admonition note &amp;#34;I&amp;#39;m title!&amp;#34; false %}}
-biu biu biu.
-
-{{% admonition type=&amp;#34;note&amp;#34; title=&amp;#34;note&amp;#34; details=&amp;#34;true&amp;#34; %}}
-biu biu biu.
-{{% /admonition %}}
-
-{{% admonition example %}}
-Without title.
-{{% /admonition %}}
-
-{{% /admonition %}}
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>JS Flowchart Diagrams</title>
-      <link>http://localhost:1313/post/js-flowchart-diagrams/</link>
-      <pubDate>Wed, 04 Mar 2015 21:57:50 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/js-flowchart-diagrams/</guid>
-      <description>&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;st=&amp;gt;start: Start|past:&amp;gt;http://www.google.com[blank]
-e=&amp;gt;end: End:&amp;gt;http://www.google.com
-op1=&amp;gt;operation: My Operation|past
-op2=&amp;gt;operation: Stuff|current
-sub1=&amp;gt;subroutine: My Subroutine|invalid
-cond=&amp;gt;condition: Yes
-or No?|approved:&amp;gt;http://www.google.com
-c2=&amp;gt;condition: Good idea|rejected
-io=&amp;gt;inputoutput: catch something...|request
-
-st-&amp;gt;op1(right)-&amp;gt;cond
-cond(yes, right)-&amp;gt;c2
-cond(no)-&amp;gt;sub1(left)-&amp;gt;op1
-c2(yes)-&amp;gt;io-&amp;gt;e
-c2(no)-&amp;gt;op2-&amp;gt;e
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>JS Sequence Diagrams</title>
-      <link>http://localhost:1313/post/js-sequence-diagrams/</link>
-      <pubDate>Wed, 04 Mar 2015 21:57:45 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/js-sequence-diagrams/</guid>
-      <description>&lt;h2 id=&#34;usage&#34;&gt;Usage&lt;/h2&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;Andrew-&amp;gt;China: Says Hello
-Note right of China: China thinks\nabout it
-China--&amp;gt;Andrew: How are you?
-Andrew-&amp;gt;&amp;gt;China: I am good thanks!
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>Syntax Highlighting</title>
-      <link>http://localhost:1313/post/syntax-highlighting/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/syntax-highlighting/</guid>
-      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
-&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
-&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span class=&#34;kd&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;helloWorld&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
-  &lt;span class=&#34;nx&#34;&gt;alert&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, World!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
-&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description>
     </item>
     
   </channel>
