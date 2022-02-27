@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Spring常用注解 - impirewow的个人博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="impirewow" /><meta name="description" content="1.启动注解 @SpringbootApplication 1 2 3 4 5 6 7 8 9 10 11 @Target(ElementType.TYPE) @Retention(RetentionPolicy.RUNTIME) @Documented @Inherited @SpringBootConfiguration @EnableAutoConfiguration @ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class), @Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) }) public @interface SpringBootApplication { // ... 此处省略源码 } @SpringBootConfig" /><meta name="keywords" content="impireWOW, tech, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/spring_annotations/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Spring常用注解" />
+<meta property="og:description" content="1.启动注解 @SpringbootApplication 1 2 3 4 5 6 7 8 9 10 11 @Target(ElementType.TYPE) @Retention(RetentionPolicy.RUNTIME) @Documented @Inherited @SpringBootConfiguration @EnableAutoConfiguration @ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class), @Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) }) public @interface SpringBootApplication { // ... 此处省略源码 } @SpringBootConfig" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/spring_annotations/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-27T21:06:29+08:00" />
+<meta property="article:modified_time" content="2022-02-27T21:06:29+08:00" />
+
+<meta itemprop="name" content="Spring常用注解">
+<meta itemprop="description" content="1.启动注解 @SpringbootApplication 1 2 3 4 5 6 7 8 9 10 11 @Target(ElementType.TYPE) @Retention(RetentionPolicy.RUNTIME) @Documented @Inherited @SpringBootConfiguration @EnableAutoConfiguration @ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class), @Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) }) public @interface SpringBootApplication { // ... 此处省略源码 } @SpringBootConfig"><meta itemprop="datePublished" content="2022-02-27T21:06:29+08:00" />
+<meta itemprop="dateModified" content="2022-02-27T21:06:29+08:00" />
+<meta itemprop="wordCount" content="3551">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Spring常用注解"/>
+<meta name="twitter:description" content="1.启动注解 @SpringbootApplication 1 2 3 4 5 6 7 8 9 10 11 @Target(ElementType.TYPE) @Retention(RetentionPolicy.RUNTIME) @Documented @Inherited @SpringBootConfiguration @EnableAutoConfiguration @ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class), @Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) }) public @interface SpringBootApplication { // ... 此处省略源码 } @SpringBootConfig"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">impireWOW</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">档案</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">impireWOW</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">档案</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Spring常用注解</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-02-27 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1启动注解-springbootapplication">1.启动注解 @SpringbootApplication</a>
+      <ul>
+        <li><a href="#springbootconfiguration注解继承configuration注解主要用于加载配置文件">@SpringBootConfiguration注解,继承@Configuration注解,主要用于加载配置文件</a></li>
+        <li><a href="#enableautoconfiguration-注解开启自动配置功能">@EnableAutoConfiguration 注解，开启自动配置功能</a></li>
+        <li><a href="#componentscan-注解主要用于组件扫描和自动装配">@ComponentScan 注解，主要用于组件扫描和自动装配</a></li>
+      </ul>
+    </li>
+    <li><a href="#2controller-相关注解">2.Controller 相关注解</a>
+      <ul>
+        <li><a href="#controller">Controller</a></li>
+        <li><a href="#restcontroller复合注解">RestController复合注解</a></li>
+        <li><a href="#requestbody">@RequestBody</a></li>
+        <li><a href="#requestmapping">@RequestMapping</a></li>
+        <li><a href="#getmapping">@GetMapping</a>
+          <ul>
+            <li><a href="#getmapping源码">GetMapping源码</a></li>
+          </ul>
+        </li>
+        <li><a href="#postmapping">@PostMapping</a></li>
+      </ul>
+    </li>
+    <li><a href="#3取请求参数值">3.取请求参数值</a>
+      <ul>
+        <li><a href="#pathvariable获取url中的数据">@PathVariable:获取url中的数据</a></li>
+        <li><a href="#requestparam">@RequestParam:</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-注入bean相关">4. 注入bean相关</a>
+      <ul>
+        <li><a href="#repository">@Repository</a></li>
+        <li><a href="#service">@Service</a></li>
+        <li><a href="#scope作用域注解">@Scope作用域注解</a></li>
+        <li><a href="#entity实体类注解">@Entity实体类注解</a></li>
+        <li><a href="#bean产生一个bean的方法">@Bean产生一个bean的方法</a></li>
+        <li><a href="#autowired-自动导入">@Autowired 自动导入</a></li>
+        <li><a href="#component">@Component</a></li>
+      </ul>
+    </li>
+    <li><a href="#5导入配置文件">5.导入配置文件</a>
+      <ul>
+        <li><a href="#propertysource注解">@PropertySource注解</a></li>
+        <li><a href="#importresource导入xml配置文件">@ImportResource导入xml配置文件</a></li>
+        <li><a href="#import-导入额外的配置信息">@Import 导入额外的配置信息</a></li>
+      </ul>
+    </li>
+    <li><a href="#6事务注解-transactional">6.事务注解 @Transactional</a></li>
+    <li><a href="#7全局异常处理">7.全局异常处理</a>
+      <ul>
+        <li><a href="#controlleradvice-统一处理异常">@ControllerAdvice 统一处理异常</a></li>
+        <li><a href="#exceptionhandler-注解声明异常处理方法exceptionhandler-注解声明异常处理方法">@ExceptionHandler 注解声明异常处理方法@ExceptionHandler 注解声明异常处理方法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="1启动注解-springbootapplication">1.启动注解 @SpringbootApplication</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Inherited
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),
+		@Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) })
+public @interface SpringBootApplication {
+    // ... 此处省略源码
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="springbootconfiguration注解继承configuration注解主要用于加载配置文件">@SpringBootConfiguration注解,继承@Configuration注解,主要用于加载配置文件</h2>
+<p>@SpringBootConfiguration继承自@Configuration，
+二者功能也一致，标注当前类是<strong>配置类</strong>， 并会将当前类内声明的一个或多个以@Bean注解标记的方法的实例纳入到spring容器中，并且<strong>实例名就是方法名</strong>。</p>
+<h2 id="enableautoconfiguration-注解开启自动配置功能">@EnableAutoConfiguration 注解，开启自动配置功能</h2>
+<p>@EnableAutoConfiguration可以帮助SpringBoot应用将所有符合条件的@Configuration配置都加载到当前SpringBoot创建并使用的IoC容器。借助于Spring框架原有的一个工具类：SpringFactoriesLoader的支持，@EnableAutoConfiguration可以智能的自动配置功效才得以大功告成</p>
+<h2 id="componentscan-注解主要用于组件扫描和自动装配">@ComponentScan 注解，主要用于组件扫描和自动装配</h2>
+<p>@ComponentScan的功能其实就是自动扫描并加载符合条件的组件或bean定义，最终将这些bean定义加载到容器中。我们可以通过basePackages等属性指定@ComponentScan自动扫描的范围，如果不指定，则默认Spring框架实现从声明@ComponentScan所在类的package进行扫描，默认情况下是不指定的，所以SpringBoot的启动类最好放在root package下。</p>
+<h1 id="2controller-相关注解">2.Controller 相关注解</h1>
+<h2 id="controller">Controller</h2>
+<p>控制器 ,处理http请求</p>
+<h2 id="restcontroller复合注解">RestController复合注解</h2>
+<p>源码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Controller
+@ResponseBody
+public @interface RestController {
+
+	/**
+	 * The value may indicate a suggestion for a logical component name,
+	 * to be turned into a Spring bean in case of an autodetected component.
+	 * @return the suggested component name, if any (or empty String otherwise)
+	 * @since 4.0.1
+	 */
+	@AliasFor(annotation = Controller.class)
+	String value() default &#34;&#34;;
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>由源码可知
+@RestController注解相当于@ResponseBody+@Controller合在一起的作用,RestController使用的效果是将方法返回的对象直接在浏览器上展示成json格式.</p>
+<h2 id="requestbody">@RequestBody</h2>
+<p>通过HttpMessageConverter<strong>读取</strong>Request Body并<strong>反序列化</strong>为Object（泛指）对象</p>
+<h2 id="requestmapping">@RequestMapping</h2>
+<p>@RequestMapping 是 Spring Web 应用程序中最常被用到的注解之一。这个注解会将 HTTP 请求映射到 MVC 和 REST 控制器的处理方法上</p>
+<h2 id="getmapping">@GetMapping</h2>
+<p>用于将HTTP get请求映射到特定处理程序的方法注解
+注解简写：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@RequestMapping(value = &#34;/say&#34;,method = RequestMethod.GET)等价于：@GetMapping(value = &#34;/say&#34;)
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="getmapping源码">GetMapping源码</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@RequestMapping(method = RequestMethod.GET)
+public @interface GetMapping {
+//...
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>GetMapping其实是@RequestMapping(method = RequestMethod.GET)的缩写</p>
+<h2 id="postmapping">@PostMapping</h2>
+<p>用于将HTTP post请求映射到特定处理程序的方法注解
+是@RequestMapping(method = RequestMethod.POST)的缩写</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@RequestMapping(method = RequestMethod.POST)
+public @interface PostMapping {
+    //...
+}
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="3取请求参数值">3.取请求参数值</h1>
+<h2 id="pathvariable获取url中的数据">@PathVariable:获取url中的数据</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@Controller
+@RequestMapping(&#34;/User&#34;)
+public class HelloWorldController {
+
+    @RequestMapping(&#34;/getUser/{uid}&#34;)
+    public String getUser(@PathVariable(&#34;uid&#34;)Integer id, Model model) {
+        System.out.println(&#34;id:&#34;+id);
+        return &#34;user&#34;;
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="requestparam">@RequestParam:</h2>
+<p>获取请求参数的值</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@Controller
+@RequestMapping(&#34;/User&#34;)
+public class HelloWorldController {
+@RequestMapping(&#34;/getUser&#34;)
+public String getUser(@RequestParam(&#34;uid&#34;)Integer id, Model model) {
+    System.out.println(&#34;id:&#34;+id);
+    return &#34;user&#34;;
+}
+
+</code></pre></td></tr></table>
+</div>
+</div><p>@RequestHeader 把Request请求header部分的值绑定到方法的参数上
+@CookieValue 把Request header中关于cookie的值绑定到方法的参数上</p>
+<h1 id="4-注入bean相关">4. 注入bean相关</h1>
+<h2 id="repository">@Repository</h2>
+<p>DAO层注解，DAO层中接口继承JpaRepository&lt;T,ID extends Serializable&gt;,需要在build.gradle中引入相关jpa的一个jar自动加载。</p>
+<p>Repository注解源码</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Component
+public @interface Repository {
+
+	/**
+	 * The value may indicate a suggestion for a logical component name,
+	 * to be turned into a Spring bean in case of an autodetected component.
+	 * @return the suggested component name, if any (or empty String otherwise)
+	 */
+	@AliasFor(annotation = Component.class)
+	String value() default &#34;&#34;;
+
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="service">@Service</h2>
+<ul>
+<li>@Service是@Component注解的一个特例，作用在类上</li>
+<li>@Service注解作用域默认为单例</li>
+<li>使用注解配置和类路径扫描时，被@Service注解标注的类会被Spring扫描并注册为Bean</li>
+<li>@Service用于标注服务层组件,表示定义一个bean</li>
+<li>@Service使用时没有传参数，Bean名称默认为当前类的类名，首字母小写</li>
+<li>@Service(“serviceBeanId”)或@Service(value=”serviceBeanId”)使用时传参数，使用value作为Bean名字</li>
+</ul>
+<p>源码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Component
+public @interface Service {
+
+	/**
+	 * The value may indicate a suggestion for a logical component name,
+	 * to be turned into a Spring bean in case of an autodetected component.
+	 * @return the suggested component name, if any (or empty String otherwise)
+	 */
+	@AliasFor(annotation = Component.class)
+	String value() default &#34;&#34;;
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="scope作用域注解">@Scope作用域注解</h2>
+<p>@Scope作用在类上和方法上，用来配置 spring bean 的作用域，它标识 bean 的作用域
+源码:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@Target({ElementType.TYPE, ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface Scope {
+
+	/**
+	 * Alias for {@link #scopeName}.
+	 * @see #scopeName
+	 */
+	@AliasFor(&#34;scopeName&#34;)
+	String value() default &#34;&#34;;
+
+	@AliasFor(&#34;value&#34;)
+	String scopeName() default &#34;&#34;;
+
+	ScopedProxyMode proxyMode() default ScopedProxyMode.DEFAULT;
+}
+
+</code></pre></td></tr></table>
+</div>
+</div><p>属性:</p>
+<ul>
+<li>
+<p>value</p>
+<ul>
+<li>singleton   表示该bean是单例的。(默认)</li>
+<li>prototype   表示该bean是多例的，即每次使用该bean时都会新建一个对象。</li>
+<li>request     在一次http请求中，一个bean对应一个实例。</li>
+<li>session     在一个httpSession中，一个bean对应一个实例。</li>
+</ul>
+</li>
+<li>
+<p>proxyMode</p>
+<ul>
+<li>DEFAULT         不使用代理。(默认)</li>
+<li>NO              不使用代理，等价于DEFAULT。</li>
+<li>INTERFACES      使用基于接口的代理(jdk dynamic proxy)。</li>
+<li>TARGET_CLASS    使用基于类的代理(cglib)。</li>
+</ul>
+</li>
+</ul>
+<h2 id="entity实体类注解">@Entity实体类注解</h2>
+<p>@Table(name =&ldquo;数据库表名&rdquo;)，这个注解也注释在实体类上，对应数据库中相应的表。
+@Id、@Column注解用于标注实体类中的字段，pk字段标注为@Id，其余@Column。</p>
+<h2 id="bean产生一个bean的方法">@Bean产生一个bean的方法</h2>
+<p>@Bean明确地指示了一种方法，产生一个bean的方法，并且交给Spring容器管理。支持别名@Bean(&ldquo;xx-name&rdquo;)</p>
+<h2 id="autowired-自动导入">@Autowired 自动导入</h2>
+<ul>
+<li>@Autowired注解作用在构造函数、方法、方法参数、类字段以及注解上</li>
+<li>@Autowired注解可以实现Bean的自动注入</li>
+</ul>
+<h2 id="component">@Component</h2>
+<p>把普通pojo实例化到spring容器中，相当于配置文件中的</p>
+<p>虽然有了@Autowired,但是我们还是要写一堆bean的配置文件,相当麻烦,而@Component就是告诉spring,我是pojo类,把我注册到容器中吧,spring会自动提取相关信息。那么我们就不用写麻烦的xml配置文件了</p>
+<h1 id="5导入配置文件">5.导入配置文件</h1>
+<h2 id="propertysource注解">@PropertySource注解</h2>
+<p>引入单个properties文件：</p>
+<p>@PropertySource(value = {&ldquo;classpath : xxxx/xxx.properties&rdquo;})</p>
+<p>引入多个properties文件：</p>
+<p>@PropertySource(value = {&ldquo;classpath : xxxx/xxx.properties&rdquo;，&ldquo;classpath : xxxx.properties&rdquo;})</p>
+<h2 id="importresource导入xml配置文件">@ImportResource导入xml配置文件</h2>
+<p>可以额外分为两种模式 相对路径classpath，绝对路径（真实路径）file</p>
+<p><strong>注意：单文件可以不写value或locations，value和locations都可用</strong></p>
+<p>相对路径（classpath）</p>
+<ul>
+<li>
+<p>引入单个xml配置文件：@ImportSource(&ldquo;classpath : xxx/xxxx.xml&rdquo;)</p>
+</li>
+<li>
+<p>引入多个xml配置文件：@ImportSource(locations={&ldquo;classpath : xxxx.xml&rdquo; , &ldquo;classpath : yyyy.xml&rdquo;})</p>
+</li>
+</ul>
+<p>绝对路径（file）</p>
+<ul>
+<li>
+<p>引入单个xml配置文件：@ImportSource(locations= {&ldquo;file : d:/hellxz/dubbo.xml&rdquo;})</p>
+</li>
+<li>
+<p>引入多个xml配置文件：@ImportSource(locations= {&ldquo;file : d:/hellxz/application.xml&rdquo; , &ldquo;file : d:/hellxz/dubbo.xml&rdquo;})</p>
+</li>
+</ul>
+<p><strong>取值：使用@Value注解取配置文件中的值</strong></p>
+<p>@Value(&quot;${properties中的键}&quot;)
+private String xxx;</p>
+<h2 id="import-导入额外的配置信息">@Import 导入额外的配置信息</h2>
+<p>功能类似XML配置的，用来导入配置类，可以导入带有@Configuration注解的配置类或实现了ImportSelector/ImportBeanDefinitionRegistrar。</p>
+<p>使用示例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@SpringBootApplication
+@Import({SmsConfig.class})
+public class DemoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div><h1 id="6事务注解-transactional">6.事务注解 @Transactional</h1>
+<p>在Spring中，事务有两种实现方式，分别是编程式事务管理和声明式事务管理两种方式</p>
+<ul>
+<li>编程式事务管理： 编程式事务管理使用TransactionTemplate或者直接使用底层的PlatformTransactionManager。对于编程式事务管理，spring推荐使用TransactionTemplate。</li>
+<li>声明式事务管理： 建立在AOP之上的。其本质是对方法前后进行拦截，然后在目标方法开始之前创建或者加入一个事务，在执行完目标方法之后根据执行情况提交或者回滚事务，通过@Transactional就可以进行事务操作，更快捷而且简单。推荐使用</li>
+</ul>
+<h1 id="7全局异常处理">7.全局异常处理</h1>
+<h2 id="controlleradvice-统一处理异常">@ControllerAdvice 统一处理异常</h2>
+<p>@ControllerAdvice 注解定义全局异常处理类</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@ControllerAdvice
+public class GlobalExceptionHandler {
+}
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="exceptionhandler-注解声明异常处理方法exceptionhandler-注解声明异常处理方法">@ExceptionHandler 注解声明异常处理方法@ExceptionHandler 注解声明异常处理方法</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    String handleException(){
+        return &#34;Exception Deal!&#34;;
+    }
+}
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">impirewow</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-02-27
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/bitnami/">
+            <span class="next-text nav-default">BitNami</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="impirewow@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>impirewow</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

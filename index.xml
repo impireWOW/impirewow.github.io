@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>impirewow</copyright>
-    <lastBuildDate>Sat, 26 Feb 2022 13:11:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Feb 2022 21:06:29 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于</title>
       <link>http://localhost:1313/about/</link>
@@ -15,6 +15,15 @@
       
       <guid>http://localhost:1313/about/</guid>
       <description>欢迎来到我的小站呀，很高兴遇见你！🤝 🏠 关于本站 本站是我个人使用,存储程序开发时候的随想 👨‍💻 博主是谁 我是一名软件工程专业的大学生,主要方向是</description>
+    </item>
+    
+    <item>
+      <title>Spring常用注解</title>
+      <link>http://localhost:1313/post/spring_annotations/</link>
+      <pubDate>Sun, 27 Feb 2022 21:06:29 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/spring_annotations/</guid>
+      <description>1.启动注解 @SpringbootApplication 1 2 3 4 5 6 7 8 9 10 11 @Target(ElementType.TYPE) @Retention(RetentionPolicy.RUNTIME) @Documented @Inherited @SpringBootConfiguration @EnableAutoConfiguration @ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class), @Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) }) public @interface SpringBootApplication { // ... 此处省略源码 } @SpringBootConfig</description>
     </item>
     
     <item>
