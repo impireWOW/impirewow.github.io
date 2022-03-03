@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="impirewow" /><meta name="description" content="RPC 即远程过程调用,为了解决不同服务之间的调用问题, 完整的RPC实现一般包含有传输协议和序列化协议 用途: 两台服务器A,B ,一个应用部署在A服务" /><meta name="keywords" content="impireWOW, tech, blog" />
+<meta name="author" content="impirewow" /><meta name="description" content="前言 RPC 即远程过程调用,为了解决不同服务之间的调用问题,是分布式系统常见的一种通信方法,从跨进程到跨物理机已经有几十年的历史 完整的RPC实现一" /><meta name="keywords" content="impireWOW, tech, blog" />
 
 
 
@@ -40,19 +40,19 @@
 
 
 <meta property="og:title" content="RPC框架概述" />
-<meta property="og:description" content="RPC 即远程过程调用,为了解决不同服务之间的调用问题, 完整的RPC实现一般包含有传输协议和序列化协议 用途: 两台服务器A,B ,一个应用部署在A服务" />
+<meta property="og:description" content="前言 RPC 即远程过程调用,为了解决不同服务之间的调用问题,是分布式系统常见的一种通信方法,从跨进程到跨物理机已经有几十年的历史 完整的RPC实现一" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/post/rpc%E6%A1%86%E6%9E%B6%E6%A6%82%E8%BF%B0/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-02-14T10:22:39+00:00" />
 <meta property="article:modified_time" content="2022-02-14T10:22:39+00:00" />
 
 <meta itemprop="name" content="RPC框架概述">
-<meta itemprop="description" content="RPC 即远程过程调用,为了解决不同服务之间的调用问题, 完整的RPC实现一般包含有传输协议和序列化协议 用途: 两台服务器A,B ,一个应用部署在A服务"><meta itemprop="datePublished" content="2022-02-14T10:22:39+00:00" />
+<meta itemprop="description" content="前言 RPC 即远程过程调用,为了解决不同服务之间的调用问题,是分布式系统常见的一种通信方法,从跨进程到跨物理机已经有几十年的历史 完整的RPC实现一"><meta itemprop="datePublished" content="2022-02-14T10:22:39+00:00" />
 <meta itemprop="dateModified" content="2022-02-14T10:22:39+00:00" />
-<meta itemprop="wordCount" content="219">
+<meta itemprop="wordCount" content="751">
 <meta itemprop="keywords" content="分布式,java,RPC," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="RPC框架概述"/>
-<meta name="twitter:description" content="RPC 即远程过程调用,为了解决不同服务之间的调用问题, 完整的RPC实现一般包含有传输协议和序列化协议 用途: 两台服务器A,B ,一个应用部署在A服务"/>
+<meta name="twitter:description" content="前言 RPC 即远程过程调用,为了解决不同服务之间的调用问题,是分布式系统常见的一种通信方法,从跨进程到跨物理机已经有几十年的历史 完整的RPC实现一"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -145,27 +145,109 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#交互形式">交互形式</a></li>
+    <li><a href="#现有rpc框架对比">现有RPC框架对比</a></li>
+    <li><a href="#rpc核心原理整体架构">RPC核心原理(整体架构)</a></li>
+  </ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
-      <ul>
+      <h1 id="前言">前言</h1>
+<ul>
+<li>RPC 即远程过程调用,为了解决不同服务之间的调用问题,是分布式系统常见的一种通信方法,从跨进程到跨物理机已经有几十年的历史</li>
+<li>完整的RPC实现一般包含有传输协议和序列化协议</li>
+<li>跨系统交互方式: RESTful,WebService,HTTP,基于DB做数据交换,基于MQ做数据交换,RPC</li>
+<li>用途:
+两台服务器A,B ,一个应用部署在A服务器上,需要调用B服务器上应用提供的函数/方法,这时候就需要通过网络来表达调用的语义和传达调用的数据,RPC就是为了解决这种情况下的问题出现的</li>
+<li>RPC除了网络通讯,还需要比较高效的序列化框架</li>
+<li>为什么需要分布式框架?
+访问量大的时候单台服务器负载过高,不能支持高效的服务,这时候就需要另外的服务器来辅助服务</li>
+</ul>
+<h1 id="交互形式">交互形式</h1>
+<ul>
 <li>
-<p>RPC 即远程过程调用,为了解决不同服务之间的调用问题,
-完整的RPC实现一般包含有传输协议和序列化协议</p>
+<p>依赖中间件做数据交互的技术: MySQL,RabbitMQ,Kafka,Redis</p>
+<p>其中对可靠性要求高的选择MySQL和RabbitMQ
+比如大数据技术的azkaban 目前只支持MySQL
+保存在数据库中间件的数据具有持久性,数据可以积压</p>
 </li>
 <li>
-<p>用途:
-两台服务器A,B ,一个应用部署在A服务器上,需要调用B服务器上应用提供的函数/方法,这时候就需要通过网络来表达调用的语义和传达调用的数据,RPC就是为了解决这种情况下的问题出现的</p>
-</li>
-<li>
-<p>RPC除了网络通讯,还需要比较高效的序列化框架</p>
-</li>
-<li>
-<p>为什么需要分布式框架?
-访问量大的时候单台服务器负载过高,不能支持高效的服务,这时候就需要另外的服务器来辅助服务,</p>
+<p>直接交互:RESTful,WebService,RPC,HTTP
+客户端会等待服务器的响应,中间没有缓冲</p>
+<p>RPC中:</p>
+<ul>
+<li>Server:Provider,服务提供者</li>
+<li>Client:Consumer,服务消费者</li>
+<li>Stub:存根,服务描述</li>
+</ul>
 </li>
 </ul>
+<h1 id="现有rpc框架对比">现有RPC框架对比</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">grpc</th>
+<th style="text-align:center">thrift</th>
+<th style="text-align:center">RMI</th>
+<th style="text-align:center">dubbo</th>
+<th style="text-align:center">Hadoop</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">开发语言</td>
+<td style="text-align:center">多语言</td>
+<td style="text-align:center">多语言</td>
+<td style="text-align:center">Java</td>
+<td style="text-align:center">Java</td>
+<td style="text-align:center">Java</td>
+</tr>
+<tr>
+<td style="text-align:center">序列化</td>
+<td style="text-align:center">protobuf</td>
+<td style="text-align:center">thrift格式</td>
+<td style="text-align:center">Java序列化</td>
+<td style="text-align:center">hession2</td>
+<td style="text-align:center">R/Writable</td>
+</tr>
+<tr>
+<td style="text-align:center">注册中心</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">JDK自带</td>
+<td style="text-align:center">Zookeeper等</td>
+<td style="text-align:center">无</td>
+</tr>
+<tr>
+<td style="text-align:center">服务定义</td>
+<td style="text-align:center">Protobuf文件</td>
+<td style="text-align:center">thrift文件</td>
+<td style="text-align:center">Java接口</td>
+<td style="text-align:center">Java接口</td>
+<td style="text-align:center">Java接口</td>
+</tr>
+<tr>
+<td style="text-align:center">服务治理</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">无</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">无</td>
+</tr>
+</tbody>
+</table>
+<h1 id="rpc核心原理整体架构">RPC核心原理(整体架构)</h1>
+<ul>
+<li>Server:Provider,暴露服务,服务提供方</li>
+<li>Client:Consumer,服务消费,调用远程服务</li>
+<li>Registry: 服务注册与发现</li>
+</ul>
+<p>客户端经过存根代理与服务端进行通信,为了能够使数据正常在网络传输,需要进行序列化和反序列化</p>
 
     </div>
 
