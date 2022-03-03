@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>impirewow</copyright>
-    <lastBuildDate>Sun, 13 Feb 2022 16:45:02 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/spring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Feb 2022 10:22:39 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring的AOP</title>
+      <link>http://localhost:1313/post/spring%E7%9A%84aop/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/spring%E7%9A%84aop/</guid>
+      <description>AOP原理 AOP 是面向切面编程，是通过代理的方式为程序添加统一功能，集中解决一些公共问题。AOP是OOP的延续，是软件开发中的一个热点，也是Sp</description>
+    </item>
+    
     <item>
       <title>Spring IOC 原理</title>
       <link>http://localhost:1313/post/spring-ioc-yuan-li/</link>

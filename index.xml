@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>impirewow</copyright>
-    <lastBuildDate>Sun, 27 Feb 2022 21:06:29 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Mar 2022 07:47:03 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于</title>
       <link>http://localhost:1313/about/</link>
@@ -18,21 +18,102 @@
     </item>
     
     <item>
+      <title>Trie树/字典树/前缀树 算法解析</title>
+      <link>http://localhost:1313/post/trie_tree/</link>
+      <pubDate>Thu, 03 Mar 2022 07:47:03 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/trie_tree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>同步集合(容器)</title>
+      <link>http://localhost:1313/post/synchronized_collections/</link>
+      <pubDate>Thu, 03 Mar 2022 07:28:30 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/synchronized_collections/</guid>
+      <description>同步容器存在的原因 在Java的集合容器框架中，主要有四大类别：List、Set、Queue、Map。 List、Set、Queue接口分别继承</description>
+    </item>
+    
+    <item>
+      <title>Java集合</title>
+      <link>http://localhost:1313/post/java_collections/</link>
+      <pubDate>Thu, 03 Mar 2022 06:05:20 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/java_collections/</guid>
+      <description>Java 集合概览 Java 集合， 也叫作容器，主要是由两大接口派生而来：一个是 Collection接口，主要用于存放单一元素；另一个是 Map 接口，主要用于存放键</description>
+    </item>
+    
+    <item>
+      <title>Java中的IO总结</title>
+      <link>http://localhost:1313/post/java_common_io/</link>
+      <pubDate>Thu, 03 Mar 2022 05:09:10 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/java_common_io/</guid>
+      <description>BIO,NIO,AIO 总结 Java 中的 BIO、NIO和 AIO 理解为是 Java 语言对操作系统的各种 IO 模型的封装。程序员在使用这些 API 的时候，不需要关心操作系统层面的知识，也不需要根</description>
+    </item>
+    
+    <item>
+      <title>TOP_K问题的几种解法</title>
+      <link>http://localhost:1313/post/top_k/</link>
+      <pubDate>Wed, 02 Mar 2022 15:20:41 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/top_k/</guid>
+      <description>问题描述 从arr[1, n]这n个数中，找出最大的k个数，这就是经典的TopK问题。 举例: 从arr[1, 12]={5,3,7,1,8,2,9,4,7,2,6,6} 这n=12个数中，找出最大的k=5个</description>
+    </item>
+    
+    <item>
+      <title>Sync_Lock</title>
+      <link>http://localhost:1313/post/sync_lock/</link>
+      <pubDate>Wed, 02 Mar 2022 14:31:34 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/sync_lock/</guid>
+      <description>synchronized锁的内部原理以及优化 synchronized锁又叫排他锁，也就是说在同一时间只允许一个线程获取锁 synchroniz</description>
+    </item>
+    
+    <item>
+      <title>JavaBean简述</title>
+      <link>http://localhost:1313/post/brief_javabean/</link>
+      <pubDate>Wed, 02 Mar 2022 13:36:18 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/brief_javabean/</guid>
+      <description>简而言之是符合一定规范编写的Java类,作为一种规范,大家总结了很多开发技巧,工具函数,符合这种规范的类可以被其他的程序员或者框架调用 Jav</description>
+    </item>
+    
+    <item>
+      <title>ArrayList和LinkedList的区别</title>
+      <link>http://localhost:1313/post/arraylist_linkedlist/</link>
+      <pubDate>Mon, 28 Feb 2022 15:37:55 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/arraylist_linkedlist/</guid>
+      <description>ArrayList是基于动态数组实现的非线程安全的集合；LinkedList是基于链表实现的非线程安全的集合。 对于随机index访问的get</description>
+    </item>
+    
+    <item>
+      <title>Redis服务下mybatis缓存的实现</title>
+      <link>http://localhost:1313/post/redis_mybatis_cache/</link>
+      <pubDate>Mon, 28 Feb 2022 15:31:57 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/redis_mybatis_cache/</guid>
+      <description>1. 缓存的概念。 什么是缓存（cache） cache是高速缓冲存储器，主要解决频繁使用的数据快速访问的问题。 如果两个硬件或者软件之间的速度存在较</description>
+    </item>
+    
+    <item>
+      <title>海量数据下的处理方式:分治和hash映射</title>
+      <link>http://localhost:1313/post/hash_divine_and_conquer/</link>
+      <pubDate>Mon, 28 Feb 2022 14:27:50 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/hash_divine_and_conquer/</guid>
+      <description>方法介绍 对于海量数据而言，由于无法一次性装进内存处理，导致我们不得不把海量的数据通过hash映射分割成相应的小块数据，然后再针对各个小块数据</description>
+    </item>
+    
+    <item>
       <title>Spring常用注解</title>
       <link>http://localhost:1313/post/spring_annotations/</link>
       <pubDate>Sun, 27 Feb 2022 21:06:29 +0800</pubDate>
       
       <guid>http://localhost:1313/post/spring_annotations/</guid>
       <description>1.启动注解 @SpringbootApplication 1 2 3 4 5 6 7 8 9 10 11 @Target(ElementType.TYPE) @Retention(RetentionPolicy.RUNTIME) @Documented @Inherited @SpringBootConfiguration @EnableAutoConfiguration @ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class), @Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) }) public @interface SpringBootApplication { // ... 此处省略源码 } @SpringBootConfig</description>
-    </item>
-    
-    <item>
-      <title>BitNami</title>
-      <link>http://localhost:1313/post/bitnami/</link>
-      <pubDate>Sat, 26 Feb 2022 13:11:00 +0800</pubDate>
-      
-      <guid>http://localhost:1313/post/bitnami/</guid>
-      <description>BitNami是</description>
     </item>
     
     <item>
@@ -356,7 +437,7 @@
       <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
       
       <guid>http://localhost:1313/post/spring%E7%9A%84aop/</guid>
-      <description>来自OOP(面向对象编程) AOP(面向切面编程)是通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术,可以对业务逻辑的各个部分进</description>
+      <description>AOP原理 AOP 是面向切面编程，是通过代理的方式为程序添加统一功能，集中解决一些公共问题。AOP是OOP的延续，是软件开发中的一个热点，也是Sp</description>
     </item>
     
     <item>
@@ -374,7 +455,7 @@
       <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
       
       <guid>http://localhost:1313/post/zookeeper%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
-      <description>要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper</description>
+      <description>要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper 一.ZooKeeper 简介 顾名思义 zookeeper 就是动物园管理员，他是用来管 ha</description>
     </item>
     
     <item>

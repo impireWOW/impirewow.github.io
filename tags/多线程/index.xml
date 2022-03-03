@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>impirewow</copyright>
-    <lastBuildDate>Mon, 14 Feb 2022 10:22:39 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Mar 2022 05:09:10 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java中的IO总结</title>
+      <link>http://localhost:1313/post/java_common_io/</link>
+      <pubDate>Thu, 03 Mar 2022 05:09:10 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/java_common_io/</guid>
+      <description>BIO,NIO,AIO 总结 Java 中的 BIO、NIO和 AIO 理解为是 Java 语言对操作系统的各种 IO 模型的封装。程序员在使用这些 API 的时候，不需要关心操作系统层面的知识，也不需要根</description>
+    </item>
+    
+    <item>
+      <title>Sync_Lock</title>
+      <link>http://localhost:1313/post/sync_lock/</link>
+      <pubDate>Wed, 02 Mar 2022 14:31:34 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/sync_lock/</guid>
+      <description>synchronized锁的内部原理以及优化 synchronized锁又叫排他锁，也就是说在同一时间只允许一个线程获取锁 synchroniz</description>
+    </item>
+    
     <item>
       <title></title>
       <link>http://localhost:1313/post/volatile%E7%9A%84%E4%BD%BF%E7%94%A8/</link>

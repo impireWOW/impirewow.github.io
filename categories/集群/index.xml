@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>集群 on impirewow的个人博客</title>
+    <link>http://localhost:1313/categories/%E9%9B%86%E7%BE%A4/</link>
+    <description>Recent content in 集群 on impirewow的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>impirewow</copyright>
+    <lastBuildDate>Mon, 28 Feb 2022 15:31:57 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E9%9B%86%E7%BE%A4/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redis服务下mybatis缓存的实现</title>
+      <link>http://localhost:1313/post/redis_mybatis_cache/</link>
+      <pubDate>Mon, 28 Feb 2022 15:31:57 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/redis_mybatis_cache/</guid>
+      <description>1. 缓存的概念。 什么是缓存（cache） cache是高速缓冲存储器，主要解决频繁使用的数据快速访问的问题。 如果两个硬件或者软件之间的速度存在较</description>
+    </item>
+    
+  </channel>
+</rss>

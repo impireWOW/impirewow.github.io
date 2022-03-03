@@ -14,7 +14,7 @@
       <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
       
       <guid>http://localhost:1313/post/zookeeper%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
-      <description>要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper</description>
+      <description>要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper 一.ZooKeeper 简介 顾名思义 zookeeper 就是动物园管理员，他是用来管 ha</description>
     </item>
     
     <item>

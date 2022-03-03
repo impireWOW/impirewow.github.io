@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据结构 on impirewow的个人博客</title>
+    <link>http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</link>
+    <description>Recent content in 数据结构 on impirewow的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>impirewow</copyright>
+    <lastBuildDate>Thu, 03 Mar 2022 07:47:03 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Trie树/字典树/前缀树 算法解析</title>
+      <link>http://localhost:1313/post/trie_tree/</link>
+      <pubDate>Thu, 03 Mar 2022 07:47:03 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/trie_tree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TOP_K问题的几种解法</title>
+      <link>http://localhost:1313/post/top_k/</link>
+      <pubDate>Wed, 02 Mar 2022 15:20:41 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/top_k/</guid>
+      <description>问题描述 从arr[1, n]这n个数中，找出最大的k个数，这就是经典的TopK问题。 举例: 从arr[1, 12]={5,3,7,1,8,2,9,4,7,2,6,6} 这n=12个数中，找出最大的k=5个</description>
+    </item>
+    
+    <item>
+      <title>JavaBean简述</title>
+      <link>http://localhost:1313/post/brief_javabean/</link>
+      <pubDate>Wed, 02 Mar 2022 13:36:18 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/brief_javabean/</guid>
+      <description>简而言之是符合一定规范编写的Java类,作为一种规范,大家总结了很多开发技巧,工具函数,符合这种规范的类可以被其他的程序员或者框架调用 Jav</description>
+    </item>
+    
+    <item>
+      <title>ArrayList和LinkedList的区别</title>
+      <link>http://localhost:1313/post/arraylist_linkedlist/</link>
+      <pubDate>Mon, 28 Feb 2022 15:37:55 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/arraylist_linkedlist/</guid>
+      <description>ArrayList是基于动态数组实现的非线程安全的集合；LinkedList是基于链表实现的非线程安全的集合。 对于随机index访问的get</description>
+    </item>
+    
+  </channel>
+</rss>

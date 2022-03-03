@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>impirewow</copyright>
-    <lastBuildDate>Sat, 26 Feb 2022 13:11:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Mar 2022 07:47:03 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Trie树/字典树/前缀树 算法解析</title>
+      <link>http://localhost:1313/post/trie_tree/</link>
+      <pubDate>Thu, 03 Mar 2022 07:47:03 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/trie_tree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TOP_K问题的几种解法</title>
+      <link>http://localhost:1313/post/top_k/</link>
+      <pubDate>Wed, 02 Mar 2022 15:20:41 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/top_k/</guid>
+      <description>问题描述 从arr[1, n]这n个数中，找出最大的k个数，这就是经典的TopK问题。 举例: 从arr[1, 12]={5,3,7,1,8,2,9,4,7,2,6,6} 这n=12个数中，找出最大的k=5个</description>
+    </item>
+    
     <item>
       <title>JZ6 从尾到头打印链表 </title>
       <link>http://localhost:1313/post/jz6-/</link>

@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Java集合 - impirewow的个人博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="impirewow" /><meta name="description" content="Java 集合概览 Java 集合， 也叫作容器，主要是由两大接口派生而来：一个是 Collection接口，主要用于存放单一元素；另一个是 Map 接口，主要用于存放键" /><meta name="keywords" content="impireWOW, tech, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/java_collections/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Java集合" />
+<meta property="og:description" content="Java 集合概览 Java 集合， 也叫作容器，主要是由两大接口派生而来：一个是 Collection接口，主要用于存放单一元素；另一个是 Map 接口，主要用于存放键" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/java_collections/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-03T06:05:20+08:00" />
+<meta property="article:modified_time" content="2022-03-03T06:05:20+08:00" />
+
+<meta itemprop="name" content="Java集合">
+<meta itemprop="description" content="Java 集合概览 Java 集合， 也叫作容器，主要是由两大接口派生而来：一个是 Collection接口，主要用于存放单一元素；另一个是 Map 接口，主要用于存放键"><meta itemprop="datePublished" content="2022-03-03T06:05:20+08:00" />
+<meta itemprop="dateModified" content="2022-03-03T06:05:20+08:00" />
+<meta itemprop="wordCount" content="2798">
+<meta itemprop="keywords" content="集合,java," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java集合"/>
+<meta name="twitter:description" content="Java 集合概览 Java 集合， 也叫作容器，主要是由两大接口派生而来：一个是 Collection接口，主要用于存放单一元素；另一个是 Map 接口，主要用于存放键"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">impireWOW</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">档案</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">impireWOW</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">档案</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Java集合</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-03-03 </span>
+        <div class="post-category">
+            <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
+            <a href="/categories/java/"> java </a>
+            <a href="/categories/%E9%9B%86%E5%90%88/"> 集合 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#java-集合概览">Java 集合概览</a></li>
+    <li><a href="#list-set-queue-map-四者的区别">List, Set, Queue, Map 四者的区别？</a></li>
+    <li><a href="#集合框架底层数据结构总结">集合框架底层数据结构总结</a>
+      <ul>
+        <li><a href="#collection-接口下面的集合">Collection 接口下面的集合:</a>
+          <ul>
+            <li><a href="#list">List</a></li>
+            <li><a href="#set">Set</a></li>
+            <li><a href="#queue">Queue</a></li>
+          </ul>
+        </li>
+        <li><a href="#map">Map</a>
+          <ul>
+            <li><a href="#hashmap">HashMap：</a></li>
+            <li><a href="#linkedhashmap">LinkedHashMap：</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#如何选用集合">如何选用集合?</a></li>
+    <li><a href="#collection子接口--list下各类的区别">Collection子接口&ndash;List下各类的区别</a>
+      <ul>
+        <li><a href="#arraylist和vector对比">ArrayList和Vector对比</a></li>
+        <li><a href="#arraylist和linkedlist对比">ArrayList和LinkedList对比</a></li>
+      </ul>
+    </li>
+    <li><a href="#collection子接口--set下各类的区别">Collection子接口&ndash;Set下各类的区别</a>
+      <ul>
+        <li><a href="#comparable-和-comparator-的区别">comparable 和 Comparator 的区别</a></li>
+        <li><a href="#hashsetlinkedhashset-和-treeset-三者的异同">HashSet、LinkedHashSet 和 TreeSet 三者的异同</a></li>
+      </ul>
+    </li>
+    <li><a href="#collection-子接口之-queue">Collection 子接口之 Queue</a>
+      <ul>
+        <li><a href="#queue-与-deque-的区别">Queue 与 Deque 的区别</a>
+          <ul>
+            <li><a href="#queue-1">Queue</a></li>
+            <li><a href="#deque">Deque</a></li>
+          </ul>
+        </li>
+        <li><a href="#arraydeque-与-linkedlist-的区别">ArrayDeque 与 LinkedList 的区别</a></li>
+      </ul>
+    </li>
+    <li><a href="#priorityqueue">PriorityQueue</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="java-集合概览">Java 集合概览</h1>
+<p>Java 集合， 也叫作容器，主要是由两大接口派生而来：一个是 Collection接口，主要用于存放单一元素；另一个是 Map 接口，主要用于存放键值对。对于Collection 接口，下面又有三个主要的子接口：List、Set 和 Queue。</p>
+<h1 id="list-set-queue-map-四者的区别">List, Set, Queue, Map 四者的区别？</h1>
+<ul>
+<li>List(对付顺序的好帮手): 存储的元素是有序的、可重复的。</li>
+<li>Set(注重独一无二的性质): 存储的元素是无序的、不可重复的。</li>
+<li>Queue(实现排队功能的叫号机): 按特定的排队规则来确定先后顺序，存储的元素是有序的、可重复的。</li>
+<li>Map(用 key 来搜索的专家): 使用键值对（key-value）存储，类似于数学上的函数 y=f(x)，&ldquo;x&rdquo; 代表 key，&ldquo;y&rdquo; 代表 value，key 是无序的、不可重复的，value 是无序的、可重复的，每个键最多映射到一个值。</li>
+</ul>
+<h1 id="集合框架底层数据结构总结">集合框架底层数据结构总结</h1>
+<h2 id="collection-接口下面的集合">Collection 接口下面的集合:</h2>
+<h3 id="list">List</h3>
+<ul>
+<li>Arraylist： Object[] 数组</li>
+<li>Vector：Object[] 数组</li>
+<li>LinkedList： 双向链表(JDK1.6 之前为循环链表，JDK1.7 取消了循环)</li>
+</ul>
+<h3 id="set">Set</h3>
+<ul>
+<li>HashSet(无序，唯一): 基于 HashMap 实现的，底层采用 HashMap 来保存元素</li>
+<li>LinkedHashSet: LinkedHashSet 是 HashSet 的子类，并且其内部是通过 LinkedHashMap 来实现的。有点类似于我们之前说的 LinkedHashMap 其内部是基于 HashMap 实现一样，不过还是有一点点区别的</li>
+<li>TreeSet(有序，唯一): 红黑树(自平衡的排序二叉树)</li>
+</ul>
+<h3 id="queue">Queue</h3>
+<ul>
+<li>PriorityQueue: Object[] 数组来实现二叉堆</li>
+<li>ArrayQueue: Object[] 数组 + 双指针</li>
+</ul>
+<h2 id="map">Map</h2>
+<h3 id="hashmap">HashMap：</h3>
+<p>JDK1.8 之前 HashMap 由数组+链表组成的，数组是 HashMap 的主体，链表则是主要为了解决哈希冲突而存在的（“拉链法”解决冲突）。JDK1.8 以后在解决哈希冲突时有了较大的变化，当链表长度大于阈值（默认为 8）（将链表转换成红黑树前会判断，如果当前数组的长度小于 64，那么会选择先进行数组扩容，而不是转换为红黑树）时，将链表转化为红黑树，以减少搜索时间</p>
+<h3 id="linkedhashmap">LinkedHashMap：</h3>
+<p>LinkedHashMap 继承自 HashMap，所以它的底层仍然是基于拉链式散列结构即由数组和链表或红黑树组成。另外，LinkedHashMap 在上面结构的基础上，增加了一条双向链表，使得上面的结构可以保持键值对的插入顺序。同时通过对链表进行相应的操作，实现了访问顺序相关逻辑。详细可以查看：《LinkedHashMap 源码详细分析（JDK1.8）》  (opens new window)</p>
+<ul>
+<li>Hashtable： 数组+链表组成，数组是 Hashtable 的主体，链表则是主要为了解决哈希冲突而存在的</li>
+<li>TreeMap： 红黑树（自平衡的排序二叉树）</li>
+</ul>
+<h1 id="如何选用集合">如何选用集合?</h1>
+<p>主要根据集合的特点来选用，
+比如我们需要<strong>根据键值获取到元素值</strong>时就选用 <strong>Map <strong>接口下的集合，需要</strong>排序</strong>时选择 <strong>TreeMap</strong>,
+不需要排序时就选择 <strong>HashMap</strong>,需要保证<strong>线程安全</strong>就选用 <strong>ConcurrentHashMap</strong>。 当我们只需要存放元素值时，就选择实现Collection 接口的集合，需要保证元素唯一时选择实现 Set 接口的集合比如 TreeSet 或 HashSet，不需要就选择实现 List 接口的比如 ArrayList 或 LinkedList，然后再根据实现这些接口的集合的特点来选用。</p>
+<h1 id="collection子接口--list下各类的区别">Collection子接口&ndash;List下各类的区别</h1>
+<h2 id="arraylist和vector对比">ArrayList和Vector对比</h2>
+<ul>
+<li>ArrayList是List的主要实现类,底层使用Object[]数组存储,适合频繁的查找,线程不安全</li>
+<li>Vector是List的古老实现类,底层使用Object[]存储,是线程安全的</li>
+</ul>
+<h2 id="arraylist和linkedlist对比">ArrayList和LinkedList对比</h2>
+<ul>
+<li>前者基于数组存储,后者基于链表存储</li>
+<li>前者适合查找,修改工作(数组特点);后者适合增加,删除,(链表特点)</li>
+<li>前者的末尾通常会预留一定的容量空间,后者即用即分配</li>
+</ul>
+<h1 id="collection子接口--set下各类的区别">Collection子接口&ndash;Set下各类的区别</h1>
+<h2 id="comparable-和-comparator-的区别">comparable 和 Comparator 的区别</h2>
+<ul>
+<li>comparable 接口实际上是出自java.lang包 它有一个 compareTo(Object obj)方法用来排序</li>
+<li>comparator接口实际上是出自 java.util 包它有一个compare(Object obj1, Object obj2)方法用来排序 一般我们需要对一个集合使用自定义排序时，我们就要重写compareTo()方法或compare()方法，当我们需要对某一个集合实现两种排序方式，比如一个 song 对象中的歌名和歌手名分别采用一种排序方法的话，我们可以重写compareTo()方法和使用自制的Comparator方法或者以两个 Comparator 来实现歌名排序和歌星名排序，第二种代表我们只能使用两个参数版的 Collections.sort().</li>
+</ul>
+<h2 id="hashsetlinkedhashset-和-treeset-三者的异同">HashSet、LinkedHashSet 和 TreeSet 三者的异同</h2>
+<ul>
+<li>HashSet、LinkedHashSet 和 TreeSet 都是 Set 接口的实现类，都能保证元素唯一，并且都不是线程安全的。</li>
+<li>HashSet、LinkedHashSet 和 TreeSet 的主要区别在于<strong>底层数据结构不同</strong>。HashSet 的底层数据结构是哈希表（基于 HashMap 实现）。LinkedHashSet 的底层数据结构是链表和哈希表，元素的插入和取出顺序满足 FIFO。TreeSet 底层数据结构是红黑树，元素是有序的，排序的方式有自然排序和定制排序。</li>
+<li>底层数据结构不同又导致这三者的应用场景不同。HashSet 用于不需要保证元素插入和取出顺序的场景，LinkedHashSet 用于保证元素的插入和取出顺序满足 FIFO 的场景，TreeSet 用于支持对元素自定义排序规则的场景。</li>
+</ul>
+<h1 id="collection-子接口之-queue">Collection 子接口之 Queue</h1>
+<h2 id="queue-与-deque-的区别">Queue 与 Deque 的区别</h2>
+<h3 id="queue-1">Queue</h3>
+<ul>
+<li>Queue 是单端队列，只能从一端插入元素，另一端删除元素，实现上一般遵循 先进先出（FIFO） 规则。</li>
+<li>Queue 扩展了 Collection 的接口，根据 因为容量问题而导致操作失败后处理方式的不同 可以分为两类方法: 一种在操作失败后会抛出异常，另一种则会返回特殊值。
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Queue接口</th>
+<th style="text-align:center">抛出异常</th>
+<th style="text-align:center">返回特殊值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">插入队尾</td>
+<td style="text-align:center">add(E e)</td>
+<td style="text-align:center">offer(E e)</td>
+</tr>
+<tr>
+<td style="text-align:center">删除队首</td>
+<td style="text-align:center">remove()</td>
+<td style="text-align:center">poll()</td>
+</tr>
+<tr>
+<td style="text-align:center">查询队首元素</td>
+<td style="text-align:center">element()</td>
+<td style="text-align:center">peek()</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<h3 id="deque">Deque</h3>
+<ul>
+<li>
+<p>Deque 是双端队列，在队列的两端均可以插入或删除元素。</p>
+</li>
+<li>
+<p>Deque 扩展了 Queue 的接口, 增加了在队首和队尾进行插入和删除的方法，同样根据失败后处理方式的不同分为两类：</p>
+</li>
+<li>
+<p>Deque 还提供有 push() 和 pop() 等其他方法，可用于模拟栈。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Deque接口</th>
+<th style="text-align:center">抛出异常</th>
+<th style="text-align:center">返回特殊值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">插入队首</td>
+<td style="text-align:center">addFirst(E e)</td>
+<td style="text-align:center">offerFirst(E e)</td>
+</tr>
+<tr>
+<td style="text-align:center">插入队尾</td>
+<td style="text-align:center">addLast(E e)</td>
+<td style="text-align:center">offerLast(E e)</td>
+</tr>
+<tr>
+<td style="text-align:center">删除队首</td>
+<td style="text-align:center">removeFirst()</td>
+<td style="text-align:center">pollFirst()</td>
+</tr>
+<tr>
+<td style="text-align:center">删除队尾</td>
+<td style="text-align:center">removeLast()</td>
+<td style="text-align:center">pollLast()</td>
+</tr>
+<tr>
+<td style="text-align:center">查询队首元素</td>
+<td style="text-align:center">getFirst()</td>
+<td style="text-align:center">peekFirst()</td>
+</tr>
+<tr>
+<td style="text-align:center">查询队尾元素</td>
+<td style="text-align:center">getLast()</td>
+<td style="text-align:center">peekLast()</td>
+</tr>
+</tbody>
+</table>
+<h2 id="arraydeque-与-linkedlist-的区别">ArrayDeque 与 LinkedList 的区别</h2>
+<ul>
+<li>ArrayDeque 是基于可变长的数组和双指针来实现，而 LinkedList 则通过链表来实现。</li>
+<li>ArrayDeque 不支持存储 NULL 数据，但 LinkedList 支持。
+ArrayDeque 是在 JDK1.6 才被引入的，而LinkedList 早在 JDK1.2 时就已经存在。</li>
+<li>ArrayDeque 插入时可能存在扩容过程, 不过均摊后的插入操作依然为 O(1)。虽然 LinkedList 不需要扩容，但是每次插入数据时均需要申请新的堆空间，均摊性能相比更慢。</li>
+<li>从性能的角度上，选用 ArrayDeque 来实现队列要比 LinkedList 更好。此外，ArrayDeque 也可以用于实现栈。</li>
+</ul>
+<h1 id="priorityqueue">PriorityQueue</h1>
+<ul>
+<li>PriorityQueue 是在 JDK1.5 中被引入的, 其与 Queue 的区别在于元素出队顺序是与优先级相关的，即总是优先级最高的元素先出队。</li>
+<li>PriorityQueue 利用了二叉堆的数据结构来实现，底层使用可变长的数组来存储数据</li>
+<li>PriorityQueue 通过堆元素的上浮和下沉，实现了在 O(logn) 的时间复杂度内插入元素和删除堆顶元素。 PriorityQueue 是非线程安全的，且不支持存储 NULL 和 non-comparable 的对象。</li>
+<li>PriorityQueue 默认是小顶堆，但可以接收一个 Comparator 作为构造参数，从而来自定义元素优先级的先后。</li>
+</ul>
+<p>参考链接: <a href="http://javaguide.cn/java/collection/java-collection-questions-01/#arraydeque-%E4%B8%8E-linkedlist-%E7%9A%84%E5%8C%BA%E5%88%AB">http://javaguide.cn/java/collection/java-collection-questions-01/#arraydeque-%E4%B8%8E-linkedlist-%E7%9A%84%E5%8C%BA%E5%88%AB</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">impirewow</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-03-03
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E9%9B%86%E5%90%88/">集合</a>
+          <a href="/tags/java/">java</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/synchronized_collections/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">同步集合(容器)</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/java_common_io/">
+            <span class="next-text nav-default">Java中的IO总结</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="impirewow@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>impirewow</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

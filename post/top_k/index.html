@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>TOP_K问题的几种解法 - impirewow的个人博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="impirewow" /><meta name="description" content="问题描述 从arr[1, n]这n个数中，找出最大的k个数，这就是经典的TopK问题。 举例: 从arr[1, 12]={5,3,7,1,8,2,9,4,7,2,6,6} 这n=12个数中，找出最大的k=5个" /><meta name="keywords" content="impireWOW, tech, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/top_k/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="TOP_K问题的几种解法" />
+<meta property="og:description" content="问题描述 从arr[1, n]这n个数中，找出最大的k个数，这就是经典的TopK问题。 举例: 从arr[1, 12]={5,3,7,1,8,2,9,4,7,2,6,6} 这n=12个数中，找出最大的k=5个" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/top_k/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-02T15:20:41+08:00" />
+<meta property="article:modified_time" content="2022-03-02T15:20:41+08:00" />
+
+<meta itemprop="name" content="TOP_K问题的几种解法">
+<meta itemprop="description" content="问题描述 从arr[1, n]这n个数中，找出最大的k个数，这就是经典的TopK问题。 举例: 从arr[1, 12]={5,3,7,1,8,2,9,4,7,2,6,6} 这n=12个数中，找出最大的k=5个"><meta itemprop="datePublished" content="2022-03-02T15:20:41+08:00" />
+<meta itemprop="dateModified" content="2022-03-02T15:20:41+08:00" />
+<meta itemprop="wordCount" content="2049">
+<meta itemprop="keywords" content="算法,数据结构," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="TOP_K问题的几种解法"/>
+<meta name="twitter:description" content="问题描述 从arr[1, n]这n个数中，找出最大的k个数，这就是经典的TopK问题。 举例: 从arr[1, 12]={5,3,7,1,8,2,9,4,7,2,6,6} 这n=12个数中，找出最大的k=5个"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">impireWOW</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">档案</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">impireWOW</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">档案</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">TOP_K问题的几种解法</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-03-02 </span>
+        <div class="post-category">
+            <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
+            <a href="/categories/%E7%AE%97%E6%B3%95/"> 算法 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#问题描述">问题描述</a></li>
+    <li><a href="#解法">解法</a>
+      <ul>
+        <li><a href="#全局排序">全局排序</a></li>
+        <li><a href="#局部排序">局部排序</a></li>
+        <li><a href="#堆">堆</a></li>
+        <li><a href="#随机选择">随机选择</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="问题描述">问题描述</h1>
+<p>从arr[1, n]这n个数中，找出最大的k个数，这就是经典的TopK问题。</p>
+<p>举例:
+从arr[1, 12]={5,3,7,1,8,2,9,4,7,2,6,6} 这n=12个数中，找出最大的k=5个。</p>
+<h1 id="解法">解法</h1>
+<h2 id="全局排序">全局排序</h2>
+<p>伪代码：</p>
+<p>sort(arr, 1, n);</p>
+<p>return arr[1, k];</p>
+<p>时间复杂度：<strong>O(n*lg(n))</strong></p>
+<p>分析：明明只需要TopK，却将全局都排序了，这也是这个方法复杂度非常高的原因。那能不能不全局排序，而只局部排序呢？这就引出了第二个优化方法。</p>
+<h2 id="局部排序">局部排序</h2>
+<p>不再全局排序，只对最大的k个排序。
+冒泡是一个很常见的排序方法，每冒一个泡，找出最大值，
+<strong>冒k个泡</strong>，就得到TopK。</p>
+<p>伪代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">for(i=1 to k){
+
+bubble_find_max(arr,i);
+
+}
+
+return arr[1, k];
+</code></pre></td></tr></table>
+</div>
+</div><p>时间复杂度：<strong>O(n*k)</strong></p>
+<p>分析：冒泡，将全局排序优化为了局部排序，非TopK的元素是不需要排序的，节省了计算资源。不少朋友会想到，需求是TopK，是不是这最大的k个元素也不需要排序呢？这就引出了第三个优化方法。</p>
+<h2 id="堆">堆</h2>
+<blockquote>
+<p>思路：只找到TopK，不排序TopK。</p>
+</blockquote>
+<p>先用前k个元素生成一个小顶堆，这个小顶堆用于存储，当前最大的k个元素。
+接着，从第k+1个元素开始扫描，和堆顶（堆中最小的元素）比较，如果被扫描的元素大于堆顶，则替换堆顶的元素，并调整堆，以保证堆内的k个元素，总是当前最大的k个元素。</p>
+<p>直到，扫描完所有n-k个元素，最终堆中的k个元素，就是猥琐求的TopK。</p>
+<p>伪代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">heap[k] = make_heap(arr[1, k]);
+
+for(i=k+1 to n){
+
+adjust_heap(heep[k],arr[i]);
+
+}
+
+return heap[k];
+</code></pre></td></tr></table>
+</div>
+</div><p>时间复杂度：<strong>O(n*lg(k))</strong>
+n个元素扫一遍，假设运气很差，每次都入堆调整，调整时间复杂度为堆的高度，即lg(k)，故整体时间复杂度是n*lg(k)。</p>
+<h2 id="随机选择">随机选择</h2>
+<p>随机选择算法在是《算法导论》中一个经典的算法，其时间复杂度为O(n)，是一个线性复杂度的方法。</p>
+<p>这个算法的前序知识是快速排序
+其伪代码是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">void quick_sort(int[]arr, int low, inthigh){
+
+if(low== high) return;
+
+int i = partition(arr, low, high);
+
+quick_sort(arr, low, i-1);
+
+quick_sort(arr, i+1, high);
+
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>其核心算法思想是，<strong>分治法</strong>。</p>
+<p>分治法（Divide&amp;Conquer），把一个大的问题，转化为若干个子问题（Divide），每个子问题“都”解决，大的问题便随之解决（Conquer）。这里的关键词是“都”。从伪代码里可以看到，快速排序递归时，先通过partition把数组分隔为两个部分，两个部分“都”要再次递归。</p>
+<p>分治法有一个特例，叫减治法。</p>
+<p>减治法（Reduce&amp;Conquer），把一个大的问题，转化为若干个子问题（Reduce），这些子问题中“只”解决一个，大的问题便随之解决（Conquer）。这里的关键词是“只”。</p>
+<p>二分查找binary_search，BS，是一个典型的运用减治法思想的算法，其伪代码是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">int BS(int[]arr, int low, inthigh, int target){
+
+if(low&gt; high) return -1;
+
+mid= (low+high)/2;
+
+if(arr[mid]== target) return mid;
+
+if(arr[mid]&gt; target)
+
+return BS(arr, low, mid-1, target);
+
+else
+
+return BS(arr, mid+1, high, target);
+
+}
+</code></pre></td></tr></table>
+</div>
+</div><p>从伪代码可以看到，二分查找，一个大的问题，可以用一个mid元素，分成左半区，右半区两个子问题。而左右两个子问题，只需要解决其中一个，递归一次，就能够解决二分查找全局的问题。</p>
+<p>通过分治法与减治法的描述，可以发现，分治法的复杂度一般来说是大于减治法的：</p>
+<p>快速排序：<strong>O(n*lg(n))</strong></p>
+<p>二分查找：<strong>O(lg(n))</strong></p>
+<p>快速排序的核心是：</p>
+<p><strong>i = partition(arr, low, high);</strong></p>
+<p>这个partition是干嘛的呢？</p>
+<p>顾名思义，partition会把整体分为两个部分。</p>
+<p>更具体的，会用数组arr中的一个元素（默认是第一个元素t=arr[low]）为划分依据，将数据arr[low, high]划分成左右两个子数组：</p>
+<p>左半部分，都比t大</p>
+<p>右半部分，都比t小</p>
+<p>中间位置i是划分元素</p>
+<p>以上述TopK的数组为例，先用第一个元素t=arr[low]为划分依据，扫描一遍数组，把数组分成了两个半区：</p>
+<p>左半区比t大</p>
+<p>右半区比t小</p>
+<p>中间是t</p>
+<p>partition返回的是t最终的位置i。</p>
+<p>很容易知道，partition的时间复杂度是O(n)。</p>
+<p>TopK是希望求出arr[1,n]中最大的k个数，那如果找到了第k大的数，做一次partition，不就一次性找到最大的k个数了么？</p>
+<p>此时,问题变成了在arr[1, n]中找到第k大的数.
+再回过头来看看第一次partition，划分之后：</p>
+<p><strong>i = partition(arr, 1, n);</strong></p>
+<ul>
+<li>
+<p>如果i大于k，则说明arr[i]左边的元素都大于k，于是只递归arr[1, i-1]里第k大的元素即可；</p>
+</li>
+<li>
+<p>如果i小于k，则说明说明第k大的元素在arr[i]的右边，于是只递归arr[i+1, n]里第k-i大的元素即可；</p>
+</li>
+</ul>
+<p>这就是随机选择算法randomized_select，RS，其伪代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">int RS(arr, low, high, k){
+
+if(low== high) return arr[low];
+
+i= partition(arr, low, high);
+
+temp= i-low; //数组前半部分元素个数
+
+if(temp&gt;=k)
+
+return RS(arr, low, i-1, k); //求前半部分第k大
+
+else
+
+return RS(arr, i+1, high, k-i); //求后半部分第k-i大
+
+}
+
+</code></pre></td></tr></table>
+</div>
+</div><p>这是一个典型的减治算法，递归内的两个分支，最终只会执行一个，它的时间复杂度是O(n)。</p>
+<p>分治法，大问题分解为小问题，小问题都要递归各个分支，例如：快速排序</p>
+<p>减治法，大问题分解为小问题，小问题只要递归一个分支，例如：二分查找，随机选择</p>
+<p>通过随机选择（randomized_select），找到arr[1, n]中第k大的数，再进行一次partition，就能得到TopK的结果。</p>
+<p>参考文章: <a href="https://zhuanlan.zhihu.com/p/76734219">https://zhuanlan.zhihu.com/p/76734219</a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">impirewow</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-03-02
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+          <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/java_common_io/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Java中的IO总结</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/sync_lock/">
+            <span class="next-text nav-default">Sync_Lock</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="impirewow@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>impirewow</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

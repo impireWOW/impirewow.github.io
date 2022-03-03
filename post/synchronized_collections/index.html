@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>同步集合(容器) - impirewow的个人博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="impirewow" /><meta name="description" content="同步容器存在的原因 在Java的集合容器框架中，主要有四大类别：List、Set、Queue、Map。 List、Set、Queue接口分别继承" /><meta name="keywords" content="impireWOW, tech, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/synchronized_collections/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="同步集合(容器)" />
+<meta property="og:description" content="同步容器存在的原因 在Java的集合容器框架中，主要有四大类别：List、Set、Queue、Map。 List、Set、Queue接口分别继承" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/synchronized_collections/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-03T07:28:30+08:00" />
+<meta property="article:modified_time" content="2022-03-03T07:28:30+08:00" />
+
+<meta itemprop="name" content="同步集合(容器)">
+<meta itemprop="description" content="同步容器存在的原因 在Java的集合容器框架中，主要有四大类别：List、Set、Queue、Map。 List、Set、Queue接口分别继承"><meta itemprop="datePublished" content="2022-03-03T07:28:30+08:00" />
+<meta itemprop="dateModified" content="2022-03-03T07:28:30+08:00" />
+<meta itemprop="wordCount" content="1627">
+<meta itemprop="keywords" content="集合,java," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="同步集合(容器)"/>
+<meta name="twitter:description" content="同步容器存在的原因 在Java的集合容器框架中，主要有四大类别：List、Set、Queue、Map。 List、Set、Queue接口分别继承"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">impireWOW</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">档案</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">impireWOW</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">档案</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">同步集合(容器)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-03-03 </span>
+        <div class="post-category">
+            <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
+            <a href="/categories/java/"> java </a>
+            <a href="/categories/%E9%9B%86%E5%90%88/"> 集合 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#同步容器存在的原因">同步容器存在的原因</a></li>
+    <li><a href="#java中的同步容器类">Java中的同步容器类</a></li>
+    <li><a href="#同步容器的优缺点">同步容器的优缺点</a>
+      <ul>
+        <li><a href="#优点">优点：</a></li>
+        <li><a href="#缺点">缺点：</a></li>
+      </ul>
+    </li>
+    <li><a href="#同步容器的使用场景">同步容器的使用场景</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="同步容器存在的原因">同步容器存在的原因</h1>
+<p>在Java的集合容器框架中，主要有四大类别：List、Set、Queue、Map。</p>
+<p>List、Set、Queue接口分别继承了Collection接口，Map本身是一个接口。</p>
+<p>Collection和Map是一个顶层接口，而List、Set、Queue则继承了Collection接口，分别代表数组、集合和队列这三大类容器。</p>
+<p>像ArrayList、LinkedList都是实现了List接口，HashSet实现了Set接口，而Deque（双向队列，允许在队首、队尾进行入队和出队操作）继承了Queue接口，PriorityQueue实现了Queue接口。另外LinkedList（实际上是双向链表）实现了了Deque接口。</p>
+<p>像ArrayList、LinkedList、HashMap这些容器都是<strong>非线程安全</strong>的。</p>
+<p>如果有多个线程并发地访问这些容器时，就会出现问题。</p>
+<p>因此，在编写程序时，必须要求程序员手动地在任何访问到这些容器的地方进行同步处理，这样导致在使用这些容器的时候非常地不方便。</p>
+<p>所以，Java提供了同步容器供用户使用,把容器类同步化，这样我们在并发中使用容器时，就不用手动同步，因为内部已经自动同步了</p>
+<h1 id="java中的同步容器类">Java中的同步容器类</h1>
+<p>在Java中，同步容器主要包括2类：</p>
+<ol>
+<li>
+<p>Vector、Stack、HashTable</p>
+</li>
+<li>
+<p>Collections类中提供的静态工厂方法创建的类,比如Collections.SynchronizedList、 Collections.SynchronizedSet等,把原有的容器进行包装（通过this.list = list直接指向需要同步的容器)，然后局部加锁，这样一来，既生成了线程安全的类，又不用太费力；</p>
+</li>
+</ol>
+<p>Vector实现了List接口，Vector实际上就是一个数组，和ArrayList类似，但是Vector中的方法都是synchronized方法，即进行了同步措施,相比于ArrayList是线程安全的.</p>
+<p>Stack也是一个同步容器，它的方法也用synchronized进行了同步，它实际上是继承于Vector类。</p>
+<p>HashTable实现了Map接口，它和HashMap很相似，但是HashTable进行了同步处理，而HashMap没有。</p>
+<p>Collection<strong>s</strong>类是一个工具提供类，注意，它和Collection不同，Collection是一个顶层的<strong>接口</strong>。在Collections类中提供了大量的方法，比如对集合或者容器进行排序、查找等操作。</p>
+<h1 id="同步容器的优缺点">同步容器的优缺点</h1>
+<h2 id="优点">优点：</h2>
+<p>并发编程中，独立操作是线程安全的，比如单独的add操作</p>
+<h2 id="缺点">缺点：</h2>
+<ul>
+<li>
+<p>性能差，基本上所有方法都上锁，完美的诠释了“宁可错杀一千，不可放过一个”</p>
+</li>
+<li>
+<p>复合操作不安全，比如putIfAbsent操作（如果没有则添加）</p>
+</li>
+<li>
+<p>快速失败机制，这种机制会报错提示ConcurrentModificationException，一般出现在当某个线程在遍历容器时，其他线程恰好修改了这个容器的长度</p>
+</li>
+</ul>
+<p>什么情况下并发修改不会爆出异常呢？有两种：</p>
+<ol>
+<li>
+<p>遍历没加锁的情况：对于第二种同步容器(Collections内部类)来说，假设线程A修改了modCount的值，但是没有同步到线程B，那么线程B遍历就不会发生异常（但实际上问题已经存在了，只是暂时没有出现）</p>
+</li>
+<li>
+<p>依赖线程执行顺序的情况：对于所有的同步容器来说，假设线程B已经遍历完了容器，此时线程A才开始遍历修改，那么也不会发生异常</p>
+</li>
+</ol>
+<h1 id="同步容器的使用场景">同步容器的使用场景</h1>
+<p>多用在并发编程，但是并发量又不是很大的场景，比如一些简单的个人博客系统（具体多少并发量算大，这个也是分很多情况而论的，并不是说每秒处理超过多少个请求，就说是高并发，还要结合吞吐量、系统响应时间等多个因素一起考虑）</p>
+<p>具体点来说的话，有以下几个场景：</p>
+<p>写多读少，这个时候同步容器和并发容器的性能差别不大（并发容器可以并发读）
+自定义的复合操作，比如getLast等操作（putIfAbsent就算了，因为并发容器有默认提供这个复合操作）</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">impirewow</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-03-03
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E9%9B%86%E5%90%88/">集合</a>
+          <a href="/tags/java/">java</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/trie_tree/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Trie树/字典树/前缀树 算法解析</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/java_collections/">
+            <span class="next-text nav-default">Java集合</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="impirewow@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>impirewow</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

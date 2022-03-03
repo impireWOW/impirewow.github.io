@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="impirewow" /><meta name="description" content="要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper" /><meta name="keywords" content="impireWOW, tech, blog" />
+<meta name="author" content="impirewow" /><meta name="description" content="要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper 一.ZooKeeper 简介 顾名思义 zookeeper 就是动物园管理员，他是用来管 ha" /><meta name="keywords" content="impireWOW, tech, blog" />
 
 
 
@@ -40,19 +40,19 @@
 
 
 <meta property="og:title" content="Zookeeper的使用" />
-<meta property="og:description" content="要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper" />
+<meta property="og:description" content="要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper 一.ZooKeeper 简介 顾名思义 zookeeper 就是动物园管理员，他是用来管 ha" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/post/zookeeper%E7%9A%84%E4%BD%BF%E7%94%A8/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-02-14T10:22:39+00:00" />
 <meta property="article:modified_time" content="2022-02-14T10:22:39+00:00" />
 
 <meta itemprop="name" content="Zookeeper的使用">
-<meta itemprop="description" content="要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper"><meta itemprop="datePublished" content="2022-02-14T10:22:39+00:00" />
+<meta itemprop="description" content="要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper 一.ZooKeeper 简介 顾名思义 zookeeper 就是动物园管理员，他是用来管 ha"><meta itemprop="datePublished" content="2022-02-14T10:22:39+00:00" />
 <meta itemprop="dateModified" content="2022-02-14T10:22:39+00:00" />
-<meta itemprop="wordCount" content="36">
+<meta itemprop="wordCount" content="3363">
 <meta itemprop="keywords" content="RPC,zookeeper," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Zookeeper的使用"/>
-<meta name="twitter:description" content="要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper"/>
+<meta name="twitter:description" content="要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper 一.ZooKeeper 简介 顾名思义 zookeeper 就是动物园管理员，他是用来管 ha"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -136,7 +136,6 @@
         <div class="post-category">
             <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
             <a href="/categories/%E5%88%86%E5%B8%83%E5%BC%8F/"> 分布式 </a>
-            <a href="/categories/%E5%A1%AB%E5%9D%91/"> 填坑 </a>
             </div>
         
       </div>
@@ -145,12 +144,153 @@
     <div class="post-toc" id="post-toc">
   <h2 class="post-toc-title">文章目录</h2>
   <div class="post-toc-content always-active">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一zookeeper-简介">一.ZooKeeper 简介</a></li>
+    <li><a href="#二zookeeper-的作用">二.ZooKeeper 的作用</a></li>
+    <li><a href="#三zookeeper-的存储结构">三.Zookeeper 的存储结构</a></li>
+    <li><a href="#设计目的">设计目的</a></li>
+    <li><a href="#提供应用唯一标识">提供应用唯一标识</a></li>
+    <li><a href="#配置zookeeper">配置zookeeper</a>
+      <ul>
+        <li><a href="#zookeeper-目录结构">Zookeeper 目录结构</a></li>
+        <li><a href="#zookeeper配置文件">zookeeper配置文件</a></li>
+        <li><a href="#启动停止zookeeper服务器">启动/停止zookeeper服务器</a></li>
+        <li><a href="#启动cli">启动CLI</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </div>
 </div>
     <div class="post-content">
       <p>要设计一个RPC框架,先设计一个注册中心吧,那么就选择Zookeeper</p>
+<h1 id="一zookeeper-简介">一.ZooKeeper 简介</h1>
+<p>顾名思义 zookeeper 就是动物园管理员，他是用来管 hadoop（大象）、Hive(蜜蜂)、pig(小猪)的管理员， Apache Hbase 和 Apache Solr 的分布式集群都用到了 zookeeper；Zookeeper: 是一个分布式的、开源的程序协调服务，是 hadoop 项目下的一个子项目。他提供的主要功能包括：配置管理、名字服务、分布式锁、集群管理。</p>
+<h1 id="二zookeeper-的作用">二.ZooKeeper 的作用</h1>
+<ol>
+<li>配置管理</li>
+</ol>
+<p>在我们的应用中除了代码外，还有一些就是各种配置。比如数据库连接等。一般我们都 是使用配置文件的方式，在代码中引入这些配置文件。当我们只有一种配置，只有一台服务 器，并且不经常修改的时候，使用配置文件是一个很好的做法，但是如果我们配置非常多， 有很多服务器都需要这个配置，这时使用配置文件就不是个好主意了。这个时候往往需要寻 找一种集中管理配置的方法，我们在这个集中的地方修改了配置，所有对这个配置感兴趣的 都可以获得变更。Zookeeper 就是这种服务，它使用 Zab 这种一致性协议来提供一致性。现 在有很多开源项目使用 Zookeeper 来维护配置，比如在 HBase 中，客户端就是连接一个 Zookeeper，获得必要的 HBase 集群的配置信息，然后才可以进一步操作。还有在开源的消 息队列 Kafka 中，也使用 Zookeeper来维护broker的信息。在 Alibaba开源的 SOA 框架Dubbo 中也广泛的使用 Zookeeper 管理一些配置来实现服务治理。</p>
+<ol start="2">
+<li>名字服务</li>
+</ol>
+<p>名字服务这个就很好理解了。比如为了通过网络访问一个系统，我们得知道对方的 IP 地址，但是 IP 地址对人非常不友好，这个时候我们就需要使用域名来访问。但是计算机是不能是域名的。怎么办呢？如果我们每台机器里都备有一份域名到 IP 地址的映射，这个倒是能解决一部分问题，但是如果域名对应的 IP 发生变化了又该怎么办呢？于是我们有了 DNS 这个东西。我们只需要访问一个大家熟知的(known)的点，它就会告诉你这个域名对应 的 IP 是什么。在我们的应用中也会存在很多这类问题，特别是在我们的服务特别多的时候， 如果我们在本地保存服务的地址的时候将非常不方便，但是如果我们只需要访问一个大家都 熟知的访问点，这里提供统一的入口，那么维护起来将方便得多了。</p>
+<ol start="3">
+<li>分布式锁</li>
+</ol>
+<p>其实在第一篇文章中已经介绍了 Zookeeper 是一个分布式协调服务。这样我们就可以利用 Zookeeper 来协调多个分布式进程之间的活动。比如在一个分布式环境中，为了提高可靠性，我们的集群的每台服务器上都部署着同样的服务。但是，一件事情如果集群中的每个服务器都进行的话，那相互之间就要协调，编程起来将非常复杂。而如果我们只让一个服务进 行操作，那又存在单点。通常还有一种做法就是使用分布式锁，在某个时刻只让一个服务去干活，当这台服务出问题的时候锁释放，立即 fail over 到另外的服务。这在很多分布式系统中都是这么做，这种设计有一个更好听的名字叫 Leader Election(leader选举)。比如HBase的Master就是采用这种机制。但要注意的是分布式锁跟同一个进程的锁还是有区别的，所以使用的时候要比同一个进程里的锁更谨慎的使用。</p>
+<ol start="4">
+<li>集群管理</li>
+</ol>
+<p>在分布式的集群中，经常会由于各种原因，比如硬件故障，软件故障，网络问题，有些 节点会进进出出。有新的节点加入进来，也有老的节点退出集群。这个时候，集群中其他机 器需要感知到这种变化，然后根据这种变化做出对应的决策。比如我们是一个分布式存储系统，有一个中央控制节点负责存储的分配，当有新的存储进来的时候我们要根据现在集群目前的状态来分配存储节点。这个时候我们就需要动态感知到集群目前的状态。还有，比如一个分布式的 SOA 架构中，服务是一个集群提供的，当消费者访问某个服务时，就需要采用 某种机制发现现在有哪些节点可以提供该服务(这也称之为服务发现，比如 Alibaba 开源的 SOA 框架 Dubbo 就采用了 Zookeeper 作为服务发现的底层机制)。还有开源的 Kafka 队列就 采用了 Zookeeper 作为 Cosnumer 的上下线管理。</p>
+<h1 id="三zookeeper-的存储结构">三.Zookeeper 的存储结构</h1>
+<ol>
+<li>Znode</li>
+</ol>
+<p>在 Zookeeper 中，znode 是一个跟Unix文件系统路径相似的节点，可以往这个节点存储 或获取数据。 Zookeeper 底层是一套数据结构。这个存储结构是一个树形结构，其上的每一个节点， 我们称之为“znode” ,zookeeper 中的数据是按照“树”结构进行存储的。而且 znode 节点还分为 4 中不同的类型。 每一个 znode 默认能够存储 1MB 的数据（对于记录状态性质的数据来说，够了） 可以使用 zkCli 命令，登录到 zookeeper 上，并通过 ls、create、delete、get、set 等命令 操作这些 znode 节点</p>
+<ol start="2">
+<li>Znode 节点类型</li>
+</ol>
+<p>(1)PERSISTENT 持久化节点: 所谓持久节点，是指在节点创建后，就一直存在，直到 有删除操作来主动清除这个节点。否则不会因为创建该节点的客户端会话失效而消失。</p>
+<p>(2)PERSISTENT_SEQUENTIAL 持久顺序节点：这类节点的基本特性和上面的节点类 型是一致的。额外的特性是，在 zookeeper 中，每个父节点会为他的第一级子节点维护一份时序， 会记录每个子节点创建的先后顺序。基于这个特性，在创建子节点的时候，可以设置这个属性，那么在创建节点过程中，ZK 会自动为给定节点名加上一个数字后缀，作为新的节点名。 这个数字后缀的范围是整型的最大值。 在创建节点的时候只需要传入节点 “/test_”，这样 之后，zookeeper 自动会给”test_”后面补充数字。</p>
+<p>(3)EPHEMERAL 临时节点：和持久节点不同的是，临时节点的生命周期和客户端会 话绑定。也就是说，如果客户端会话失效，那么这个节点就会自动被清除掉。注意，这里提 到的是会话失效，而非连接断开。另外，在临时节点下面不能创建子节点。 这里还要注意一件事，就是当你客户端会话失效后，所产生的节点也不是一下子就消失了，也要过一段时间，大概是 10 秒以内，可以试一下，本机操作生成节点，在服务器端用 命令来查看当前的节点数目，你会发现客户端已经 stop，但是产生的节点还在。</p>
+<p>(4) EPHEMERAL_SEQUENTIAL 临时自动编号节点：此节点是属于临时节点，不过带 有顺序，客户端会话结束节点就消失。</p>
+<h1 id="设计目的">设计目的</h1>
+<ol>
+<li>
+<p>最终一致性：client 不论连接到哪个 Server，展示给它都是同一个视图，这是 zookeeper 最重要的性能。</p>
+</li>
+<li>
+<p>可靠性：具有简单、健壮、良好的性能，如果消息 m 被到一台服务器接受，那么它 将被所有的服务器接受。</p>
+</li>
+<li>
+<p>实时性：Zookeeper 保证客户端将在一个时间间隔范围内获得服务器的更新信息，或 者服务器失效的信息。但由于网络延时等原因，Zookeeper 不能保证两个客户端能同时得到 刚更新的数据，如果需要最新数据，应该在读数据之前调用 sync()接口。</p>
+</li>
+<li>
+<p>等待无关（wait-free）：慢的或者失效的 client 不得干预快速的 client 的请求，使得每 个 client 都能有效的等待。</p>
+</li>
+<li>
+<p>原子性：更新只能成功或者失败，没有中间状态。</p>
+</li>
+<li>
+<p>顺序性：包括全局有序和偏序两种：全局有序是指如果在一台服务器上消息 a 在消息 b 前发布，则在所有 Server 上消息 a 都将在消息 b 前被发布；偏序是指如果一个消息 b 在消 息 a 后被同一个发送者发布，a 必将排在 b 前面。</p>
+</li>
+</ol>
+<h1 id="提供应用唯一标识">提供应用唯一标识</h1>
+<p>在 Zookeeper 集群中，每个节点需要一个唯一标识。这个唯一标识要求是自然数。且唯 一标识保存位置是：$dataDir/myid。其中 dataDir 为配置文件 zoo.cfg 中的配置参数 在 data 目录中创建文件 myid ： touch myid 为应用提供唯一标识。本环境中使用 1、2、3 作为每个节点的唯一标识。 vi myid 简化方式为： echo [唯一标识] &raquo; myid。 echo 命令为回声命令，系统会将命令发送的 数据返回。 &lsquo;&raquo;&lsquo;为定位，代表系统回声数据指定发送到什么位置。 此命令代表系统回声数 据发送到 myid 文件中。 如果没有文件则创建文件。</p>
+<h1 id="配置zookeeper">配置zookeeper</h1>
+<h2 id="zookeeper-目录结构">Zookeeper 目录结构</h2>
+<ol>
+<li>
+<p>bin：放置运行脚本和工具脚本，如果是 Linux 环境还会有有 zookeeper 的运 行日志 zookeeper.out</p>
+</li>
+<li>
+<p>conf：zookeeper 默认读取配置的目录，里面会有配置文件zoo.cfg  配置文件模板：zoo_sample.cfg</p>
+</li>
+<li>
+<p>contrib：zookeeper 的拓展功能</p>
+</li>
+<li>
+<p>dist-maven：zookeeper的 maven 打包目录</p>
+</li>
+<li>
+<p>docs：zookeeper 相关的文档</p>
+</li>
+<li>
+<p>lib：zookeeper 核心的 jar</p>
+</li>
+<li>
+<p>recipes：zookeeper 分布式相关的 jar 包</p>
+</li>
+<li>
+<p>src：zookeeper 源码</p>
+</li>
+</ol>
+<h2 id="zookeeper配置文件">zookeeper配置文件</h2>
+<p>使用命令 vi 打开 conf/zoo.cfg 配置文件，并将以下所有参数设置为开始点。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">$ vi conf/zoo.cfg
 
+tickTime = 2000
+dataDir = /path/to/zookeeper/data
+clientPort = 2181
+initLimit = 5
+syncLimit = 2
+</code></pre></td></tr></table>
+</div>
+</div><p>当配置文件已经保存成功后，再返回到终端。现在，就可以启动zookeeper服务器</p>
+<h2 id="启动停止zookeeper服务器">启动/停止zookeeper服务器</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">bin下运行 ./zkServer.sh start
+停止则允许 ./zkServer.sh stop
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="启动cli">启动CLI</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">./zkCli.sh
+</code></pre></td></tr></table>
+</div>
+</div>
     </div>
 
     <div class="post-copyright">

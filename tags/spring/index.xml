@@ -50,7 +50,7 @@
       <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
       
       <guid>http://localhost:1313/post/spring%E7%9A%84aop/</guid>
-      <description>来自OOP(面向对象编程) AOP(面向切面编程)是通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术,可以对业务逻辑的各个部分进</description>
+      <description>AOP原理 AOP 是面向切面编程，是通过代理的方式为程序添加统一功能，集中解决一些公共问题。AOP是OOP的延续，是软件开发中的一个热点，也是Sp</description>
     </item>
     
     <item>

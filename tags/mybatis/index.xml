@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>impirewow</copyright>
-    <lastBuildDate>Mon, 14 Feb 2022 10:22:39 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 28 Feb 2022 15:31:57 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redis服务下mybatis缓存的实现</title>
+      <link>http://localhost:1313/post/redis_mybatis_cache/</link>
+      <pubDate>Mon, 28 Feb 2022 15:31:57 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/redis_mybatis_cache/</guid>
+      <description>1. 缓存的概念。 什么是缓存（cache） cache是高速缓冲存储器，主要解决频繁使用的数据快速访问的问题。 如果两个硬件或者软件之间的速度存在较</description>
+    </item>
+    
     <item>
       <title>Mybatis的使用</title>
       <link>http://localhost:1313/post/mybatis%E7%9A%84%E4%BD%BF%E7%94%A8/</link>

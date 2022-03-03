@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Java中的IO总结 - impirewow的个人博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="impirewow" /><meta name="description" content="BIO,NIO,AIO 总结 Java 中的 BIO、NIO和 AIO 理解为是 Java 语言对操作系统的各种 IO 模型的封装。程序员在使用这些 API 的时候，不需要关心操作系统层面的知识，也不需要根" /><meta name="keywords" content="impireWOW, tech, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/java_common_io/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Java中的IO总结" />
+<meta property="og:description" content="BIO,NIO,AIO 总结 Java 中的 BIO、NIO和 AIO 理解为是 Java 语言对操作系统的各种 IO 模型的封装。程序员在使用这些 API 的时候，不需要关心操作系统层面的知识，也不需要根" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/java_common_io/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-03T05:09:10+08:00" />
+<meta property="article:modified_time" content="2022-03-03T05:09:10+08:00" />
+
+<meta itemprop="name" content="Java中的IO总结">
+<meta itemprop="description" content="BIO,NIO,AIO 总结 Java 中的 BIO、NIO和 AIO 理解为是 Java 语言对操作系统的各种 IO 模型的封装。程序员在使用这些 API 的时候，不需要关心操作系统层面的知识，也不需要根"><meta itemprop="datePublished" content="2022-03-03T05:09:10+08:00" />
+<meta itemprop="dateModified" content="2022-03-03T05:09:10+08:00" />
+<meta itemprop="wordCount" content="2949">
+<meta itemprop="keywords" content="多线程,java," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java中的IO总结"/>
+<meta name="twitter:description" content="BIO,NIO,AIO 总结 Java 中的 BIO、NIO和 AIO 理解为是 Java 语言对操作系统的各种 IO 模型的封装。程序员在使用这些 API 的时候，不需要关心操作系统层面的知识，也不需要根"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">impireWOW</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">档案</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">impireWOW</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">档案</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Java中的IO总结</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-03-03 </span>
+        <div class="post-category">
+            <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
+            <a href="/categories/java/"> java </a>
+            <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"> 多线程 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#bionioaio-总结">BIO,NIO,AIO 总结</a>
+      <ul>
+        <li><a href="#同步与异步">同步与异步</a>
+          <ul>
+            <li><a href="#同步">同步：</a></li>
+            <li><a href="#异步">异步：</a></li>
+            <li><a href="#区别">区别</a></li>
+          </ul>
+        </li>
+        <li><a href="#阻塞和非阻塞">阻塞和非阻塞</a>
+          <ul>
+            <li><a href="#阻塞">阻塞：</a></li>
+            <li><a href="#非阻塞">非阻塞：</a></li>
+            <li><a href="#区别-1">区别</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#bioblocking-io">BIO(Blocking I/O)</a></li>
+    <li><a href="#nionew-ionon-blocking-io">NIO/(New I/O)/(Non-blocking I/O)</a>
+      <ul>
+        <li><a href="#nio的特性nio与io区别">NIO的特性/NIO与IO区别</a>
+          <ul>
+            <li><a href="#non-blocking-io非阻塞io">Non-blocking IO（非阻塞IO）</a></li>
+            <li><a href="#buffer缓冲区">Buffer(缓冲区)</a></li>
+            <li><a href="#channel-通道">Channel (通道)</a></li>
+            <li><a href="#selectors选择器">Selectors(选择器)</a></li>
+          </ul>
+        </li>
+        <li><a href="#nio-读数据和写数据方式">NIO 读数据和写数据方式</a></li>
+        <li><a href="#nio核心组件简单介绍">NIO核心组件简单介绍</a></li>
+      </ul>
+    </li>
+    <li><a href="#aio-asynchronous-io-异步io">AIO (Asynchronous I/O) 异步IO</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="bionioaio-总结">BIO,NIO,AIO 总结</h1>
+<p>Java 中的 BIO、NIO和 AIO 理解为是 Java 语言对操作系统的各种 IO 模型的封装。程序员在使用这些 API 的时候，不需要关心操作系统层面的知识，也不需要根据不同操作系统编写不同的代码。只需要使用Java的API就可以了。</p>
+<p>在讲 BIO,NIO,AIO 之前先来回顾一下这样几个概念：<strong>同步与异步，阻塞与非阻塞</strong>。</p>
+<h2 id="同步与异步">同步与异步</h2>
+<h3 id="同步">同步：</h3>
+<p>同步就是发起一个调用后，被调用者未处理完请求之前，调用不返回。</p>
+<h3 id="异步">异步：</h3>
+<p>异步就是发起一个调用后，立刻得到被调用者的回应表示已接收到请求，但是被调用者并没有返回结果，此时我们可以处理其他的请求，被调用者通常依靠事件，回调等机制来通知调用者其返回结果。</p>
+<p>同步和异步的区别最大在于异步的话调用者不需要等待处理结果，被调用者会通过回调等机制来通知调用者其返回结果。</p>
+<h3 id="区别">区别</h3>
+<p>IO 操作主要分为两个步骤，即发起 IO 请求和实际 IO 操作，同步与异步的区别就在于第二个步骤是否阻塞。</p>
+<p>若实际 IO 操作阻塞请求进程，即请求进程需要等待或者轮询查看 IO 操作是否就绪，则为同步 IO；若实际 IO 操作并不阻塞请求进程，而是由操作系统来进行实际 IO 操作并将结果返回，则为异步 IO。</p>
+<p>计算把内存分为用户内存和系统内存两部分，同步和异步是针对应用程序(用户内存)和内核(系统内存)的交互而言的。</p>
+<h2 id="阻塞和非阻塞">阻塞和非阻塞</h2>
+<h3 id="阻塞">阻塞：</h3>
+<p>阻塞就是发起一个请求，调用者一直等待请求结果返回，也就是当前线程会被挂起，无法从事其他任务，只有当条件就绪才能继续。</p>
+<h3 id="非阻塞">非阻塞：</h3>
+<p>非阻塞就是发起一个请求，调用者不用一直等着结果返回，可以先去干其他事情。</p>
+<p>那么同步阻塞、同步非阻塞和异步非阻塞又代表什么意思呢？</p>
+<p>举个生活中简单的例子，你妈妈让你烧水，小时候你比较笨啊，在哪里傻等着水开（同步阻塞）。等你稍微再长大一点，你知道每次烧水的空隙可以去干点其他事，然后只需要时不时来看看水开了没有（同步非阻塞）。后来，你们家用上了水开了会发出声音的壶，这样你就只需要听到响声后就知道水开了，在这期间你可以随便干自己的事情，你需要去倒水了（异步非阻塞）。</p>
+<h3 id="区别-1">区别</h3>
+<p>IO 操作主要分为两个步骤，即发起 IO 请求和实际 IO 操作，阻塞与非阻塞的区别就在于第一个步骤是否阻塞。</p>
+<p>若发起 IO 请求后请求线程一直等待实际 IO 操作完成，则为阻塞 IO；若发起 IO 请求后请求线程返回而不会一直等待，即为非阻塞 IO。</p>
+<p>阻塞和非阻塞是针对于进程在访问数据的时候，根据 IO 操作的就绪状态来采取的不同方式，说白了是一种读取或者写入操作函数的实现方式，阻塞方式下读取或者写入函数将一直等待，而非阻塞方式下，读取或者写入函数会立即返回一个状态值。</p>
+<h1 id="bioblocking-io">BIO(Blocking I/O)</h1>
+<p>同步阻塞I/O模式</p>
+<p>同步并阻塞 IO，服务器实现模式一个连接一个线程，即客户端有连接请求时服务端就需要启动一个线程进行处理，如果这个连接不做任何事情，就会造成不必要的线程开销，当然可以通过线程池（Thread-Pool）程机制改善。</p>
+<p>在活动连接数不是特别高（小于单机1000）的情况下，这种模型是比较不错的，可以让每一个连接专注于自己的 I/O 并且编程模型简单，也不用过多考虑系统的过载、限流等问题。线程池本身就是一个天然的漏斗，可以缓冲一些系统处理不了的连接或请求。但是，当面对十万甚至百万级连接的时候，传统的 BIO 模型是无能为力的。因此，我们需要一种更高效的 I/O 处理模型来应对更高的并发量。</p>
+<h1 id="nionew-ionon-blocking-io">NIO/(New I/O)/(Non-blocking I/O)</h1>
+<p>NIO是一种同步非阻塞的I/O模型，在Java 1.4 中引入了NIO框架，对应 java.nio 包，提供了 Channel , Selector，Buffer等抽象。</p>
+<p>NIO中的N可以理解为Non-blocking，不单纯是New。它支持面向缓冲的，基于通道的I/O操作方法。 NIO提供了与传统BIO模型中的 Socket 和 ServerSocket 相对应的 SocketChannel 和 ServerSocketChannel 两种不同的套接字通道实现,两种通道都支持阻塞和非阻塞两种模式。阻塞模式使用就像传统中的支持一样，比较简单，但是性能和可靠性都不好；非阻塞模式正好与之相反。对于低负载、低并发的应用程序，可以使用同步阻塞I/O来提升开发速率和更好的维护性；对于高负载、高并发的（网络）应用，应使用 NIO 的非阻塞模式来开发。</p>
+<h2 id="nio的特性nio与io区别">NIO的特性/NIO与IO区别</h2>
+<p>如果是在面试中回答这个问题，我觉得首先应当要从 NIO 流是非阻塞 IO 而 IO 流是阻塞 IO 说起。然后，可以从 NIO 的3个核心组件/特性为 NIO 带来的一些改进来分析。</p>
+<h3 id="non-blocking-io非阻塞io">Non-blocking IO（非阻塞IO）</h3>
+<p><strong>IO流是阻塞的，NIO流是不阻塞的。</strong></p>
+<p>Java NIO使我们可以进行非阻塞IO操作。比如说，单线程中从通道读取数据到buffer，同时可以继续做别的事情，当数据读取到buffer中后，线程再继续处理数据。写数据也是一样的。另外，非阻塞写也是如此。一个线程请求写入一些数据到某通道，但不需要等待它完全写入，这个线程同时可以去做别的事情。</p>
+<p>Java IO的各种流是阻塞的。这意味着，当一个线程调用 read() 或 write() 时，该线程被阻塞，直到有一些数据被读取，或数据完全写入。该线程在此期间不能再干任何事情了</p>
+<h3 id="buffer缓冲区">Buffer(缓冲区)</h3>
+<p><strong>IO 面向流(Stream oriented)，而 NIO 面向缓冲区(Buffer oriented)。</strong></p>
+<p>Buffer是一个对象，它包含一些要写入或者要读出的数据。在NIO类库中加入Buffer对象，体现了新库与原I/O的一个重要区别。在面向流的I/O中·可以将数据直接写入或者将数据直接读到 Stream 对象中。虽然 Stream 中也有 Buffer 开头的扩展类，但只是流的包装类，还是从流读到缓冲区，而 NIO 却是直接读到 Buffer 中进行操作。</p>
+<p>在NIO厍中，所有数据都是用缓冲区处理的。在读取数据时，它是直接读到缓冲区中的; 在写入数据时，写入到缓冲区中。任何时候访问NIO中的数据，都是通过缓冲区进行操作。</p>
+<p>最常用的缓冲区是 ByteBuffer,一个 ByteBuffer 提供了一组功能用于操作 byte 数组。除了ByteBuffer,还有其他的一些缓冲区，事实上，每一种Java基本类型（除了Boolean类型）都对应有一种缓冲区。</p>
+<h3 id="channel-通道">Channel (通道)</h3>
+<p>NIO 通过Channel（通道） 进行读写。</p>
+<p>通道是双向的，可读也可写，而流的读写是单向的。无论读写，通道只能和Buffer交互。因为 Buffer，通道可以异步地读写。</p>
+<h3 id="selectors选择器">Selectors(选择器)</h3>
+<p><strong>NIO有选择器，而IO没有。</strong></p>
+<p>选择器用于使用单个线程处理多个通道。因此，它需要较少的线程来处理这些通道。线程之间的切换对于操作系统来说是昂贵的。 因此，为了提高系统效率选择器是有用的。</p>
+<h2 id="nio-读数据和写数据方式">NIO 读数据和写数据方式</h2>
+<p>通常来说NIO中的所有IO都是从 Channel（通道） 开始的。</p>
+<ul>
+<li>
+<p>从通道进行数据读取 ：创建一个缓冲区，然后请求通道读取数据。</p>
+</li>
+<li>
+<p>从通道进行数据写入 ：创建一个缓冲区，填充数据，并要求通道写入数据。</p>
+</li>
+</ul>
+<h2 id="nio核心组件简单介绍">NIO核心组件简单介绍</h2>
+<p>NIO 包含下面几个核心的组件：</p>
+<p>Channel(通道)</p>
+<p>Buffer(缓冲区)</p>
+<p>Selector(选择器)</p>
+<p>整个NIO体系包含的类远远不止这三个，只能说这三个是NIO体系的“核心API”。</p>
+<h1 id="aio-asynchronous-io-异步io">AIO (Asynchronous I/O) 异步IO</h1>
+<p>AIO 也就是 NIO 2。在 Java 7 中引入了 NIO 的改进版 NIO 2,它是异步非阻塞的IO模型。异步 IO 是基于事件和回调机制实现的，也就是应用操作之后会直接返回，不会堵塞在那里，当后台处理完成，操作系统会通知相应的线程进行后续的操作。</p>
+<p>AIO 是异步IO的缩写，虽然 NIO 在网络操作中，提供了非阻塞的方法，但是 NIO 的 IO 行为还是同步的。对于 NIO 来说，我们的业务线程是在 IO 操作准备好时，得到通知，接着就由这个线程自行进行 IO 操作，IO操作本身是同步的。（除了 AIO 其他的 IO 类型都是同步的，这一点可以从底层IO线程模型解释，</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">impirewow</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-03-03
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a>
+          <a href="/tags/java/">java</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/java_collections/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Java集合</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/top_k/">
+            <span class="next-text nav-default">TOP_K问题的几种解法</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="impirewow@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>impirewow</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
