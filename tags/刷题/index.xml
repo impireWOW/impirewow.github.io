@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>impirewow</copyright>
-    <lastBuildDate>Sat, 26 Feb 2022 13:11:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%88%B7%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 11 Mar 2022 18:45:31 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%88%B7%E9%A2%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LC_突击</title>
+      <link>http://localhost:1313/post/lc_rapid/</link>
+      <pubDate>Fri, 11 Mar 2022 18:45:31 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/lc_rapid/</guid>
+      <description>LeetCode 突击手册 一共定义了几个标签，可以通过 Ctrl+F/Cmd+F 搜索这些标签还快速浏览相同的题目。 标签：#hash #backtracking #slidewindow #stack #queue #pointers 1 从数组中找出两个数字使得他们的和是给定</description>
+    </item>
+    
     <item>
       <title>JZ24 反转链表</title>
       <link>http://localhost:1313/post/jz24-/</link>

@@ -126,113 +126,110 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/how-to-write/">如何在hugo下书写文档</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/hash_divine_and_conquer/">海量数据下的处理方式:分治和hash映射</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-02-28 </span>
+      <div class="post-category">
+          <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
+          <a href="/categories/hash/"> hash </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      方法介绍 对于海量数据而言，由于无法一次性装进内存处理，导致我们不得不把海量的数据通过hash映射分割成相应的小块数据，然后再针对各个小块数据
+    </div>
+    <div class="read-more">
+      <a href="/post/hash_divine_and_conquer/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/spring_annotations/">Spring常用注解</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-02-27 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      1.启动注解 @SpringbootApplication 1 2 3 4 5 6 7 8 9 10 11 @Target(ElementType.TYPE) @Retention(RetentionPolicy.RUNTIME) @Documented @Inherited @SpringBootConfiguration @EnableAutoConfiguration @ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class), @Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) }) public @interface SpringBootApplication { // ... 此处省略源码 } @SpringBootConfig
+    </div>
+    <div class="read-more">
+      <a href="/post/spring_annotations/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/cas%E7%9A%84%E7%BC%BA%E7%82%B9/">CAS的缺点</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2022-02-26 </span>
       <div class="post-category">
           <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
+          <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"> 多线程 </a>
+          <a href="/categories/cas/"> CAS </a>
+          <a href="/categories/java/"> Java </a>
+          <a href="/categories/jvm/"> JVM </a>
           </div>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      如何书写适用于hugo的md文档 关键字后边记得加空格否则编译失败! 在hugo cmd中新建md文件后,会生成一个带有title date draft 的md文件 在
+      ABA问题 比如说一个线程one从内存位置V中取出A，这时候另一个线程two也从内存中取出A，并且two进行了一些操作变成了B，然后two又将
     </div>
     <div class="read-more">
-      <a href="/post/how-to-write/" class="read-more-link">阅读更多</a>
+      <a href="/post/cas%E7%9A%84%E7%BC%BA%E7%82%B9/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/spring%E6%B3%A8%E8%A7%A3/"></a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/jz24-/">JZ24 反转链表</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2022-02-14 </span>
+      <span class="post-time"> 2022-02-26 </span>
       <div class="post-category">
           <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
-          <a href="/categories/java/"> java </a>
-          <a href="/categories/%E5%A1%AB%E5%9D%91/"> 填坑 </a>
+          <a href="/categories/%E9%A2%98%E8%A7%A3/"> 题解 </a>
           </div>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      request post
+      链接:https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca 描
     </div>
     <div class="read-more">
-      <a href="/post/spring%E6%B3%A8%E8%A7%A3/" class="read-more-link">阅读更多</a>
+      <a href="/post/jz24-/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/volatile%E7%9A%84%E4%BD%BF%E7%94%A8/"></a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/jz25-/">JZ25 合并两个排序的链表</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2022-02-14 </span>
+      <span class="post-time"> 2022-02-26 </span>
       <div class="post-category">
           <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
-          <a href="/categories/java/"> java </a>
-          <a href="/categories/%E5%A1%AB%E5%9D%91/"> 填坑 </a>
+          <a href="/categories/%E5%88%B7%E9%A2%98/"> 刷题 </a>
           </div>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      作用
+      链接: https://www.nowcoder.com/practice/d8b6b4358f774294a89de2a6ac4d9337 描述 输入两个递增的链表，单个链表的长度为n，合并这两个链表并使新链表中的节点仍然是递增排序的。 数据范围： 0≤n≤1000，−1000
     </div>
     <div class="read-more">
-      <a href="/post/volatile%E7%9A%84%E4%BD%BF%E7%94%A8/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/autowiredresource/">@Autowired和@Resource的区别?</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2022-02-14 </span>
-      <div class="post-category">
-          <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
-          <a href="/categories/java/"> java </a>
-          <a href="/categories/%E5%A1%AB%E5%9D%91/"> 填坑 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Spring中,他们两个都是在bean的注入时使用,使用时可以替代使用,也有的情况不可以
-    </div>
-    <div class="read-more">
-      <a href="/post/autowiredresource/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/cas%E4%B8%8Esynchronized%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E6%99%AF/">CAS与Synchronized的使用情景：</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2022-02-14 </span>
-      <div class="post-category">
-          <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
-          <a href="/categories/java/"> java </a>
-          <a href="/categories/%E5%A1%AB%E5%9D%91/"> 填坑 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      对于资源竞争较少（线程冲突较轻）的情况，使用synchronized同步锁进行线程阻塞和唤醒切换以及用户态内核态间的切换操作额外浪费消耗cp
-    </div>
-    <div class="read-more">
-      <a href="/post/cas%E4%B8%8Esynchronized%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E6%99%AF/" class="read-more-link">阅读更多</a>
+      <a href="/post/jz25-/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

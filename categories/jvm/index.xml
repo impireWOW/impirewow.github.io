@@ -18,12 +18,12 @@
     </item>
     
     <item>
-      <title>Java关键字--错误处理</title>
-      <link>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
+      <title>Java关键字--异常处理</title>
+      <link>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</link>
       <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
-      <description>有try , catch , throw , throws ,finally</description>
+      <guid>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</guid>
+      <description>异常是程序中的一些错误,但并不是所有的错误都是异常,错误有时候是可以避免的(比如编写程序时候的错误) 异常发生的原因有很多通常包括以下几大类:</description>
     </item>
     
     <item>

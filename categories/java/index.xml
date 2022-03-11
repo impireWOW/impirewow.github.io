@@ -158,7 +158,16 @@
       <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
       
       <guid>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E5%8F%98%E9%87%8F%E5%BC%95%E7%94%A8/</guid>
-      <description>super this void</description>
+      <description>super 普通的直接引用 指向自己父类对象的指针,这个super类指的是离自己最近的一个父类 子类中的成员变量或者方法与父类中的成员变量或者方法同名,此</description>
+    </item>
+    
+    <item>
+      <title>Java关键字--异常处理</title>
+      <link>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</link>
+      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/</guid>
+      <description>异常是程序中的一些错误,但并不是所有的错误都是异常,错误有时候是可以避免的(比如编写程序时候的错误) 异常发生的原因有很多通常包括以下几大类:</description>
     </item>
     
     <item>
@@ -177,15 +186,6 @@
       
       <guid>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/</guid>
       <description>御三家: private / public / protected</description>
-    </item>
-    
-    <item>
-      <title>Java关键字--错误处理</title>
-      <link>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</link>
-      <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
-      
-      <guid>http://localhost:1313/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</guid>
-      <description>有try , catch , throw , throws ,finally</description>
     </item>
     
     <item>
@@ -221,7 +221,7 @@
       <pubDate>Mon, 14 Feb 2022 10:22:39 +0000</pubDate>
       
       <guid>http://localhost:1313/post/java%E7%A8%8B%E5%BA%8F%E6%8E%A7%E5%88%B6-instanceof/</guid>
-      <description>instanceof</description>
+      <description>instanceof是Java的一个二元操作符,类似==,&amp;gt;,&amp;lt;等 instanceof是java的保留关键字,它的作用是测试他左</description>
     </item>
     
     <item>
