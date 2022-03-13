@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>B树和B&#43;树的区别 - impirewow的个人博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="impirewow" /><meta name="description" content="B-树 B-树概述 B-树,这里的B是Balance的意思,B-树是一种多路自平衡的搜索树 它类似普通的平衡二叉树,不同的一点是B-树允许每个节点" /><meta name="keywords" content="impireWOW, tech, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/difference_between_b_and_b&#43;/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="B树和B&#43;树的区别" />
+<meta property="og:description" content="B-树 B-树概述 B-树,这里的B是Balance的意思,B-树是一种多路自平衡的搜索树 它类似普通的平衡二叉树,不同的一点是B-树允许每个节点" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/difference_between_b_and_b&#43;/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-12T20:22:58+08:00" />
+<meta property="article:modified_time" content="2022-03-12T20:22:58+08:00" />
+
+<meta itemprop="name" content="B树和B&#43;树的区别">
+<meta itemprop="description" content="B-树 B-树概述 B-树,这里的B是Balance的意思,B-树是一种多路自平衡的搜索树 它类似普通的平衡二叉树,不同的一点是B-树允许每个节点"><meta itemprop="datePublished" content="2022-03-12T20:22:58+08:00" />
+<meta itemprop="dateModified" content="2022-03-12T20:22:58+08:00" />
+<meta itemprop="wordCount" content="2421">
+<meta itemprop="keywords" content="数据结构," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="B树和B&#43;树的区别"/>
+<meta name="twitter:description" content="B-树 B-树概述 B-树,这里的B是Balance的意思,B-树是一种多路自平衡的搜索树 它类似普通的平衡二叉树,不同的一点是B-树允许每个节点"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">impireWOW</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">档案</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">impireWOW</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">档案</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">B树和B&#43;树的区别</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-03-12 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#b-树">B-树</a>
+      <ul>
+        <li><a href="#b-树概述">B-树概述</a></li>
+        <li><a href="#b-树的查找">B-树的查找</a></li>
+      </ul>
+    </li>
+    <li><a href="#b树">B+树</a>
+      <ul>
+        <li><a href="#b树概述">B+树概述</a></li>
+        <li><a href="#b树的插入">B+树的插入</a></li>
+        <li><a href="#b树的删除">B+树的删除</a></li>
+        <li><a href="#一些b树的面试题">一些B+树的面试题</a>
+          <ul>
+            <li><a href="#innodb一棵b树可以存放多少行数据">InnoDB一棵B+树可以存放多少行数据?</a></li>
+            <li><a href="#为什么索引结构默认使用b树而不是b-treehash哈希二叉树红黑树">为什么索引结构默认使用B+树，而不是B-Tree，Hash哈希，二叉树，红黑树?</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="b-树">B-树</h1>
+<h2 id="b-树概述">B-树概述</h2>
+<p>B-树,这里的B是Balance的意思,B-树是一种多路自平衡的搜索树</p>
+<p>它类似普通的平衡二叉树,不同的一点是B-树允许每个节点有更多的子节点</p>
+<p>B树有以下特点:</p>
+<ul>
+<li>所有键值分布在整颗树中(索引值和具体的data都在每个节点里)</li>
+<li>任何一个关键字出现且只出现在一个节点里</li>
+<li>搜索有可能在非叶子节点结束(最好的情况下O(1)就能找到数据)</li>
+<li>在关键字全集内做一次查找,性能逼近二分查找</li>
+</ul>
+<h2 id="b-树的查找">B-树的查找</h2>
+<p>假设每个节点有 n 个 key值，被分割为 n+1 个区间，注意，每个 key 值紧跟着 data 域，这说明B-树的 key 和 data 是聚合在一起的。一般而言，根节点都在内存中，B-树以每个节点为一次磁盘 IO，比如上图中，若搜索 key 为 25 节点的 data，首先在根节点进行二分查找（因为 keys 有序，二分最快），判断 key 25 小于 key 50，所以定位到最左侧的节点，此时进行一次磁盘 IO，将该节点从磁盘读入内存，接着继续进行上述过程，直到找到该 key 为止。</p>
+<h1 id="b树">B+树</h1>
+<h2 id="b树概述">B+树概述</h2>
+<p>B+树是B-树的变体,也是一种多路搜索树,它与B-树的不同之处在于:</p>
+<ul>
+<li>
+<p>B+树所有关键字存储在叶子节点,内部节点(非叶节点)不存储真正的data,导致查询时间的复杂度固定为log(n),每次查询必须从根节点索引到叶节点; B-树查询时间复杂度不固定,与key在书中的位置有关</p>
+</li>
+<li>
+<p>为所有的叶子节点增加了一个链指针,相邻的叶子节点之间是通过链表指针连起来的</p>
+</li>
+<li>
+<p>B+树的叶节点和内节点大小不同,而B-树的每个节点大小一般是相同的,为一页</p>
+</li>
+<li>
+<p>B+树中,叶节点两两相连可大大增加区间访问性,可使用在范围查询中,根据空间局部性原理:若一个存储器的某个位置被访问,那么它附近的位置也会被访问,我们可以利用磁盘预读原理提前将这些数据读入内存,减少磁盘IO的次数;</p>
+</li>
+<li>
+<p>B-树每个节点key和data在一起,无法进行区间查找</p>
+</li>
+<li>
+<p>B+树更加适合外部存储,因为内节点无data域,每个节点能索引的范围更大更精确</p>
+<p>B-树节点内部每个key都带着data域,而B+树节点只存储KEY的副本,真实的key和data域都在叶子节点存储.因为磁盘分块存储,一次磁盘IO会读取若干个block,具体和操作系统有关,那么由于磁盘IO数据大小是固定的,在一次IO中,单个元素越小,量就越大,这就意味着B+树单次磁盘IO的信息量大约B-树,这样看来B+树相对于B_树磁盘IO数更少</p>
+</li>
+<li>
+<p>B- 树任何一个关键字出现且只出现在一个节点中,而B+树可以出现多次</p>
+</li>
+</ul>
+<h2 id="b树的插入">B+树的插入</h2>
+<ol>
+<li>B+树插入都是在叶子结点进行的，就是插入前，需要先找到要插入的叶子结点。</li>
+<li>如果被插入关键字的叶子节点，当前含有的关键字数量是小于阶数m，则直接插入。</li>
+<li>如果插入关键字后，叶子节点当前含有的关键字数目等于阶数m，则插，该节点开始「分裂」为两个新的节点，一个节点包含⌊m/2⌋ 个关键字，另外一个关键字包含⌈m/2⌉个关键值。(⌊m/2⌋表示向下取整，⌈m/2⌉表示向上取整，如⌈3/2⌉=2)。</li>
+<li>分裂后，需要将第⌈m/2⌉的关键字上移到父结点。如果这时候父结点中包含的关键字个数小于m，则插入操作完成。</li>
+<li>分裂后，需要将⌈m/2⌉的关键字上移到父结点。如果父结点中包含的关键字个数等于m，则继续分裂父结点。</li>
+</ol>
+<h2 id="b树的删除">B+树的删除</h2>
+<p>B+树删除关键字，分这几种情况</p>
+<ul>
+<li>找到包含关键值的结点，如果关键字个数大于⌈m/2⌉-1，直接删除即可;</li>
+<li>找到包含关键值的结点,如果关键字个数大于⌈m/2⌉-1，并且关键值是当前节点的最大(小)值，并且该关键值存在父子节点中，那么删除该关键字，同时需要相应调整父节点的值。</li>
+<li>找到包含关键值的结点，如果删除该关键字后，关键字个数小于⌈m/2⌉，并且其兄弟结点有多余的关键字，则从其兄弟结点借用关键字</li>
+<li>找到包含关键值的结点，如果删除该关键字后，关键字个数小于⌈m/2⌉，并且其兄弟结点没有多余的关键字，则与兄弟结点合并。</li>
+<li>如果关键字个数大于⌈m/2⌉，直接删除即可;</li>
+<li>如果关键字个数大于⌈m/2⌉-1，并且删除的关键字存在于父子节点中，那么需要相应调整父子节点的值</li>
+<li>如果删除该关键字后，关键字个数小于⌈m/2⌉-1，兄弟节点可以借用</li>
+<li>在删除关键字后，如果导致其结点中关键字个数不足，并且兄弟结点没有得借用的话，需要合并兄弟结点</li>
+</ul>
+<h2 id="一些b树的面试题">一些B+树的面试题</h2>
+<h3 id="innodb一棵b树可以存放多少行数据">InnoDB一棵B+树可以存放多少行数据?</h3>
+<p>这个问题的简单回答是：约2千万行。</p>
+<ul>
+<li>在计算机中，磁盘存储数据最小单元是扇区，一个扇区的大小是512字节。</li>
+<li>文件系统中，最小单位是块，一个块大小就是4k;</li>
+<li>InnoDB存储引擎最小储存单元是页，一页大小就是16k。</li>
+</ul>
+<p>因为B+树叶子存的是数据，内部节点存的是键值+指针。索引组织表通过非叶子节点的二分查找法以及指针确定数据在哪个页中，进而再去数据页中找到需要的数据;</p>
+<p>假设B+树的高度为2的话，即有一个根结点和若干个叶子结点。这棵B+树的存放总记录数为=根结点指针数*单个叶子节点记录行数。</p>
+<ul>
+<li>如果一行记录的数据大小为1k，那么单个叶子节点可以存的记录数 =16k/1k =16.</li>
+<li>非叶子节点内存放多少指针呢?我们假设主键ID为bigint类型，长度为8字节，而指针大小在InnoDB源码中设置为6字节，所以就是8+6=14字节，16k/14B =16*1024B/14B = 1170
+因此，一棵高度为2的B+树，能存放1170 * 16=18720条这样的数据记录。同理一棵高度为3的B+树，能存放1170 *1170 *16 =21902400，也就是说，可以存放两千万左右的记录。B+树高度一般为1-3层，已经满足千万级别的数据存储。</li>
+</ul>
+<h3 id="为什么索引结构默认使用b树而不是b-treehash哈希二叉树红黑树">为什么索引结构默认使用B+树，而不是B-Tree，Hash哈希，二叉树，红黑树?</h3>
+<ul>
+<li>Hash哈希，只适合等值查询，不适合范围查询。</li>
+<li>一般二叉树，可能会特殊化为一个链表，相当于全表扫描。</li>
+<li>红黑树，是一种特化的平衡二叉树，MySQL 数据量很大的时候，索引的体积也会很大，内存放不下的而从磁盘读取，树的层次太高的话，读取磁盘的次数就多了。</li>
+<li>B-Tree，叶子节点和非叶子节点都保存数据，相同的数据量，B+树更矮壮，也是就说，相同的数据量，B+树数据结构，查询磁盘的次数会更少。</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">impirewow</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-03-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/java_pile/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Java的堆内存</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/lc_rapid/">
+            <span class="next-text nav-default">LC_突击</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="impirewow@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>impirewow</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

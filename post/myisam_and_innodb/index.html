@@ -49,7 +49,7 @@
 <meta itemprop="name" content="MYISAM和InnoDB的对比">
 <meta itemprop="description" content="5.5版本之后,MySQL使用InnoDB作为默认的数据引擎,在此之前MyISAM是MySQL的默认存储引擎,两者的性能其实差不多,主要是功"><meta itemprop="datePublished" content="2022-03-05T16:51:09+08:00" />
 <meta itemprop="dateModified" content="2022-03-05T16:51:09+08:00" />
-<meta itemprop="wordCount" content="1154">
+<meta itemprop="wordCount" content="1510">
 <meta itemprop="keywords" content="SQL,Mysql," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MYISAM和InnoDB的对比"/>
 <meta name="twitter:description" content="5.5版本之后,MySQL使用InnoDB作为默认的数据引擎,在此之前MyISAM是MySQL的默认存储引擎,两者的性能其实差不多,主要是功"/>
@@ -156,6 +156,7 @@
       </ul>
     </li>
     <li><a href="#5-是否支持mvcc-多版本并发控制">5. 是否支持MVCC (多版本并发控制)</a></li>
+    <li><a href="#6索引区别">6.索引区别</a></li>
   </ul>
 </nav>
   </div>
@@ -200,6 +201,21 @@
 <p>除了后台线程每秒1次的轮询操作，还有一种情况，当redo log buffer占用的空间即将达到innodb_log_buffer_size一半的时候，后台线程会主动刷盘。</p>
 <h1 id="5-是否支持mvcc-多版本并发控制">5. 是否支持MVCC (多版本并发控制)</h1>
 <p>这个功能主要是配合行锁定的,MyISAM本身就不支持行级锁,自然就不支持了</p>
+<h1 id="6索引区别">6.索引区别</h1>
+<p>MYISAM 和InnoDB索引都是由B+树实现的,但在索引管理数据上有所区别</p>
+<ul>
+<li>
+<p>InnoDB是聚焦索引(整体),数据文件是和主键索引绑在一起的,即<strong>索引+数据=整个表数据文件</strong>,通过主键索引到整个记录,必须要有主键,通过主键索引效率很高 ; 但是辅助索引需要进行两次查询,因为辅助索引是以建索引的字段为关键字索引到主键,所以需要两次,InnoDB的B+树主键索引的叶子节点就是数据文件,辅助索引的叶子节点是主键的值</p>
+<ul>
+<li>先查询到主键</li>
+<li>再通过主键来查询数据</li>
+</ul>
+<p>因此,主键不应该过大,主键过大,其他索引也会很大</p>
+</li>
+<li>
+<p>MYISAM是非聚集索引(分离),也就是使用B+树作为索引结构,索引和数据文件是分离的,索引保存的是数据文件的指针,主键索引和辅助索引是相互独立的,也就是说 , MYISAM的B+树主键索引和辅助索引的叶子节点都是数据文件的地址指针</p>
+</li>
+</ul>
 
     </div>
 
