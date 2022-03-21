@@ -7,7 +7,88 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>impirewow</copyright>
-    <lastBuildDate>Sun, 13 Mar 2022 10:25:31 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Mar 2022 02:21:21 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关系的完整性</title>
+      <link>http://localhost:1313/post/relations_integrity/</link>
+      <pubDate>Tue, 22 Mar 2022 02:21:21 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/relations_integrity/</guid>
+      <description>关系的完整性主要包括域完整性、实体完整性和参照完整性三种。 1．域（列）完整性 域完整性是对数据表中字段属性的约束，通常指数据的有效性,它包括字</description>
+    </item>
+    
+    <item>
+      <title>数据库中的约束</title>
+      <link>http://localhost:1313/post/constraint_in_db/</link>
+      <pubDate>Tue, 22 Mar 2022 02:17:21 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/constraint_in_db/</guid>
+      <description>五大约束 主键约束（Primay Key Coustraint） 唯一性，非空性 唯一约束 （Unique Counstraint）唯一性，可以空，但只能有一</description>
+    </item>
+    
+    <item>
+      <title>数据模型</title>
+      <link>http://localhost:1313/post/data_model/</link>
+      <pubDate>Tue, 22 Mar 2022 02:16:43 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/data_model/</guid>
+      <description>数据模型: 层次模型：采用的是树（二叉树）的结构来表达实体和实体间联系 网状模型：采用的是图的结构来表达实体和实体间联系 对象模型：采用的面向对象</description>
+    </item>
+    
+    <item>
+      <title>数据库事务四大特性-ACID</title>
+      <link>http://localhost:1313/post/acid/</link>
+      <pubDate>Tue, 22 Mar 2022 02:14:43 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/acid/</guid>
+      <description>1、原子性（Atomicity） 原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚，因此事务的操作如果成功就必须要完全应用到数据库，</description>
+    </item>
+    
+    <item>
+      <title>关系数据库管理系统的3种基本关系运算</title>
+      <link>http://localhost:1313/post/rdb_3common_calcs/</link>
+      <pubDate>Tue, 22 Mar 2022 02:13:50 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/rdb_3common_calcs/</guid>
+      <description>关系数据库管理系统的3种基本关系运算 关系数据库管理系统的3种基本关系运算 分为: 选择运算、投影运算和连接运算。 选择运算 选择又称为限制，它是在关</description>
+    </item>
+    
+    <item>
+      <title>Mybatis中#和$的区别</title>
+      <link>http://localhost:1313/post/mybatis_#and/</link>
+      <pubDate>Tue, 22 Mar 2022 02:04:48 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/mybatis_#and/</guid>
+      <description>MyBatis中#和$ 的区别 #是将传入的值当做字符串的形式，eg:select id,name,age from student where id =#{id},当前端把id值1，传入到后台的时候，就</description>
+    </item>
+    
+    <item>
+      <title>Redis中Key的过期策略和淘汰机制</title>
+      <link>http://localhost:1313/post/redis_key_eliminate/</link>
+      <pubDate>Tue, 22 Mar 2022 01:58:17 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/redis_key_eliminate/</guid>
+      <description>Redis中Key的过期策略和淘汰机制 Key的过期策略 Redis的Key有3种过期删除策略，具体如下： 1. 定时删除 原理：在设置键的过期时间的同</description>
+    </item>
+    
+    <item>
+      <title>DDL和DML和DCL的区别</title>
+      <link>http://localhost:1313/post/ddl_dml_dcl/</link>
+      <pubDate>Sun, 20 Mar 2022 20:39:59 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/ddl_dml_dcl/</guid>
+      <description>一、DML DML（data manipulation language）数据操纵语言： 就是我们最经常用到的 SELECT、UPDATE、INSERT、DELETE。 主要</description>
+    </item>
+    
+    <item>
+      <title>常见被使用的数据结构以及他们的应用</title>
+      <link>http://localhost:1313/post/common_used_datastructs/</link>
+      <pubDate>Fri, 18 Mar 2022 23:37:05 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/common_used_datastructs/</guid>
+      <description>常说数据结构是开发的重中之重 但是不把概念上的数据结构与开发框架中的部件联合就显得抽象,这里按照我的理解先写一部分开发常用的数据结构 典型的是红</description>
+    </item>
+    
     <item>
       <title>Java的堆内存</title>
       <link>http://localhost:1313/post/java_pile/</link>

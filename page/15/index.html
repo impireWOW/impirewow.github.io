@@ -126,54 +126,100 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/log4j2-de-shi-yong/">log4j2 的使用</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">线程安全</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2022-02-13 </span>
+      <span class="post-time"> 2022-02-14 </span>
       <div class="post-category">
           <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
           <a href="/categories/java/"> java </a>
+          <a href="/categories/%E5%A1%AB%E5%9D%91/"> 填坑 </a>
           </div>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      先贴个官方文档: https://logging.apache.org/log4j/2.x/ 用途: 异常处理
+      分两个方面 执行控制和内存可见 执行控制的目的是控制代码运行顺序以及是否可以并发执行 内存可见控制的是线程执行结果在内存中对其他线程的可见性 线程在
     </div>
     <div class="read-more">
-      <a href="/post/log4j2-de-shi-yong/" class="read-more-link">阅读更多</a>
+      <a href="/post/%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/springboot-he-ssm-de-qu-bie/">SpringBoot和SSM的区别</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99/">重载和重写</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2022-02-13 </span>
+      <span class="post-time"> 2022-02-14 </span>
       <div class="post-category">
           <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
           <a href="/categories/java/"> java </a>
-          <a href="/categories/spring/"> Spring </a>
+          <a href="/categories/%E5%A1%AB%E5%9D%91/"> 填坑 </a>
           </div>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      以intellij IDEA 为例 创建项目时 SpringBoot项目创建的时候选择Spring Intializr创建, SSM项目使用Maven创建 其实
+      重载是在一个类内对于相同方法名的方法,面向不同数据类型处理时的写法 重写是父类的方法被子类继承后重写, 一般考察继承子类继承之后的父类对象以子类
     </div>
     <div class="read-more">
-      <a href="/post/springboot-he-ssm-de-qu-bie/" class="read-more-link">阅读更多</a>
+      <a href="/post/%E9%87%8D%E8%BD%BD%E5%92%8C%E9%87%8D%E5%86%99/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/jian-zhan-gong-ju-xuan-ze/">建站工具选择</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/synchronized-he-volatile-de-qu-bie/">Synchronized和Volatile的区别</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2022-02-12 </span>
+      <span class="post-time"> 2022-02-14 </span>
+      <div class="post-category">
+          <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
+          <a href="/categories/java/"> java </a>
+          <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"> 多线程 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      volatile关键字的语义: 保证了不同线程对这个变量进行操作时的可见性,即一个线程修改了某个变量的值,新值对于其他线程来说是立即可见的 禁止
+    </div>
+    <div class="read-more">
+      <a href="/post/synchronized-he-volatile-de-qu-bie/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/http-he-https-de-qu-bie/">HTTP和HTTPS的区别</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-02-13 </span>
+      <div class="post-category">
+          <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
+          <a href="/categories/%E7%BD%91%E7%BB%9C/"> 网络 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      端口不同 HTTP走80,HTTPS 走443 HTTP使用明文传输,数据未加密,安全性较差,HTTPS(SSL+HTTP)数据传输过程加密,安全
+    </div>
+    <div class="read-more">
+      <a href="/post/http-he-https-de-qu-bie/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/markdown%E7%94%A8%E6%B3%95%E5%92%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/">markdown用法和快捷键</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-02-13 </span>
       <div class="post-category">
           <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
           <a href="/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
@@ -183,53 +229,10 @@
   
   <div class="post-content">
     <div class="post-summary">
-      很多新手会推荐使用宝塔面板 https://www.bt.cn/ 来进行网页服务器环境的初始化 宝塔自身的一键部署和图形化界面一开始看来确实是蛮好用的,但是也会额外的耗费一部分性能
+      Markdown 的目标是实现「易读易写」 下边简单列举一些markdown的使用方法 一,无序列表 使用方法 1 2 3 4 * 无序列表1 * 无序列表2 * 无序列表2.1 * 无
     </div>
     <div class="read-more">
-      <a href="/post/jian-zhan-gong-ju-xuan-ze/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/english-preview/">[English] Creating a New Theme</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-08-31 </span>
-      <div class="post-category">
-          <a href="/categories/english/"> English </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&rsquo;t cover using CSS to style your theme.
-We&rsquo;ll start with creating a new site with a very basic template.
-    </div>
-    <div class="read-more">
-      <a href="/post/english-preview/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/chinese-preview/">[中文] 《长恨歌》</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2017-08-30 </span>
-      <div class="post-category">
-          <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      《长恨歌》是中国唐朝诗人白居易的一首长篇叙事诗。 第一段：贵妃受宠爱 汉皇重色思倾国，御宇多年求不得。杨家有女初长成，养在深闺人未识。 天生丽质难
-    </div>
-    <div class="read-more">
-      <a href="/post/chinese-preview/" class="read-more-link">阅读更多</a>
+      <a href="/post/markdown%E7%94%A8%E6%B3%95%E5%92%8C%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
@@ -241,7 +244,10 @@ We&rsquo;ll start with creating a new site with a very basic template.
         <i class="iconfont icon-left"></i>
         <span class="prev-text">上一页</span>
       </a>
-    
+    <a class="next" href="/page/16/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
   </nav>
         </div>
         

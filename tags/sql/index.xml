@@ -7,7 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>impirewow</copyright>
-    <lastBuildDate>Sun, 06 Mar 2022 00:56:22 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 22 Mar 2022 02:14:43 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/sql/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>数据库事务四大特性-ACID</title>
+      <link>http://localhost:1313/post/acid/</link>
+      <pubDate>Tue, 22 Mar 2022 02:14:43 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/acid/</guid>
+      <description>1、原子性（Atomicity） 原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚，因此事务的操作如果成功就必须要完全应用到数据库，</description>
+    </item>
+    
+    <item>
+      <title>关系数据库管理系统的3种基本关系运算</title>
+      <link>http://localhost:1313/post/rdb_3common_calcs/</link>
+      <pubDate>Tue, 22 Mar 2022 02:13:50 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/rdb_3common_calcs/</guid>
+      <description>关系数据库管理系统的3种基本关系运算 关系数据库管理系统的3种基本关系运算 分为: 选择运算、投影运算和连接运算。 选择运算 选择又称为限制，它是在关</description>
+    </item>
+    
+    <item>
+      <title>DDL和DML和DCL的区别</title>
+      <link>http://localhost:1313/post/ddl_dml_dcl/</link>
+      <pubDate>Sun, 20 Mar 2022 20:39:59 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/ddl_dml_dcl/</guid>
+      <description>一、DML DML（data manipulation language）数据操纵语言： 就是我们最经常用到的 SELECT、UPDATE、INSERT、DELETE。 主要</description>
+    </item>
+    
     <item>
       <title>锁机制和InnoDB锁算法</title>
       <link>http://localhost:1313/post/innodb_lock/</link>

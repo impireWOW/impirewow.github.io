@@ -126,111 +126,115 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E7%B1%BB%E5%88%AB/">Java关键字--类别</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/autowiredresource/">@Autowired和@Resource的区别?</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2022-02-14 </span>
       <div class="post-category">
           <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
           <a href="/categories/java/"> java </a>
+          <a href="/categories/%E5%A1%AB%E5%9D%91/"> 填坑 </a>
           </div>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      一般用于类和类的方法,变量的声明 abstract final static strictfp synchronized
+      Spring中,他们两个都是在bean的注入时使用,使用时可以替代使用,也有的情况不可以
     </div>
     <div class="read-more">
-      <a href="/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E7%B1%BB%E5%88%AB/" class="read-more-link">阅读更多</a>
+      <a href="/post/autowiredresource/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/">Java关键字--访问控制</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/cas%E4%B8%8Esynchronized%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E6%99%AF/">CAS与Synchronized的使用情景：</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2022-02-14 </span>
       <div class="post-category">
           <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
           <a href="/categories/java/"> java </a>
+          <a href="/categories/%E5%A1%AB%E5%9D%91/"> 填坑 </a>
           </div>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      御三家: private / public / protected
+      对于资源竞争较少（线程冲突较轻）的情况，使用synchronized同步锁进行线程阻塞和唤醒切换以及用户态内核态间的切换操作额外浪费消耗cp
     </div>
     <div class="read-more">
-      <a href="/post/java%E5%85%B3%E9%94%AE%E5%AD%97-%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/" class="read-more-link">阅读更多</a>
+      <a href="/post/cas%E4%B8%8Esynchronized%E7%9A%84%E4%BD%BF%E7%94%A8%E6%83%85%E6%99%AF/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/java-nei-cun-mo-xing-bing-fa-cao-zuo-ji-chu/">Java内存模型---并发操作基础</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/cas%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/">CAS底层原理</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2022-02-14 </span>
       <div class="post-category">
           <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
           <a href="/categories/java/"> java </a>
-          <a href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"> 多线程 </a>
+          <a href="/categories/%E5%A1%AB%E5%9D%91/"> 填坑 </a>
           </div>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      JVM规范中,规定所有的变量都是存在主存当中,每个线程都有自己的工作内存,线程对变量的所有操作都必须在工作内存中进行而不能直接对主存进行操作
+      概念 CAS的全称是Compare-And-Swap，它是CPU并发原语 它的功能是判断内存某个位置的值是否为预期值，如果是则更改为新的值，这个
     </div>
     <div class="read-more">
-      <a href="/post/java-nei-cun-mo-xing-bing-fa-cao-zuo-ji-chu/" class="read-more-link">阅读更多</a>
+      <a href="/post/cas%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/java%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F/">Java序列化方式</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/concurrent%E5%8C%85%E7%9A%84%E5%AE%9E%E7%8E%B0/">concurrent包的实现：</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2022-02-14 </span>
       <div class="post-category">
           <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
           <a href="/categories/java/"> java </a>
+          <a href="/categories/%E5%A1%AB%E5%9D%91/"> 填坑 </a>
           </div>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      JSON JSON 是一种轻量级的数据交换语言，该语言以易于让人阅读的文字为基础，用来传输由属性值或者序列性的值组成的数据对象，类似 xml，Json 比 xml
+      由于java的CAS同时具有 volatile 读和volatile写的内存语义，因此Java线程之间的通信现在有了下面四种方式： A线程写volatile变量
     </div>
     <div class="read-more">
-      <a href="/post/java%E5%BA%8F%E5%88%97%E5%8C%96%E6%96%B9%E5%BC%8F/" class="read-more-link">阅读更多</a>
+      <a href="/post/concurrent%E5%8C%85%E7%9A%84%E5%AE%9E%E7%8E%B0/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/">Java接口总结</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/post/dubbo%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/">Dubbo初步使用</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2022-02-14 </span>
       <div class="post-category">
           <a href="/categories/%E4%B8%AD%E6%96%87/"> 中文 </a>
           <a href="/categories/java/"> java </a>
+          <a href="/categories/%E5%A1%AB%E5%9D%91/"> 填坑 </a>
           </div>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      1.Comparable
+      Dubbo是一个分布式服务框架,致力于提供高性能和透明化的RPC远程服务调用方案以及SOA服务治理方案
     </div>
     <div class="read-more">
-      <a href="/post/java%E6%8E%A5%E5%8F%A3%E6%80%BB%E7%BB%93/" class="read-more-link">阅读更多</a>
+      <a href="/post/dubbo%E5%88%9D%E6%AD%A5%E4%BD%BF%E7%94%A8/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>

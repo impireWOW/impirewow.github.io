@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DB on impirewow的个人博客</title>
+    <link>http://localhost:1313/tags/db/</link>
+    <description>Recent content in DB on impirewow的个人博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <copyright>impirewow</copyright>
+    <lastBuildDate>Tue, 22 Mar 2022 02:21:21 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/db/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关系的完整性</title>
+      <link>http://localhost:1313/post/relations_integrity/</link>
+      <pubDate>Tue, 22 Mar 2022 02:21:21 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/relations_integrity/</guid>
+      <description>关系的完整性主要包括域完整性、实体完整性和参照完整性三种。 1．域（列）完整性 域完整性是对数据表中字段属性的约束，通常指数据的有效性,它包括字</description>
+    </item>
+    
+    <item>
+      <title>数据库中的约束</title>
+      <link>http://localhost:1313/post/constraint_in_db/</link>
+      <pubDate>Tue, 22 Mar 2022 02:17:21 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/constraint_in_db/</guid>
+      <description>五大约束 主键约束（Primay Key Coustraint） 唯一性，非空性 唯一约束 （Unique Counstraint）唯一性，可以空，但只能有一</description>
+    </item>
+    
+    <item>
+      <title>数据模型</title>
+      <link>http://localhost:1313/post/data_model/</link>
+      <pubDate>Tue, 22 Mar 2022 02:16:43 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/data_model/</guid>
+      <description>数据模型: 层次模型：采用的是树（二叉树）的结构来表达实体和实体间联系 网状模型：采用的是图的结构来表达实体和实体间联系 对象模型：采用的面向对象</description>
+    </item>
+    
+    <item>
+      <title>数据库事务四大特性-ACID</title>
+      <link>http://localhost:1313/post/acid/</link>
+      <pubDate>Tue, 22 Mar 2022 02:14:43 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/acid/</guid>
+      <description>1、原子性（Atomicity） 原子性是指事务包含的所有操作要么全部成功，要么全部失败回滚，因此事务的操作如果成功就必须要完全应用到数据库，</description>
+    </item>
+    
+  </channel>
+</rss>
