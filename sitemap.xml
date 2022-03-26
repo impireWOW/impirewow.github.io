@@ -9,28 +9,56 @@
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/db/</loc>
-    <lastmod>2022-03-22T02:21:21+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2022-03-22T02:21:21+08:00</lastmod>
+    <lastmod>2022-03-27T00:27:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/post/</loc>
-    <lastmod>2022-03-22T02:21:21+08:00</lastmod>
+    <lastmod>2022-03-27T00:27:55+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2022-03-27T00:27:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2022-03-27T00:27:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/communications_in_threads/</loc>
+    <lastmod>2022-03-27T00:27:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/difference_in_thread_and_process/</loc>
+    <lastmod>2022-03-27T00:27:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/communication_ways_in_processes/</loc>
+    <lastmod>2022-03-26T10:52:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/tags/db/</loc>
     <lastmod>2022-03-22T02:21:21+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

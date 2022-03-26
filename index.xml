@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-Hans</language>
     <copyright>impirewow</copyright>
-    <lastBuildDate>Tue, 22 Mar 2022 02:21:21 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Mar 2022 00:27:55 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>关于</title>
       <link>http://localhost:1313/about/</link>
@@ -15,6 +15,33 @@
       
       <guid>http://localhost:1313/about/</guid>
       <description>欢迎来到我的小站呀，很高兴遇见你！🤝 🏠 关于本站 本站是我个人使用,存储程序开发时候的随想 👨‍💻 博主是谁 我是一名软件工程专业的大学生,主要方向是</description>
+    </item>
+    
+    <item>
+      <title>线程中的通信方式</title>
+      <link>http://localhost:1313/post/communications_in_threads/</link>
+      <pubDate>Sun, 27 Mar 2022 00:27:55 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/communications_in_threads/</guid>
+      <description>线程间的通信方式 线程通信的需求: 线程是操作系统调度的最小单位，有自己的栈空间，可以按照既定的代码逐步的执行，但是如果每个线程间都孤立的运行，</description>
+    </item>
+    
+    <item>
+      <title>线程和进程的区别</title>
+      <link>http://localhost:1313/post/difference_in_thread_and_process/</link>
+      <pubDate>Sun, 27 Mar 2022 00:27:16 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/difference_in_thread_and_process/</guid>
+      <description>进程和线程的区别： 对于进程来说，子进程是父进程的复制品，从父进程那里获得父进程的数据空间，堆和栈的复制品。 而线程，相对于进程而言，是一个更加</description>
+    </item>
+    
+    <item>
+      <title>进程之间的通信方式</title>
+      <link>http://localhost:1313/post/communication_ways_in_processes/</link>
+      <pubDate>Sat, 26 Mar 2022 10:52:51 +0800</pubDate>
+      
+      <guid>http://localhost:1313/post/communication_ways_in_processes/</guid>
+      <description>进程通信的需求: 每个进程各自有不同的用户地址空间,任何一个进程的全局变量在另一个进程中都看不到，所以进程之间要交换数据必须通过内核,在内核中</description>
     </item>
     
     <item>

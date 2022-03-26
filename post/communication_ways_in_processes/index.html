@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>进程之间的通信方式 - impirewow的个人博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="impirewow" /><meta name="description" content="进程通信的需求: 每个进程各自有不同的用户地址空间,任何一个进程的全局变量在另一个进程中都看不到，所以进程之间要交换数据必须通过内核,在内核中" /><meta name="keywords" content="impireWOW, tech, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/communication_ways_in_processes/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="进程之间的通信方式" />
+<meta property="og:description" content="进程通信的需求: 每个进程各自有不同的用户地址空间,任何一个进程的全局变量在另一个进程中都看不到，所以进程之间要交换数据必须通过内核,在内核中" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/communication_ways_in_processes/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-03-26T10:52:51+08:00" />
+<meta property="article:modified_time" content="2022-03-26T10:52:51+08:00" />
+
+<meta itemprop="name" content="进程之间的通信方式">
+<meta itemprop="description" content="进程通信的需求: 每个进程各自有不同的用户地址空间,任何一个进程的全局变量在另一个进程中都看不到，所以进程之间要交换数据必须通过内核,在内核中"><meta itemprop="datePublished" content="2022-03-26T10:52:51+08:00" />
+<meta itemprop="dateModified" content="2022-03-26T10:52:51+08:00" />
+<meta itemprop="wordCount" content="3058">
+<meta itemprop="keywords" content="操作系统," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="进程之间的通信方式"/>
+<meta name="twitter:description" content="进程通信的需求: 每个进程各自有不同的用户地址空间,任何一个进程的全局变量在另一个进程中都看不到，所以进程之间要交换数据必须通过内核,在内核中"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">impireWOW</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">档案</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">关于</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">impireWOW</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">档案</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">关于</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">进程之间的通信方式</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-03-26 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#进程通信的需求">进程通信的需求:</a></li>
+    <li><a href="#按照通信类型划分">按照通信类型划分：</a></li>
+    <li><a href="#进程间8种通信方式">进程间8种通信方式:</a>
+      <ul>
+        <li><a href="#1-匿名管道通信">1 匿名管道通信</a></li>
+        <li><a href="#2-高级管道通信">2 高级管道通信</a></li>
+        <li><a href="#3-有名管道通信fifo">3 有名管道通信(FIFO)</a></li>
+        <li><a href="#4-消息队列通信mq">4 消息队列通信(MQ)</a></li>
+        <li><a href="#5-信号量通信">5 信号量通信</a></li>
+        <li><a href="#6-信号">6 信号</a></li>
+        <li><a href="#7-共享内存通信">7 共享内存通信</a></li>
+        <li><a href="#8-套接字通信">8 套接字通信</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="进程通信的需求">进程通信的需求:</h1>
+<hr>
+<p>每个进程各自有不同的用户地址空间,任何一个进程的全局变量在另一个进程中都看不到，所以进程之间要交换数据必须通过内核,在内核中开辟一块缓冲区,进程A把数据从用户空间拷到内核缓冲区,进程B再从内核缓冲区把数据读走,内核提供的这种机制称为进程间通信。</p>
+<h1 id="按照通信类型划分">按照通信类型划分：</h1>
+<ol>
+<li>共享存储系统</li>
+</ol>
+<ul>
+<li>
+<p>基于共享数据结构的通信方式。（仅适用于传递相对少量的数据，通信效率低，数据低级通信）。</p>
+</li>
+<li>
+<p>基于共享存储区的通信方式。</p>
+</li>
+</ul>
+<ol start="2">
+<li>管道通信系统。</li>
+<li>消息传递系统。</li>
+<li>客户机服务器系统。</li>
+</ol>
+<h1 id="进程间8种通信方式">进程间8种通信方式:</h1>
+<h2 id="1-匿名管道通信">1 匿名管道通信</h2>
+<hr>
+<p>匿名管道( pipe )：管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用。进程的亲缘关系通常是指父子进程关系。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">// 需要的头文件
+#include &lt;unistd.h&gt;
+
+// 通过pipe()函数来创建匿名管道
+// 返回值：成功返回0，失败返回-1
+// fd参数返回两个文件描述符
+// fd[0]指向管道的读端，fd[1]指向管道的写端
+// fd[1]的输出是fd[0]的输入。
+int pipe (int fd[2]);
+</code></pre></td></tr></table>
+</div>
+</div><p>通过匿名管道实现进程间通信的步骤如下：</p>
+<ul>
+<li>父进程创建管道，得到两个⽂件描述符指向管道的两端</li>
+<li>父进程fork出子进程，⼦进程也有两个⽂件描述符指向同⼀管道。</li>
+<li>父进程关闭fd[0],子进程关闭fd[1]，即⽗进程关闭管道读端,⼦进程关闭管道写端（因为管道只支持单向通信）。⽗进程可以往管道⾥写,⼦进程可以从管道⾥读,管道是⽤环形队列实现的,数据从写端流⼊从读端流出,这样就实现了进程间通信。</li>
+</ul>
+<p>参考文章：<a href="https://blog.csdn.net/skyroben/article/details/71513385">进程间的通信方式——pipe（管道）</a></p>
+<h2 id="2-高级管道通信">2 高级管道通信</h2>
+<hr>
+<p>高级管道(popen)：将另一个程序当做一个新的进程在当前程序进程中启动，则它算是当前程序的子进程，这种方式我们成为高级管道方式。</p>
+<h2 id="3-有名管道通信fifo">3 有名管道通信(FIFO)</h2>
+<hr>
+<p>有名管道 (named pipe) ： 有名管道也是半双工的通信方式，但是它允许无亲缘关系进程间的通信。</p>
+<p>有名管道是对无名管道的一个改进。其具有的特点是：</p>
+<ol>
+<li>互不相关的程序之间也能实现彼此通信。</li>
+<li>管道可以通过路径指出，在文件系统中是可见的。在建立管道后，进程之间把它当成普通的文件进行读（read）写(write)操作，和使用文件一样方便。</li>
+<li>严格遵循FIFO（先进先出）规则。对管道的数据的读总是从开始处返回数据，结尾处添加数据，不知道文件定位符的操作，如lseek()。</li>
+</ol>
+<p>参考 : <a href="https://blog.csdn.net/mybelief321/article/details/9075229">Linux进程间通信(三)&mdash;管道通信之有名管道及其基础实验</a></p>
+<h2 id="4-消息队列通信mq">4 消息队列通信(MQ)</h2>
+<hr>
+<p>消息队列( message queue ) ： 消息队列是由消息的链表，存放在内核中并由消息队列标识符标识。消息队列克服了信号传递信息少、管道只能承载无格式字节流以及缓冲区大小受限等缺点。</p>
+<p>基本特性：</p>
+<ul>
+<li>在某个进程往一个队列写入消息之前，并不需要另外一个进程在该队列上等待消息的到达。</li>
+<li>消息队列具有内核的持续性。一个进程可以往某个队列写入一些消息，然后终止，让另外一个进程在以后某个时刻读出这些消息。</li>
+<li>队列属性。</li>
+<li>消息队列可用双向通信。</li>
+</ul>
+<p>另外可以参考这篇文章:<a href="https://blog.csdn.net/wei_cheng18/article/details/79661495">【Linux】进程间通信之消息队列</a></p>
+<h2 id="5-信号量通信">5 信号量通信</h2>
+<hr>
+<p>信号量( semophore ) ： 信号量是一个计数器，可以用来控制多个进程对共享资源的访问。它常作为一种锁机制，防止某进程正在访问共享资源时，其他进程也访问该资源。因此，主要作为进程间以及同一进程内不同线程之间的同步手段。</p>
+<p>特点：</p>
+<ol>
+<li>
+<p>信号量用于进程间同步，若要在进程之间传递需要结合共享内存。</p>
+</li>
+<li>
+<p>信号量是基于操作系统的PV操作，程序对信号量的操作都是原子操作。</p>
+</li>
+<li>
+<p>每次对信号量的PV操作不仅限于对信号量的值加1或减1，而且可以加减任意正整数。</p>
+</li>
+<li>
+<p>支持信号量组。</p>
+</li>
+</ol>
+<h2 id="6-信号">6 信号</h2>
+<hr>
+<p>信号 ( sinal ) ： 信号是一种比较复杂的通信方式，用于通知接收进程某个事件已经发生。</p>
+<ul>
+<li>信号是在软件层次上对中断机制的一种模拟。在原理上，一个进程收到一个信号与处理器收到一个中断请求可以说是一样的。</li>
+<li>信号是异步的，一个进程不必通过任何操作来等待信号的到达，事实上进程也不知道信号到底什么时候到达。</li>
+<li>信号可以直接进行用户空间进程和内核进程之间的交互，内核进程也可以利用它来通知用户空间进程发生了哪些系统事件。它可以在任何时候发给某一个进程，而无需知道该进程的状态。如果该信号当前并未处于执行态(Running),则该信号由内核保存起来，直到该进程恢复执行再传递给它为止。如果一个信号被进程设置为阻塞，则该信号的传递被延迟，直到其阻塞被取消时才被传递给进程。</li>
+<li>信号是进程间通信机制中<strong>唯一</strong>的异步通信机制，可以看作是异步通知，通知接收信号的进程有哪些事件发生了。信号机制除了基本通知外，还可以传递附加信息。</li>
+</ul>
+<p><strong>信号来源</strong></p>
+<p>信号事件发生的来源有两种：</p>
+<ol>
+<li>硬件来源。如我们按下了键盘上的按钮 或者出现其他硬件故障；</li>
+<li>软件来源。最常用发送信号的系统函数有kill()、raise()、alarm()、setitimer()和sigqueue()等，软件来源还包括一些非法运算等操作。</li>
+</ol>
+<p>进程响应信号的方式</p>
+<ol>
+<li>
+<p>忽略信号。忽略信号即对信号不做处理，其中，有两个信号不能忽略：SIGKILL和SIGSTOP。</p>
+</li>
+<li>
+<p>捕捉信号。定义信号处理函数，当信号发生时，执行响应的处理函数。</p>
+</li>
+<li>
+<p>执行默认操作。Linux对每种信号都规定了默认操作</p>
+</li>
+</ol>
+<p><strong>信号的生命周期</strong></p>
+<p>一个完整的信号生命周期可以分为3个重要阶段，
+这3个阶段由4个重要事件来刻画的；
+信号产生、信号在进程中注册、信号在进程中注销、执行信号处理函数。
+这里信号的产生、注册、注销等是指信号的内部实现机制，而不是信号的函数实现(不受我们的掌控)。因此信号注册与否与后面讲到的发送信号函数（如 kill()等）及信号安装函数（如 signal()等）无关，只与信号值有关。</p>
+<p>相邻两个事件的时间间隔构成信号生命周期的一个阶段，如下图1.注意这里的信号处理有多种方式，一般是由内核完成的，当然也可以由用户进程来完成。</p>
+<p>信号的处理包括信号的发送、捕捉和处理，它们有各自相对应的常见函数：</p>
+<ul>
+<li>
+<p>发生信号的函数: kill()、raise()。</p>
+</li>
+<li>
+<p>捕捉信号的函数: alarm()、pause()。</p>
+</li>
+<li>
+<p>处理信号的函数: signal()、signaction()。</p>
+</li>
+</ul>
+<h2 id="7-共享内存通信">7 共享内存通信</h2>
+<hr>
+<p>共享内存( shared memory ) ：共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。共享内存是最快的 IPC 方式，它是针对其他进程间通信方式运行效率低而专门设计的。它往往与其他通信机制，如信号两，配合使用，来实现进程间的同步和通信。</p>
+<h2 id="8-套接字通信">8 套接字通信</h2>
+<hr>
+<p>套接字（Socket）用于协调不同计算机上的进程间通信，也就是基于网络的通信。当然，也可以在本机上使用套接字进行进程间的通信。</p>
+<p>套接字通信的方式非常多，有Unix域套接字、TCP套接字、UDP套接字、链路层套接字等等。但最常用的肯定是TCP套接字。</p>
+<p>TCP Socket用于客户端、服务端的基于TCP协议的通信，所以在客户端和服务端均需要创建一个套接字。创建TCP套接字时会返回这个套接字的文件描述符，可通过这个文件描述符对套接字进行读和写操作。</p>
+<p>而TCP套接字也是通过单个文件描述符进行读写套接字的，为了保证读和写的位置不错乱，操作系统在内核空间为每个TCP套接字维护了两个buffer空间，一个buffer用于写、一个buffer用于读。提供读的buffer空间称为recv buffer，提供写的buffer空间称为send buffer，它们统称为socket buffer</p>
+<p>服务端和客户端通过两个套接字通信时，一端向send buffer写数据，该buffer的数据会通过已经建立好的TCP连接发送到另一端的recv buffer，于是另一端只需从recv buffer中读数据即可实现不同计算机上的进程间通信</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">impirewow</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-03-26
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/difference_in_thread_and_process/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">线程和进程的区别</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/relations_integrity/">
+            <span class="next-text nav-default">关系的完整性</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="impirewow@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>impirewow</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
